@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Label", "src\Fluen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.BaseComponent", "src\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj", "{4F61DC73-0306-4E84-B0AD-96DA696538BD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServerSide", "ServerSide", "{138B8CC9-BD89-40A9-8BFD-C1B4794C64C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{138B8CC9-BD89-40A9-8BFD-C1B4794C64C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Checkbox", "src\FluentUI.Checkbox\FluentUI.Checkbox.csproj", "{84CC73BB-8759-44DE-9148-BD5293E0193E}"
 EndProject
@@ -107,11 +107,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{450B75BB-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{EB69E4C8-2C83-4AF1-8877-3B4F9C4B06FF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientSide", "ClientSide", "{93D4755C-B4E6-44DE-8488-ADA4C3AB8E21}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{93D4755C-B4E6-44DE-8488-ADA4C3AB8E21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Demo.ClientSide", "Demo\FluentUI.Demo.ClientSide\FluentUI.Demo.ClientSide.csproj", "{B3E162E0-F8C4-4DAD-A672-42663763E256}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Demo.Client", "Demo\FluentUI.Demo.Client\FluentUI.Demo.Client.csproj", "{B3E162E0-F8C4-4DAD-A672-42663763E256}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Demo.ServerSide", "Demo\FluentUI.Demo.ServerSide\FluentUI.Demo.ServerSide.csproj", "{DBB167DF-0D7F-4D40-997C-60A4B5351DAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Demo.Server", "Demo\FluentUI.Demo.Server\FluentUI.Demo.Server.csproj", "{DBB167DF-0D7F-4D40-997C-60A4B5351DAB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Theme", "src\FluentUI.Theme\FluentUI.Theme.csproj", "{9C060E23-B2BA-40D0-83E5-23CF07B22DFD}"
 EndProject
