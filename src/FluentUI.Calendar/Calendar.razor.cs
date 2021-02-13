@@ -95,8 +95,8 @@ namespace FluentUI
                 NavigatedDayDate = CurrentDate;
                 NavigatedMonthDate = CurrentDate;
 
-                IsMonthPickerVisibleInternal = ShowMonthPickerAsOverlay ? false : IsMonthPickerVisible;
-                IsDayPickerVisibleInternal = ShowMonthPickerAsOverlay ? true : IsDayPickerVisible;
+                IsMonthPickerVisibleInternal = !ShowMonthPickerAsOverlay && IsMonthPickerVisible;
+                IsDayPickerVisibleInternal = ShowMonthPickerAsOverlay || IsDayPickerVisible;
 
                 GoTodayEnabled = ShowGoToToday;
                 if (GoTodayEnabled)
@@ -122,8 +122,7 @@ namespace FluentUI
         {
             bool valuesDifferent = false;
 
-            DateTime nextValue;
-            parameters.TryGetValue("Value", out nextValue);
+            parameters.TryGetValue("Value", out DateTime nextValue);
             if (nextValue != DateTime.MinValue && Value == DateTime.MinValue)
             {
                 valuesDifferent = true;

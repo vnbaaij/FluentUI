@@ -110,7 +110,5 @@
 
     public void HandleValidSubmit()
     {
-        var i = 3;
     }
-
 }

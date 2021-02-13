@@ -1,6 +1,6 @@
 ﻿<Stack HorizontalAlign="Alignment.Start" Style="width:100%;">
     <Stack Horizontal="true" HorizontalAlign="Alignment.SpaceBetween" VerticalAlign="Alignment.End"
-              Style=@($"border-bottom: 1px solid {ThemeProvider.Theme.SemanticColors.BodyDivider}; margin-bottom:18.620px;width:100%;")>
+           Style=@($"border-bottom: 1px solid {ThemeProvider.Theme.SemanticColors.BodyDivider}; margin-bottom:18.620px;width:100%;")>
         <div style="font-size:@ThemeProvider.Theme.FontStyle.FontSize.MediumPlus; font-weight:@ThemeProvider.Theme.FontStyle.FontWeight.SemiBold;">@Header</div>
         <div>
             <CommandBarButton Text=@codeLabel IconName="ChevronDown" OnClick=@(arg=> { showCode = !showCode; showCCode = false; codeLabel = showCode ? "Hide Code" : "Show Code"; }) />
@@ -12,15 +12,16 @@
     <div style="display:@(showCode ? "block" : "none");">
         <pre style="padding: 20px; white-space:pre-wrap; word-wrap:break-word;background-color:@ThemeProvider.Theme.Palette.Black;color:@ThemeProvider.Theme.Palette.White;">
            @codeLiteral
+            <br />
            @if (!showCCode)
            {
-            <FluentUI.Link OnClick="(args)=>showCCode=true">Show additional C# code...</FluentUI.Link>
-            }
-            else
-            {
+                <FluentUI.Link OnClick="(args)=>showCCode=true">Show additional C# code...</FluentUI.Link>
+           }
+           else
+           {
                 @ccodeLiteral
-            }
-</pre>
+           }
+        </pre>
     </div>
 </Stack>
 
@@ -53,7 +54,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        demoMetaData = await HttpClient.GetStringAsync($"md/{MetadataPath}.md"); 
+        demoMetaData = await HttpClient.GetStringAsync($"md/{MetadataPath}.md");
     }
 
     protected override async Task OnParametersSetAsync()
@@ -104,7 +105,7 @@
         }
         var lastIndex = demoMetaData.LastIndexOf("}");
 
-        ccodeLiteral = "@code {\n" + demoMetaData.Substring(ccodeIndex, lastIndex - ccodeIndex) +"\n}";
+        ccodeLiteral = "@code {\n" + demoMetaData.Substring(ccodeIndex, lastIndex - ccodeIndex) + "\n}";
 
 
 
