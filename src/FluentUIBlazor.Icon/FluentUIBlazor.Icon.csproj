@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-    <PropertyGroup>
-      <TargetFramework>net5.0</TargetFramework>
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>FluentUIBlazor.Icon</AssemblyName>
+    <Description>Icon component from Blazor port of Fluent UI React library</Description>
     <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
     <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>

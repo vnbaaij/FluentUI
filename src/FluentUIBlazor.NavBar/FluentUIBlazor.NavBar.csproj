@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>FluentUIBlazor.NavBar</AssemblyName>
+    <Description>NavBar component from Blazor port of Fluent UI React library</Description>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>

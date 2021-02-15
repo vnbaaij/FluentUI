@@ -8,7 +8,7 @@
     <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
     <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <Product>FluentUIBlazor.BaseComponent</Product>
-    <Description>Base classes for Blazor port of FluentUIBlazor React library</Description>
+    <Description>Base classes for Blazor port of Fluent UI React library</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>

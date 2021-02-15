@@ -3,13 +3,11 @@
 <Project>
 
 	<PropertyGroup>
-		<Authors>Vincent Baaij, Lee McPherson, Lukas Frensel and others</Authors>
-		<Owners>Vincent Baaij, Lee McPherson</Owners>
-		<Company></Company>
-		<RepositoryUrl>https://github.com/FluentUI/FluentUI</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/FluentUI/FluentUI</PackageProjectUrl>
-		<Product>FluentUI</Product>
-		<Copyright>Copyright 2020</Copyright>
+		<Authors>Lee McPherson, Lukas Frensel, Steven Rasmussen, Frank Strieder, Vincent Baaij</Authors>
+		<RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
+		<Product>FluentUIBlazor</Product>
+		<Copyright>Copyright 2021</Copyright>
 		<PackageTags>Blazor;FluentUI;</PackageTags>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IsPackable>true</IsPackable>

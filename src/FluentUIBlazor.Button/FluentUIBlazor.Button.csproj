@@ -5,7 +5,7 @@
     <AssemblyName>FluentUIBlazor.Button</AssemblyName>
     <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
-    <Description>Buttons from Blazor port of FluentUIBlazor React library</Description>
+    <Description>Button component from Blazor port of Fluent UI React library</Description>
     <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
     <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>

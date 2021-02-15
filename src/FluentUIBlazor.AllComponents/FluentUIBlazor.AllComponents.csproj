@@ -6,10 +6,9 @@
     <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
     <Product>FluentUIBlazor.AllComponents</Product>
-    <Description>All components from the FluentUIBlazor library, a Blazor clone of the FluentUI React library</Description>
+    <Description>All components from the FluentUIBlazor library, a Blazor clone of the Fluent UI React library</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Authors>Vincent Baaij, Lee McPherson, Lukas Frensel</Authors>
     <Company>FluentUIBlazor</Company>
     <Version>5.0.0</Version>
     <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
