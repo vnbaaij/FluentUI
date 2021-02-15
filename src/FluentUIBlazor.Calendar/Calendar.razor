@@ -47,6 +47,14 @@
                                        MaxDate=@MaxDate
                                        YearPickerHidden=@(YearPickerHidden || ShowMonthPickerAsOverlay) />
                     }
+                    @if (IsTimePickerVisible)
+                    {
+                        <div class="ms-Calendar-divider"/>
+                        <CalenderTime NavigatedDate=@NavigatedMonthDate
+                                         OnNavigateDate=@OnNavigateMonthDate
+                                         SelectedDate=@NavigatedDayDate
+                                         DateTimeFormatter=@DateTimeFormatter />
+                    }
                     @if (ShowGoToToday)
                     {
                         <button role="button"

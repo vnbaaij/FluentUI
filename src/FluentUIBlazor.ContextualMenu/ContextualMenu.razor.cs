@@ -26,7 +26,7 @@ namespace FluentUI
         [Parameter] public bool IsBeakVisible { get; set; } = false;
 
         //[Parameter] public IEnumerable<TItem> ItemsSource { get; set; }
-        [Parameter] public RenderFragment<object> ItemTemplate { get; set; }
+        [Parameter] public RenderFragment<object>? ItemTemplate { get; set; }
         //[Parameter] public double SubMenuHoverDelay { get; set; } = 250;
 
         /// <summary>
@@ -78,7 +78,10 @@ namespace FluentUI
 
         private void OnCalloutPositioned()
         {
-            _focusZoneReference.FocusFirstElement();
+            if (Items != null && Items.Count() > 0)
+            {
+                _focusZoneReference.FocusFirstElement();
+            }
         }
 
         protected Action OnNotifyCalloutDismiss => () =>

@@ -35,22 +35,23 @@ namespace FluentUI
         [Parameter] public bool ShowSixWeeksByDefault { get; set; } = false;
         [Parameter] public bool ShowWeekNumbers { get; set; } = false;
         [Parameter] public DateTime Today { get; set; } = DateTimeOffset.Now.Date;
-        [Parameter] public DateTime Value { get; set; } = DateTime.MinValue;
-        [Parameter] public EventCallback<DateTime> ValueChanged { get; set; }
+        [Parameter] public DateTime? Value { get; set; } = DateTime.MinValue;
+        [Parameter] public EventCallback<DateTime?> ValueChanged { get; set; }
         [Parameter] public List<DayOfWeek> WorkWeekDays { get; set; } = new List<DayOfWeek>() { DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday };
         [Parameter] public bool YearPickerHidden { get; set; } = false;
+        [Parameter] public bool IsTimePickerVisible { get; set; }
 
         [CascadingParameter] EditContext CascadedEditContext { get; set; } = default!;
 
         private FieldIdentifier FieldIdentifier;
 
         [Parameter]
-        public Expression<Func<DateTime>>? ValueExpression { get; set; }
+        public Expression<Func<DateTime?>>? ValueExpression { get; set; }
 
 
         protected DateTime CurrentDate;
 
-        protected DateTime SelectedDate;
+        protected DateTime? SelectedDate;
         protected DateTime NavigatedDayDate;
         protected DateTime NavigatedMonthDate;
 
@@ -73,7 +74,7 @@ namespace FluentUI
                 //    throw new InvalidOperationException($"{GetType()} requires a value for the 'ValueExpression' " +
                 //        $"parameter. Normally this is provided automatically when using 'bind-Value'.");
                 //}
-                FieldIdentifier = FieldIdentifier.Create<DateTime>(ValueExpression);
+                FieldIdentifier = FieldIdentifier.Create<DateTime?>(ValueExpression);
 
                 CascadedEditContext?.NotifyFieldChanged(FieldIdentifier);
 
@@ -82,9 +83,9 @@ namespace FluentUI
 
             if (!isLoaded)
             {
-                if (Value != DateTime.MinValue)
+                if (Value != null)
                 {
-                    CurrentDate = Value;
+                    CurrentDate = (DateTime)Value;
                 }
                 else
                 {
@@ -95,8 +96,8 @@ namespace FluentUI
                 NavigatedDayDate = CurrentDate;
                 NavigatedMonthDate = CurrentDate;
 
-                IsMonthPickerVisibleInternal = !ShowMonthPickerAsOverlay && IsMonthPickerVisible;
-                IsDayPickerVisibleInternal = ShowMonthPickerAsOverlay || IsDayPickerVisible;
+                IsMonthPickerVisibleInternal = ShowMonthPickerAsOverlay ? false : IsMonthPickerVisible;
+                IsDayPickerVisibleInternal = ShowMonthPickerAsOverlay ? true : IsDayPickerVisible;
 
                 GoTodayEnabled = ShowGoToToday;
                 if (GoTodayEnabled)
@@ -122,20 +123,21 @@ namespace FluentUI
         {
             bool valuesDifferent = false;
 
-            parameters.TryGetValue("Value", out DateTime nextValue);
-            if (nextValue != DateTime.MinValue && Value == DateTime.MinValue)
+            DateTime? nextValue;
+            parameters.TryGetValue("Value", out nextValue);
+            if (nextValue != null && Value == null)
             {
                 valuesDifferent = true;
             }
-            else if (nextValue != DateTime.MinValue && Value != DateTime.MinValue && DateTime.Compare(nextValue.Date, Value.Date) != 0)
+            else if (nextValue != null && Value != null && DateTime.Compare(((DateTime)nextValue).Date, ((DateTime)Value).Date) != 0)
             {
                 valuesDifferent = true;
             }
 
             if (valuesDifferent)
             {
-                NavigatedDayDate = nextValue;
-                NavigatedMonthDate = nextValue;
+                NavigatedDayDate = (DateTime)nextValue;
+                NavigatedMonthDate = (DateTime)nextValue;
             }
             SelectedDate = nextValue != DateTime.MinValue ? nextValue : Today;
 

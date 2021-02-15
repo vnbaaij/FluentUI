@@ -66,5 +66,13 @@ namespace FluentUI
 
         public string Title { get; set; }
 
+        public bool Toggle { get; set; }
+
+        #region RadioButton feature
+        public bool IsRadioButton { get; set; }
+        public string GroupName { get; set; }
+
+        #endregion
+
     }
 }

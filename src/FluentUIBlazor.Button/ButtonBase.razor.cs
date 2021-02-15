@@ -63,6 +63,7 @@ namespace FluentUI
         private object _registrationToken;
 
         private bool _menuShouldFocusOnMount = true;
+        static List<ButtonBase> radioButtons = new List<ButtonBase>();
 
         protected override Task OnParametersSetAsync()
         {
@@ -87,6 +88,10 @@ namespace FluentUI
             if (Checked.HasValue)
             {
                 isChecked = Checked.Value;
+            }
+            if(IsRadioButton)
+            {
+                radioButtons.Add(this);
             }
 
             return base.OnParametersSetAsync();
@@ -128,6 +133,23 @@ namespace FluentUI
             {
                 isChecked = !isChecked;
                 await CheckedChanged.InvokeAsync(isChecked);
+            }
+            if(IsRadioButton)
+            {
+                isChecked = true;
+                await this.CheckedChanged.InvokeAsync(this.isChecked);
+                foreach(ButtonBase bFUButtonBase in radioButtons)
+                {
+                    if(bFUButtonBase != this && bFUButtonBase.GroupName == GroupName)
+                    {
+                        if (bFUButtonBase.isChecked == true)
+                        {
+                            bFUButtonBase.isChecked = false;
+                            bFUButtonBase.CheckedChanged.InvokeAsync(false);
+                            bFUButtonBase.StateHasChanged();
+                        }
+                    }
+                }
             }
             if (!isSplitButton && MenuItems != null)
             {

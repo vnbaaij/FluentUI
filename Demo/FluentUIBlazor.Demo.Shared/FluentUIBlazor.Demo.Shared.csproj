@@ -49,6 +49,7 @@
     <ProjectReference Include="..\..\src\FluentUIBlazor.ResponsiveLayout\FluentUIBlazor.ResponsiveLayout.csproj" />
     <ProjectReference Include="..\..\src\FluentUIBlazor.RibbonMenu\FluentUIBlazor.RibbonMenu.csproj" />
     <ProjectReference Include="..\..\src\FluentUIBlazor.RichTextEditor\FluentUIBlazor.RichTextEditor.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.SearchBox\FluentUIBlazor.SearchBox.csproj" />
     <ProjectReference Include="..\..\src\FluentUIBlazor.SelectionZone\FluentUIBlazor.SelectionZone.csproj" />
     <ProjectReference Include="..\..\src\FluentUIBlazor.Slider\FluentUIBlazor.Slider.csproj" />
     <ProjectReference Include="..\..\src\FluentUIBlazor.Spinner\FluentUIBlazor.Spinner.csproj" />
