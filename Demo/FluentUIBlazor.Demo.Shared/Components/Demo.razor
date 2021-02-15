@@ -38,8 +38,6 @@
 
     bool showCCode = false;
 
-    string demoMetaData = "";
-
     string codeLiteral = "";
     string ccodeLiteral = "";
 
@@ -51,12 +49,6 @@
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
-
-    protected override async Task OnInitializedAsync()
-    {
-        demoMetaData = await HttpClient.GetStringAsync($"md/{MetadataPath}.md");
-    }
-
     protected override async Task OnParametersSetAsync()
     {
         if (Key == -1)
@@ -64,7 +56,7 @@
 
         // Source inspired by AntDesign (https://github.com/Append-IT/ant-design-blazor/blob/master/docs/Append.AntDesign.Documentation/Infrastructure/DocumentationService.cs)
 
-
+        string demoMetaData = await HttpClient.GetStringAsync($"md/{MetadataPath}.md");
         var start = 0;
         var end = demoMetaData.Length;
         bool found = false;

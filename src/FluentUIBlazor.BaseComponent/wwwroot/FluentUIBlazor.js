@@ -1321,7 +1321,7 @@ var FluentUIBaseComponent;
          */
         static raise(
         // tslint:disable-next-line:no-any
-        target, eventName, 
+        target, eventName,
         // tslint:disable-next-line:no-any
         eventArgs, bubbleEvent) {
             let retVal;
@@ -1638,8 +1638,8 @@ var FluentUICallout;
                         break;
                 }
             }
-            if (outsideCallout)
-                calloutRef.invokeMethodAsync("FocusHandler");
+            //if (outsideCallout)
+            //    calloutRef.invokeMethodAsync("FocusHandler");
         }, true);
         var clickId = Handler.addListener(document.documentElement, "click", (ev) => {
             var outsideCallout = true;
@@ -3380,7 +3380,7 @@ var FluentUIMarqueeSelection;
     }
     FluentUIMarqueeSelection.registerMarqueeSelection = registerMarqueeSelection;
     function updateProps(dotNet, props) {
-        //assume itemsource may have changed... 
+        //assume itemsource may have changed...
         var marqueeSelection = marqueeSelections.get(dotNet._id);
         if (marqueeSelection !== null) {
             marqueeSelection.props = props;

@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Components.Web;
+@using FluentUI;
 @typeparam T
 
 
@@ -9,7 +10,7 @@
     }
     else
     {
-        if(ItemTemplate != null)
+        if (ItemTemplate != null)
         {
             @ItemTemplate(Content)
         }
@@ -18,9 +19,10 @@
             @ProvideString(Content);
         }
     }
-    <button @onclick="ButtonClicked" class="ms-ContextualMenu-link mediumFont">
+    <IconButton OnClick=ButtonClicked IconName="Cancel" />
+    @*<button @onclick="ButtonClicked" class="ms-ContextualMenu-link mediumFont">
         <Icon IconName="Cancel" />
-    </button>
+    </button>*@
 </div>
 
 @code {

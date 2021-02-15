@@ -80,7 +80,7 @@
     private ChoiceGroupOption _selectedChoiceGroupOption;
     private CustomObject _selectedCustomObject;
     private CustomObject _selectedCustomObject2;
-    private DateTime? _selectedDate;
+    private DateTime? _selectedDate = DateTime.Now;
     //private string _selectedMonth;
     private IDropdownOption _selectedMonthOption;
 

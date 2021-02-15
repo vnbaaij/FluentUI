@@ -1,7 +1,7 @@
 ﻿@page "/detailsListPageBasic"
 
 <Demo MetadataPath="DetailsListPageBasic" Key="0" Header="Basic DetailsList">
-    <div style="height:400px;" data-is-scrollable>
+    <div style="height:400px;" data-is-scrollable="true">
         <Stack Style="height:100%;">
             <h3>DetailsList</h3>
             <DetailsList ItemsSource="InputList"

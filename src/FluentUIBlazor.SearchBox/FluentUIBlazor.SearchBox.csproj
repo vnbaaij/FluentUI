@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Button\FluentUIBlazor.Button.csproj" />
     <ProjectReference Include="..\FluentUIBlazor.Callout\FluentUIBlazor.Callout.csproj" />
     <ProjectReference Include="..\FluentUIBlazor.ContextualMenu\FluentUIBlazor.ContextualMenu.csproj" />
     <ProjectReference Include="..\FluentUIBlazor.FocusZone\FluentUIBlazor.FocusZone.csproj" />

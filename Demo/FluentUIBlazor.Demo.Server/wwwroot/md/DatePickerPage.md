@@ -9,7 +9,7 @@
                    Style="max-width:300px; margin:0 0 15px 0;"
                    @bind-Value="selectedDate1"
                    Placeholder="Select a date..."
-                   FirstDayOfWeek=@((DayOfWeek)Enum.Parse(typeof(DayOfWeek), selectedDayOfWeekOption?.Text)) />
+                   FirstDayOfWeek=@((DayOfWeek)Enum.Parse(typeof(DayOfWeek), selectedDayOfWeekOption?.Key)) />
     <Dropdown ItemsSource=@DaysOfWeek.Select(x=>new DropdownOption {Key=x.ToString(), Text=System.Globalization.DateTimeFormatInfo.CurrentInfo.GetDayName(x) })
                  Style="max-width:300px; margin:0 0 15px 0;"
                  Placeholder="Select an option"
@@ -70,8 +70,8 @@
                            @bind-Value="selectedDate4"
                            Placeholder="Select a date..."
                            FormatDate=@((date) => date.ToString())/>
-        
-                    <DefaultButton Text="Set date to null" @onclick=@(args => selectedDate4 = null) />       
+
+                    <DefaultButton Text="Set date to null" @onclick=@(args => selectedDate4 = null) />
     </Demo>
 
     @code {

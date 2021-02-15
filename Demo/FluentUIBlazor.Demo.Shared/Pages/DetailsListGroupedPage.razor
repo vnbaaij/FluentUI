@@ -6,30 +6,32 @@
 @using System.Reactive.Linq
 @using System.Reactive.Subjects
 
-    <Stack Style="height:100%;">
-        <h3>DetailsList - Grouped Data</h3>
-        <Stack Horizontal="true" Tokens="new StackTokens { ChildrenGap = new double[] { 10.0 } }">
-            <Toggle Label="IsVirtualizing" OnText="true" OffText="false" @bind-Checked="isVirtualizing" />
-            <Toggle Label="IsCompact" OnText="true" OffText="false" @bind-Checked="isCompact" />
-            <Dropdown ItemsSource=@selectionModeOptions
-                         @bind-SelectedOption=selectedModeOption
-                         Style="max-width:300px;">
-            </Dropdown>
-        </Stack>
-        <DetailsList ItemsSource="ReadonlyList"
-                        @ref="detailsList"
-                        Columns="ReadonlyColumns"
-                        GetKey="(item)=>item.Key"
-                        TItem="GroupedDataItem"
-                        Compact="@isCompact.GetValueOrDefault()"
-                        IsVirtualizing="@isVirtualizing.GetValueOrDefault()"
-                        SubGroupSelector=@(item=> item.ObservableData)
-                        GroupTitleSelector=@(item=>item.DisplayName)
-                        LayoutMode="DetailsListLayoutMode.Justified"
-                        Selection="selection"
-                        SelectionMode=@((SelectionMode)Enum.Parse(typeof(SelectionMode), selectedModeOption.Key))>
-        </DetailsList>
+<Stack Style="height:100%;">
+    <h3>DetailsList - Grouped Data</h3>
+    <Stack Horizontal="true" Tokens="new StackTokens { ChildrenGap = new double[] { 10.0 } }">
+        <Toggle Label="IsVirtualizing" OnText="true" OffText="false" @bind-Checked="isVirtualizing" />
+        <Toggle Label="IsCompact" OnText="true" OffText="false" @bind-Checked="isCompact" />
+        <Dropdown ItemsSource=@selectionModeOptions
+                  @bind-SelectedOption=selectedModeOption
+                  Style="max-width:300px;">
+        </Dropdown>
     </Stack>
+    <div data-is-scrollable="true">
+        <DetailsList ItemsSource="ReadonlyList"
+                     @ref="detailsList"
+                     Columns="ReadonlyColumns"
+                     GetKey="(item)=>item.Key"
+                     TItem="GroupedDataItem"
+                     Compact="@isCompact.GetValueOrDefault()"
+                     IsVirtualizing="@isVirtualizing.GetValueOrDefault()"
+                     SubGroupSelector=@(item=> item.ObservableData)
+                     GroupTitleSelector=@(item=>item.DisplayName)
+                     LayoutMode="DetailsListLayoutMode.Justified"
+                     Selection="selection"
+                     SelectionMode=@((SelectionMode)Enum.Parse(typeof(SelectionMode), selectedModeOption.Key))>
+        </DetailsList>
+    </div>
+</Stack>
 
 @code {
     bool? isVirtualizing = true;
