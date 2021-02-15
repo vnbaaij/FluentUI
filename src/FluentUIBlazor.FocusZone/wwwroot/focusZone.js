@@ -1,4 +1,4 @@
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIFocusZone;
 (function (FluentUIFocusZone) {
     let FocusZoneDirection;

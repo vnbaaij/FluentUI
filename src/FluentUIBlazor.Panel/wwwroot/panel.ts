@@ -1,6 +1,6 @@
 ﻿//declare interface Window { debounce(func: Function, wait: number, immediate: boolean): Function }
-/// <reference path="../../FluentUI.FocusTrapZone/wwwroot/focusTrapZone.ts" />
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.FocusTrapZone/wwwroot/focusTrapZone.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 
 namespace FluentUIPanel {
 
@@ -68,8 +68,8 @@ namespace FluentUIPanel {
         handler: (ev: Event) => void;
         capture: boolean;
     }
-    
-    
+
+
     const DATA_IS_SCROLLABLE_ATTRIBUTE = 'data-is-scrollable';
 
     export function makeElementScrollAllower(element: HTMLElement) : number[] {
@@ -119,7 +119,7 @@ namespace FluentUIPanel {
             }
         };
 
-     
+
         var touchStartId = Handler.addListener(element, "touchstart", _saveClientY, false);
         var touchMoveId = Handler.addListener(element, "touchmove", _preventOverscrolling, false);
 

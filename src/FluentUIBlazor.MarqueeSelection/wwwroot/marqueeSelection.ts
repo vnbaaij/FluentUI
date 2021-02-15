@@ -1,4 +1,4 @@
-﻿/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+﻿/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 
 
 namespace FluentUIMarqueeSelection {
@@ -29,8 +29,8 @@ namespace FluentUIMarqueeSelection {
         return distance;
     }
 
-   
-    
+
+
 
     declare function setTimeout(cb: Function, delay: number): number;
 
@@ -219,7 +219,7 @@ namespace FluentUIMarqueeSelection {
     }
 
     export function updateProps(dotNet: DotNetReferenceType, props: IMarqueeSelectionProps) {
-        //assume itemsource may have changed... 
+        //assume itemsource may have changed...
 
         var marqueeSelection = marqueeSelections.get(dotNet._id);
         if (marqueeSelection !== null) {

@@ -1,5 +1,5 @@
 //declare interface Window { debounce(func: Function, wait: number, immediate: boolean): Function }
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 
 namespace FluentUIFocusTrapZone { 
 

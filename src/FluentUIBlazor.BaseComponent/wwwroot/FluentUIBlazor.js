@@ -1749,7 +1749,7 @@ var FluentUICallout;
     ;
 })(FluentUICallout || (FluentUICallout = {}));
 window['FluentUICallout'] = FluentUICallout || {};
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIDocumentCard;
 (function (FluentUIDocumentCard) {
     class CardTitleMap {
@@ -1851,7 +1851,7 @@ var FluentUIDocumentCard;
     }
 })(FluentUIDocumentCard || (FluentUIDocumentCard = {}));
 //declare interface Window { debounce(func: Function, wait: number, immediate: boolean): Function }
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIFocusTrapZone;
 (function (FluentUIFocusTrapZone) {
     const IS_FOCUSABLE_ATTRIBUTE = 'data-is-focusable';
@@ -2218,7 +2218,7 @@ var FluentUIFocusTrapZone;
     //}
 })(FluentUIFocusTrapZone || (FluentUIFocusTrapZone = {}));
 window['FluentUIFocusTrapZone'] = FluentUIFocusTrapZone || {};
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIFocusZone;
 (function (FluentUIFocusZone) {
     let FocusZoneDirection;
@@ -2996,8 +2996,8 @@ var FluentUIFocusZone;
 //window.FluentUIFocusZone = FluentUIFocusZone;
 window['FluentUIFocusZone'] = FluentUIFocusZone || {};
 //declare interface Window { debounce(func: Function, wait: number, immediate: boolean): Function }
-// /// <reference path="../../FluentUI.FocusTrapZone/wwwroot/focusTrapZone.ts" />
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+// /// <reference path="../../FluentUIBlazor.FocusTrapZone/wwwroot/focusTrapZone.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIList;
 (function (FluentUIList) {
     var _lastId = 0;
@@ -3160,7 +3160,7 @@ var FluentUIList;
     }
 })(FluentUIList || (FluentUIList = {}));
 window['FluentUIList'] = FluentUIList || {};
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIDetailsList;
 (function (FluentUIDetailsList) {
     const MOUSEDOWN_PRIMARY_BUTTON = 0; // for mouse down event we are using ev.button property, 0 means left button
@@ -3211,7 +3211,7 @@ var FluentUIDetailsList;
     }
 })(FluentUIDetailsList || (FluentUIDetailsList = {}));
 window['FluentUIDetailsList'] = FluentUIDetailsList || {};
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIMarqueeSelection;
 (function (FluentUIMarqueeSelection) {
     function getDistanceBetweenPoints(point1, point2) {
@@ -3685,8 +3685,8 @@ var FluentUIMarqueeSelection;
 })(FluentUIMarqueeSelection || (FluentUIMarqueeSelection = {}));
 window['FluentUIMarqueeSelection'] = FluentUIMarqueeSelection || {};
 //declare interface Window { debounce(func: Function, wait: number, immediate: boolean): Function }
-/// <reference path="../../FluentUI.FocusTrapZone/wwwroot/focusTrapZone.ts" />
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.FocusTrapZone/wwwroot/focusTrapZone.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUIPanel;
 (function (FluentUIPanel) {
     class Handler {
@@ -3805,7 +3805,7 @@ var FluentUIPanel;
     }
 })(FluentUIPanel || (FluentUIPanel = {}));
 window['FluentUIPanel'] = FluentUIPanel || {};
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUISelectionZone;
 (function (FluentUISelectionZone) {
     const SELECTION_DISABLED_ATTRIBUTE_NAME = 'data-selection-disabled';
@@ -4183,7 +4183,7 @@ var FluentUISelectionZone;
     }
 })(FluentUISelectionZone || (FluentUISelectionZone = {}));
 window['FluentUISelectionZone'] = FluentUISelectionZone || {};
-/// <reference path="../../FluentUI.BaseComponent/wwwroot/baseComponent.ts" />
+/// <reference path="../../FluentUIBlazor.BaseComponent/wwwroot/baseComponent.ts" />
 var FluentUISlider;
 (function (FluentUISlider) {
     class Handler {
