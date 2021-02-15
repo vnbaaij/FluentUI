@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>FluentUIBlazor.Button</AssemblyName>
-    <RootNamespace>FluentUIBlazor</RootNamespace>
+    <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
     <Description>Buttons from Blazor port of FluentUIBlazor React library</Description>
     <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>

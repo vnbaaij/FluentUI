@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>FluentUIBlazor.Label</AssemblyName>
-    <RootNamespace>FluentUIBlazor</RootNamespace>
+    <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>

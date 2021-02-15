@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>FluentUIBlazor.AllComponents</AssemblyName>
-    <RootNamespace>FluentUIBlazor</RootNamespace>
+    <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
     <Product>FluentUIBlazor.AllComponents</Product>
     <Description>All components from the FluentUIBlazor library, a Blazor clone of the FluentUI React library</Description>

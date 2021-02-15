@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>FluentUIBlazor.Tooltip</AssemblyName>
-    <RootNamespace>FluentUIBlazor</RootNamespace>
+    <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
     <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
     <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
