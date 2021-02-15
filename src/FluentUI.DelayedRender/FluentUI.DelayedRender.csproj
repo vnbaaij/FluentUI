@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.DelayedRender</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.DelayedRender</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 

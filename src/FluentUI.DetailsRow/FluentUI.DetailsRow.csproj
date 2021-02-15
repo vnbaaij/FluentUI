@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.DetailsRow</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.DetailsRow</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -16,10 +16,10 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Check\FluentUI.Check.csproj" />
-    <ProjectReference Include="..\FluentUI.FocusZone\FluentUI.FocusZone.csproj" />
-    <ProjectReference Include="..\FluentUI.SelectionZone\FluentUI.SelectionZone.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Check\FluentUIBlazor.Check.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.FocusZone\FluentUIBlazor.FocusZone.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.SelectionZone\FluentUIBlazor.SelectionZone.csproj" />
   </ItemGroup>
 
 </Project>

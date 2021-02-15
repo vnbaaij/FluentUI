@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.DetailsList</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.DetailsList</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -25,10 +25,10 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.DetailsRow\FluentUI.DetailsRow.csproj" />
-    <ProjectReference Include="..\FluentUI.GroupedList\FluentUI.GroupedList.csproj" />
-    <ProjectReference Include="..\FluentUI.List\FluentUI.List.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.DetailsRow\FluentUIBlazor.DetailsRow.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.GroupedList\FluentUIBlazor.GroupedList.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.List\FluentUIBlazor.List.csproj" />
   </ItemGroup>
 
 </Project>

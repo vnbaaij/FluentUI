@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.Checkbox</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.Checkbox</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
   </ItemGroup>
 
 

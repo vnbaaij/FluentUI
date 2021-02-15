@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>FluentUI.Demo.Shared</RootNamespace>
+    <RootNamespace>FluentUIBlazor.Demo.Shared</RootNamespace>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -12,51 +12,51 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FluentUI.AllComponents\FluentUI.AllComponents.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Button\FluentUI.Button.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Calendar\FluentUI.Calendar.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Callout\FluentUI.Callout.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Checkbox\FluentUI.Checkbox.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.ChoiceGroup\FluentUI.ChoiceGroup.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.CommandBar\FluentUI.CommandBar.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.ContextualMenu\FluentUI.ContextualMenu.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.DatePicker\FluentUI.DatePicker.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.DetailsList\FluentUI.DetailsList.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Dialog\FluentUI.Dialog.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.DocumentCard\FluentUI.DocumentCard.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Dropdown\FluentUI.Dropdown.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.FocusTrapZone\FluentUI.FocusTrapZone.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.FocusZone\FluentUI.FocusZone.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Forms\FluentUI.Forms.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.GroupedList\FluentUI.GroupedList.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Icon\FluentUI.Icon.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Image\FluentUI.Image.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Label\FluentUI.Label.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Link\FluentUI.Link.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.List\FluentUI.List.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.MarqueeSelection\FluentUI.MarqueeSelection.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.MessageBar\FluentUI.MessageBar.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Modal\FluentUI.Modal.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.NavBar\FluentUI.NavBar.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Nav\FluentUI.Nav.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.OverflowSet\FluentUI.OverflowSet.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Panel\FluentUI.Panel.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Persona\FluentUI.Persona.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Pivot\FluentUI.Pivot.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.ProgressIndicator\FluentUI.ProgressIndicator.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Rating\FluentUI.Rating.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.ResizeGroup\FluentUI.ResizeGroup.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.ResponsiveLayout\FluentUI.ResponsiveLayout.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.RibbonMenu\FluentUI.RibbonMenu.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.RichTextEditor\FluentUI.RichTextEditor.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.SelectionZone\FluentUI.SelectionZone.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Slider\FluentUI.Slider.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Spinner\FluentUI.Spinner.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Stack\FluentUI.Stack.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.TextField\FluentUI.TextField.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Text\FluentUI.Text.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Toggle\FluentUI.Toggle.csproj" />
-    <ProjectReference Include="..\..\src\FluentUI.Tooltip\FluentUI.Tooltip.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.AllComponents\FluentUIBlazor.AllComponents.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Button\FluentUIBlazor.Button.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Calendar\FluentUIBlazor.Calendar.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Callout\FluentUIBlazor.Callout.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Checkbox\FluentUIBlazor.Checkbox.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.ChoiceGroup\FluentUIBlazor.ChoiceGroup.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.CommandBar\FluentUIBlazor.CommandBar.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.ContextualMenu\FluentUIBlazor.ContextualMenu.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.DatePicker\FluentUIBlazor.DatePicker.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.DetailsList\FluentUIBlazor.DetailsList.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Dialog\FluentUIBlazor.Dialog.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.DocumentCard\FluentUIBlazor.DocumentCard.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Dropdown\FluentUIBlazor.Dropdown.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.FocusTrapZone\FluentUIBlazor.FocusTrapZone.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.FocusZone\FluentUIBlazor.FocusZone.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Forms\FluentUIBlazor.Forms.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.GroupedList\FluentUIBlazor.GroupedList.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Icon\FluentUIBlazor.Icon.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Image\FluentUIBlazor.Image.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Label\FluentUIBlazor.Label.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Link\FluentUIBlazor.Link.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.List\FluentUIBlazor.List.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.MarqueeSelection\FluentUIBlazor.MarqueeSelection.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.MessageBar\FluentUIBlazor.MessageBar.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Modal\FluentUIBlazor.Modal.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.NavBar\FluentUIBlazor.NavBar.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Nav\FluentUIBlazor.Nav.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.OverflowSet\FluentUIBlazor.OverflowSet.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Panel\FluentUIBlazor.Panel.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Persona\FluentUIBlazor.Persona.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Pivot\FluentUIBlazor.Pivot.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.ProgressIndicator\FluentUIBlazor.ProgressIndicator.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Rating\FluentUIBlazor.Rating.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.ResizeGroup\FluentUIBlazor.ResizeGroup.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.ResponsiveLayout\FluentUIBlazor.ResponsiveLayout.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.RibbonMenu\FluentUIBlazor.RibbonMenu.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.RichTextEditor\FluentUIBlazor.RichTextEditor.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.SelectionZone\FluentUIBlazor.SelectionZone.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Slider\FluentUIBlazor.Slider.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Spinner\FluentUIBlazor.Spinner.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Stack\FluentUIBlazor.Stack.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.TextField\FluentUIBlazor.TextField.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Text\FluentUIBlazor.Text.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Toggle\FluentUIBlazor.Toggle.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Tooltip\FluentUIBlazor.Tooltip.csproj" />
   </ItemGroup>
 
 </Project>

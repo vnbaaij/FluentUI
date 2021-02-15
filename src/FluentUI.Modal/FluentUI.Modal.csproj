@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.Modal</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.Modal</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -16,8 +16,8 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.FocusTrapZone\FluentUI.FocusTrapZone.csproj" />
-    <ProjectReference Include="..\FluentUI.Overlay\FluentUI.Overlay.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.FocusTrapZone\FluentUIBlazor.FocusTrapZone.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Overlay\FluentUIBlazor.Overlay.csproj" />
   </ItemGroup>
 
 </Project>

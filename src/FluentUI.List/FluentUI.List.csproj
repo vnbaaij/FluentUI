@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.List</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
-    <Product>FluentUI.List</Product>
+    <AssemblyName>FluentUIBlazor.List</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
+    <Product>FluentUIBlazor.List</Product>
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

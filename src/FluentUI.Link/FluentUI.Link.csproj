@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.Link</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.Link</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -17,9 +17,9 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Keytip\FluentUI.Keytip.csproj" />
-    <ProjectReference Include="..\FluentUI.Theme\FluentUI.Theme.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Keytip\FluentUIBlazor.Keytip.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Theme\FluentUIBlazor.Theme.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.CommandBar</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.CommandBar</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -23,11 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Button\FluentUI.Button.csproj" />
-    <ProjectReference Include="..\FluentUI.OverflowSet\FluentUI.OverflowSet.csproj" />
-    <ProjectReference Include="..\FluentUI.ResizeGroup\FluentUI.ResizeGroup.csproj" />
-    <ProjectReference Include="..\FluentUI.Tooltip\FluentUI.Tooltip.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Button\FluentUIBlazor.Button.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.OverflowSet\FluentUIBlazor.OverflowSet.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.ResizeGroup\FluentUIBlazor.ResizeGroup.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Tooltip\FluentUIBlazor.Tooltip.csproj" />
   </ItemGroup>
 
 </Project>

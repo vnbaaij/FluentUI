@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.DatePicker</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.DatePicker</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Calendar\FluentUI.Calendar.csproj" />
-    <ProjectReference Include="..\FluentUI.Callout\FluentUI.Callout.csproj" />
-    <ProjectReference Include="..\FluentUI.FocusTrapZone\FluentUI.FocusTrapZone.csproj" />
-    <ProjectReference Include="..\FluentUI.TextField\FluentUI.TextField.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Calendar\FluentUIBlazor.Calendar.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Callout\FluentUIBlazor.Callout.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.FocusTrapZone\FluentUIBlazor.FocusTrapZone.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.TextField\FluentUIBlazor.TextField.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.MessageBar</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.MessageBar</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -17,10 +17,10 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Button\FluentUI.Button.csproj" />
-    <ProjectReference Include="..\FluentUI.DelayedRender\FluentUI.DelayedRender.csproj" />
-    <ProjectReference Include="..\FluentUI.Icon\FluentUI.Icon.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Button\FluentUIBlazor.Button.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.DelayedRender\FluentUIBlazor.DelayedRender.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Icon\FluentUIBlazor.Icon.csproj" />
   </ItemGroup>
 
 </Project>

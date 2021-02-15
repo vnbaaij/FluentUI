@@ -2,24 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.Dropdown</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.Dropdown</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Button\FluentUI.Button.csproj" />
-    <ProjectReference Include="..\FluentUI.Callout\FluentUI.Callout.csproj" />
-    <ProjectReference Include="..\FluentUI.Checkbox\FluentUI.Checkbox.csproj" />
-    <ProjectReference Include="..\FluentUI.FocusZone\FluentUI.FocusZone.csproj" />
-    <ProjectReference Include="..\FluentUI.Icon\FluentUI.Icon.csproj" />
-    <ProjectReference Include="..\FluentUI.Keytip\FluentUI.Keytip.csproj" />
-    <ProjectReference Include="..\FluentUI.Label\FluentUI.Label.csproj" />
-    <ProjectReference Include="..\FluentUI.Panel\FluentUI.Panel.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Button\FluentUIBlazor.Button.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Callout\FluentUIBlazor.Callout.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Checkbox\FluentUIBlazor.Checkbox.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.FocusZone\FluentUIBlazor.FocusZone.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Icon\FluentUIBlazor.Icon.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Keytip\FluentUIBlazor.Keytip.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Label\FluentUIBlazor.Label.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Panel\FluentUIBlazor.Panel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

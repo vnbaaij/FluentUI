@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.BaseComponent</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.BaseComponent</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
-    <Product>FluentUI.BaseComponent</Product>
-    <Description>Base classes for Blazor port of FluentUI React library</Description>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
+    <Product>FluentUIBlazor.BaseComponent</Product>
+    <Description>Base classes for Blazor port of FluentUIBlazor React library</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -60,8 +60,8 @@
   </ItemGroup>-->
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.ComponentStyle\FluentUI.ComponentStyle.csproj" />
-    <ProjectReference Include="..\FluentUI.Theme\FluentUI.Theme.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.ComponentStyle\FluentUIBlazor.ComponentStyle.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Theme\FluentUIBlazor.Theme.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

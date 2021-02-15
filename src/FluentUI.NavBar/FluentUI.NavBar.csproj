@@ -13,14 +13,14 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Button\FluentUI.Button.csproj" />
-    <ProjectReference Include="..\FluentUI.CommandBar\FluentUI.CommandBar.csproj" />
-    <ProjectReference Include="..\FluentUI.Nav\FluentUI.Nav.csproj" />
-    <ProjectReference Include="..\FluentUI.OverflowSet\FluentUI.OverflowSet.csproj" />
-    <ProjectReference Include="..\FluentUI.ResizeGroup\FluentUI.ResizeGroup.csproj" />
-    <ProjectReference Include="..\FluentUI.Stack\FluentUI.Stack.csproj" />
-    <ProjectReference Include="..\FluentUI.Tooltip\FluentUI.Tooltip.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Button\FluentUIBlazor.Button.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.CommandBar\FluentUIBlazor.CommandBar.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Nav\FluentUIBlazor.Nav.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.OverflowSet\FluentUIBlazor.OverflowSet.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.ResizeGroup\FluentUIBlazor.ResizeGroup.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Stack\FluentUIBlazor.Stack.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Tooltip\FluentUIBlazor.Tooltip.csproj" />
   </ItemGroup>
 
 </Project>

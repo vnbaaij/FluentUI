@@ -13,13 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FluentUI.Theme\FluentUI.Theme.csproj" />
-    <ProjectReference Include="..\FluentUI.Demo.Shared\FluentUI.Demo.Shared.csproj" />
+    <ProjectReference Include="..\..\src\FluentUIBlazor.Theme\FluentUIBlazor.Theme.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Demo.Shared\FluentUIBlazor.Demo.Shared.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <ItemGroup>
-      <DemoSource Include="$(ProjectDir)..\FluentUI.Demo.Shared\Pages\**\*.*" />
+      <DemoSource Include="$(ProjectDir)..\FluentUIBlazor.Demo.Shared\Pages\**\*.*" />
       <!--<Test Include="$(ProjectDir)wwwroot\examples\%(RecursiveDir)\*.razor" />-->
       <!--<Readme Include="$(SolutionDir)README.md" />-->
     </ItemGroup>

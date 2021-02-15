@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.TextField</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.TextField</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,10 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.DelayedRender\FluentUI.DelayedRender.csproj" />
-    <ProjectReference Include="..\FluentUI.Icon\FluentUI.Icon.csproj" />
-    <ProjectReference Include="..\FluentUI.Label\FluentUI.Label.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.DelayedRender\FluentUIBlazor.DelayedRender.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Icon\FluentUIBlazor.Icon.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Label\FluentUIBlazor.Label.csproj" />
   </ItemGroup>
 
   <ItemGroup>

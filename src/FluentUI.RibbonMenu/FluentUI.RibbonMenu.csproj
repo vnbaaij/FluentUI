@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.RibbonMenu</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.RibbonMenu</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>Vincent Baaij, Frank Strieder</Authors>
   </PropertyGroup>
@@ -22,10 +22,10 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.Label\FluentUI.Label.csproj" />
-    <ProjectReference Include="..\FluentUI.OverflowSet\FluentUI.OverflowSet.csproj" />
-    <ProjectReference Include="..\FluentUI.Pivot\FluentUI.Pivot.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Label\FluentUIBlazor.Label.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.OverflowSet\FluentUIBlazor.OverflowSet.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Pivot\FluentUIBlazor.Pivot.csproj" />
   </ItemGroup>
 
   <ItemGroup>

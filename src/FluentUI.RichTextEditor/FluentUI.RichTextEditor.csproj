@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUI.RichTextEditor</AssemblyName>
-    <RootNamespace>FluentUI</RootNamespace>
+    <AssemblyName>FluentUIBlazor.RichTextEditor</AssemblyName>
+    <RootNamespace>FluentUIBlazor</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUI</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <Description>RichTextEditor built using Fabric components and quilljs</Description>
   </PropertyGroup>
 
@@ -21,11 +21,11 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentUI.BaseComponent\FluentUI.BaseComponent.csproj" />
-    <ProjectReference Include="..\FluentUI.CommandBar\FluentUI.CommandBar.csproj" />
-    <ProjectReference Include="..\FluentUI.Dialog\FluentUI.Dialog.csproj" />
-    <ProjectReference Include="..\FluentUI.Stack\FluentUI.Stack.csproj" />
-    <ProjectReference Include="..\FluentUI.TextField\FluentUI.TextField.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.BaseComponent\FluentUIBlazor.BaseComponent.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.CommandBar\FluentUIBlazor.CommandBar.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Dialog\FluentUIBlazor.Dialog.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Stack\FluentUIBlazor.Stack.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.TextField\FluentUIBlazor.TextField.csproj" />
   </ItemGroup>
 
 </Project>
