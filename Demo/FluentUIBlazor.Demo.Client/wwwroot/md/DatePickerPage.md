@@ -61,13 +61,25 @@
     </EditForm>
 </Demo>
 
-    <div style="height:100px;"></div>
+    <Demo Header="DatePicker with TimePicker" Key="6" MetadataPath="DatePickerPage">
 
+            <DatePicker AllowTextInput="false"
+                           Style="max-width:300px; margin:0 0 15px 0;"
+                           IsMonthPickerVisible="false"
+                           IsTimePickerVisible="true"
+                           @bind-Value="selectedDate4"
+                           Placeholder="Select a date..."
+                           FormatDate=@((date) => date.ToString())/>
+        
+                    <DefaultButton Text="Set date to null" @onclick=@(args => selectedDate4 = null) />       
+    </Demo>
 
     @code {
-        DateTime selectedDate1;
-        DateTime selectedDate2;
-        DateTime selectedDate3;
+        DateTime? selectedDate1;
+        DateTime? selectedDate2;
+        DateTime? selectedDate3;
+        DateTime? selectedDate4;
+
 
         //string selectedDayOfWeek = DayOfWeek.Sunday.ToString();
         IDropdownOption selectedDayOfWeekOption = new DropdownOption { Key = DayOfWeek.Sunday.ToString(), Text = System.Globalization.DateTimeFormatInfo.CurrentInfo.GetDayName(DayOfWeek.Sunday) };
@@ -98,7 +110,7 @@
         class ExampleModel
         {
             [MondayValidation]
-            public DateTime DateTime { get; set; }
+            public DateTime? DateTime { get; set; }
 
         }
 

@@ -9,7 +9,7 @@
                    <ItemTemplate Context="item">
                        <TooltipHost>
                            <TooltipContent>
-                               <div>@(((RibbonItem)item).Text)</div>             
+                               <div>@(((RibbonItem)item).Text)</div>
                            </TooltipContent>
                            <ChildContent>
                                @switch (item)
@@ -56,7 +56,9 @@
                                                              IconSrc=@buttonViewModel.IconSrc
                                                              Command=@buttonViewModel.Command
                                                              CommandParameter=@buttonViewModel.CommandParameter
-                                                             Toggle=@buttonViewModel.Toggle />
+                                                             Toggle=@buttonViewModel.Toggle
+                                                             IsRadioButton=@buttonViewModel.IsRadioButton
+                                                             GroupName=@buttonViewModel.GroupName/>
                                         break;
                                     case DropDownViewModel dropDownViewModel:
                                         <Dropdown ItemsSource=@dropDownViewModel.DropdownOptions
@@ -136,10 +138,10 @@
         #region Paragraph group
 
         var paragraphGroup = new GroupItem();
-        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Align left", IconName = "AlignLeft", Toggle = true });
-        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Center", IconName = "AlignCenter", Toggle = true });
-        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Align right", IconName = "AlignRight", Toggle = true });
-        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Justify", IconName = "AlignJustify", Toggle = true, Priority = 12 });
+        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Align left", IconName = "AlignLeft", IsRadioButton = true, GroupName = "Align" });
+        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Center", IconName = "AlignCenter", IsRadioButton = true, GroupName = "Align" });
+        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Align right", IconName = "AlignRight", IsRadioButton = true, GroupName = "Align" });
+        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Justify", IconName = "AlignJustify", IsRadioButton = true, GroupName = "Align", Priority = 12 });
         paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Sample image button", IconSrc = "sampleImage.jpg"}); //, IconName = "AlignJustify"
         #endregion
 

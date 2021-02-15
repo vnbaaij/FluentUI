@@ -61,6 +61,10 @@
     </CommandBar>
 </Demo>
 
+<Demo Header="CommandBar with RadioButtons" Key="4" MetadataPath="CommandBarPage">
+    <CommandBar Items=@itemsWithRadioButtons />
+</Demo>
+
 <em>@debugText</em>
 
 @code {
@@ -74,6 +78,8 @@
 
                         private List<CommandBarItem> customItems;
                         private List<CommandBarItem> contentItems;
+
+    private List<CommandBarItem> itemsWithRadioButtons;
 
                         private Action<ItemClickedArgs> OnClick => args =>
                         {
@@ -128,6 +134,16 @@
             new CommandBarItem() { Key="greenCircle" },
             new CommandBarItem() { Text= "Third", IconName="Remove", Key="3", Command=buttonCommand, CommandParameter="Third"},
             new CommandBarItem() { Text= "Fourth", IconName="Save", Key="4", Command=buttonCommand, CommandParameter="Fourth"}
+        };
+        itemsWithRadioButtons = new List<CommandBarItem>
+        {
+            new CommandBarItem() { Text= "Non radio", IconName="Home", Key="1", Command=buttonCommand, CommandParameter="Non radio", Toggle=true},
+            new CommandBarItem() { Text= "RadioA1", IconName="Add", Key="2", Command=buttonCommand, CommandParameter="RadioA1", IsRadioButton = true, GroupName = "firstRadioButtonGroup"},
+            new CommandBarItem() { Text= "RadioA2", IconName="Add", Key="3", Command=buttonCommand, CommandParameter="RadioA2", IsRadioButton = true, GroupName = "firstRadioButtonGroup"},
+            new CommandBarItem() { Text= "RadioA3", IconName="Add", Key="4", Command=buttonCommand, CommandParameter="RadioA3", IsRadioButton = true, GroupName = "firstRadioButtonGroup"},
+            new CommandBarItem() { Text= "RadioB1", IconName="Remove", Key="5", Command=buttonCommand, CommandParameter="RadioB1", IsRadioButton = true, GroupName = "secondRadioButtonGroup"},
+            new CommandBarItem() { Text= "RadioB2", IconName="Remove", Key="6", Command=buttonCommand, CommandParameter="RadioB2", IsRadioButton = true, GroupName = "secondRadioButtonGroup"},
+            new CommandBarItem() { Text= "RadioB3", IconName="Remove", Key="7", Command=buttonCommand, CommandParameter="RadioB3", IsRadioButton = true, GroupName = "secondRadioButtonGroup"}
         };
 
                             return Task.CompletedTask;

@@ -1,5 +1,4 @@
 ﻿@page "/buttonsPage"
-@page "/"
 
 <h1>Buttons</h1>
 @buttonDebug

@@ -14,7 +14,7 @@
                     {
                         __builder.OpenComponent(0, typeof(SelectedItem<T>));
                         __builder.AddAttribute(1, "Content", selectedItem);
-                        __builder.AddAttribute(2, "Clicked", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<BlazorFluentUI.SelectedItem<T>>(this, ClickedDeletedHandler));
+                        __builder.AddAttribute(2, "Clicked", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<FluentUI.SelectedItem<T>>(this, ClickedDeletedHandler));
                         if (ProvideString != null)
                         {
                             __builder.AddAttribute(3, "ProvideString", ProvideString);
