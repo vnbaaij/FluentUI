@@ -9,7 +9,7 @@ namespace FluentUI
 {
     partial class RibbonMenuIntern : Pivot
     {
-        [Parameter] public string BackstageHeader { get; set; }
+        [Parameter] public string? BackstageHeader { get; set; }
         [Parameter] public RenderFragment Backstage { get; set; }
         bool showBackstage;
         [Parameter] public bool ShowBackstage { get; set; } 

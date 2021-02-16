@@ -17,16 +17,16 @@
         else
         {
             <div>
-                <FluentUI.Image Width="@PreviewImages[0].Width" Height="@PreviewImages[0].Height" ImageFit="@PreviewImages[0].ImageFit"
+                <Image Width="@PreviewImages[0].Width" Height="@PreviewImages[0].Height" ImageFit="@PreviewImages[0].ImageFit"
                           Src="@PreviewImages[0].PreviewImageSrc" AriaRoleDescription="presentation" Alt="">
 
-                </FluentUI.Image>
+                </Image>
                 @if (!string.IsNullOrWhiteSpace(PreviewImages[0].IconSrc))
                 {
-                    <FluentUI.Image ClassName="@IconRule.Selector.SelectorName" Width="32" Height="32" Src="@PreviewImages[0].IconSrc" AriaRoleDescription="presentation" Alt=""
+                    <Image ClassName="@IconRule.Selector.SelectorName" Width="32" Height="32" Src="@PreviewImages[0].IconSrc" AriaRoleDescription="presentation" Alt=""
                               Style="@($"{PreviewImages[0].Styles}")">
 
-                    </FluentUI.Image>
+                    </Image>
                 }
             </div>
         }
@@ -39,12 +39,12 @@
                 @foreach (var item in PreviewImages.Take(LIST_ITEM_COUNT))
                 {
                     <li>
-                        <FluentUI.Image ClassName="@FileListIconRule.Selector.SelectorName" Width="16" Height="16" Src="@PreviewImages[0].IconSrc" AriaRoleDescription="presentation" Alt=""
+                        <Image ClassName="@FileListIconRule.Selector.SelectorName" Width="16" Height="16" Src="@PreviewImages[0].IconSrc" AriaRoleDescription="presentation" Alt=""
                                   Style="@($"{item.Styles}")">
 
-                        </FluentUI.Image>
-                        <FluentUI.Link Href="@item.LinkProperties?.Href" Target="@item.LinkProperties?.Target" ClassName="@FileListLinkRule.Selector.SelectorName">@item.Name</FluentUI.Link>
-</li>
+                        </Image>
+                        <Link Href="@item.LinkProperties?.Href" Target="@item.LinkProperties?.Target" ClassName="@FileListLinkRule.Selector.SelectorName">@item.Name</Link>
+                    </li>
                 }
             </ul>
             @if (OverflowDocumentCount > 0)

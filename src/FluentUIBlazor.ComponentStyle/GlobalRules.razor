@@ -1,4 +1,4 @@
-﻿@if (ComponentStyle.ClientSide)
+﻿@if (ComponentStyle.isClient)
 {
     @string.Join("\r\n", ComponentStyle.GlobalCSRules)
     @*@foreach (var rule in ComponentStyle.GlobalCSRules)

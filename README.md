@@ -1,5 +1,5 @@
 # FluentUI for Blazor
-Simple port of FluentUI (formerly Office Fabric) React components and style to Blazor
+Simple port of Fluent UI (formerly Office Fabric) React components and style to Blazor
 
 ## ClientSide Demo (web assembly)
 https://gray-mushroom-02e05b003.azurestaticapps.net

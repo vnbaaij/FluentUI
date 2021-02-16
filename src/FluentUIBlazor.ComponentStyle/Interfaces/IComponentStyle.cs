@@ -5,7 +5,7 @@ namespace FluentUI
 {
     public interface IComponentStyle
     {
-        bool ClientSide { get; }
+        bool isClient { get; }
 
         GlobalRules GlobalRules { get; set; }
 

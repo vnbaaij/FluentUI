@@ -19,8 +19,8 @@ namespace FluentUI
         [Parameter] public bool Disabled { get; set; }
         [Parameter] public bool ForceAnchor { get; set; } //unused for now
         
-        [Parameter] public string IconName { get; set; }
-        [Parameter] public string IconSrc { get; set; }
+        [Parameter] public string? IconName { get; set; }
+        [Parameter] public string? IconSrc { get; set; }
         [Parameter] public bool IsButton { get; set; }
         [Parameter] public string Name { get; set; }
         [Parameter] public string Target { get; set; }  //link <a> target
