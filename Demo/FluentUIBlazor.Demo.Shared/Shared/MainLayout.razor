@@ -8,55 +8,43 @@
                 <NavMenu />
             </StackItem>
         </ResponsiveLayout>
-
-
         <StackItem Grow="1" Style="overflow:hidden">
-
             <Stack VerticalFill="true" Style="width:100%;">
-
                 <ResponsiveLayout MaxWidth="ResponsiveMode.Medium.ToMaxCssValue()">
                     <StackItem Grow="0" VerticalFill="false">
                         <IconButton IconName="GlobalNavButton" OnClick=@ShowMenu />
                     </StackItem>
                 </ResponsiveLayout>
-
                 <ResponsiveLayout MinWidth="ResponsiveMode.Medium.ToMinCssValue()">
                     <Stack Horizontal="true" HorizontalAlign="Alignment.SpaceBetween" VerticalAlign="Alignment.Center" Style="width:100%">
                         <StackItem Grow="0" VerticalFill="false">
                             <div class="top-row">
-                                <Link Href="https://github.com/vnbaaij/FluentUI" Target="_blank">View GitHub repo of FluentUI...</Link>
+                                <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">View Fluent UI Blazor GitHub repo</Link>
                             </div>
                         </StackItem>
                         <StackItem DisableShrink="true">
-                            @*<GlobalCS CreateGlobalCss=@(()=>CreateGlobalCss(ThemeProvider.Theme))/>*@
                             <Toggle Checked=customTheme CheckedChanged="@SwitchTheme" OnText="Dark Theme" OffText="Default Theme" />
                         </StackItem>
                     </Stack>
                 </ResponsiveLayout>
-
                 <div class="siteContent">
                     <div class="sectionWrapper">
-                        @*<StackItem Grow="1" Tokens="new StackItemTokens { Padding = ((int)CurrentMode <= (int)ResponsiveMode.Medium ? 10 : 0) }" Style="overflow-y:auto;">*@
-                            @Body
-                        @*</StackItem>*@
+                        @Body
                     </div>
                 </div>
             </Stack>
-
-                <ResponsiveLayout MaxWidth="ResponsiveMode.Medium.ToMaxCssValue()">
-                    <Panel Type=@PanelType.SmallFixedNear OnDismiss=@(() => isPanelOpen = false) IsOpen=@isPanelOpen IsLightDismiss="true">
-                        <NavigationTemplate>
-                            <IconButton IconName="GlobalNavButton" OnClick=@(() => isPanelOpen = false) />
-                            <Link Href="https://github.com/FluentUI/FluentUI" Target="_blank">View GitHub repo of FluentUI...</Link>
-                        </NavigationTemplate>
-                        <ChildContent>
-                            <NavMenu OnLinkClicked=@OnNavLinkClick />
-                        </ChildContent>
-                    </Panel>
-                </ResponsiveLayout>
-
+            <ResponsiveLayout MaxWidth="ResponsiveMode.Medium.ToMaxCssValue()">
+                <Panel Type=@PanelType.SmallFixedNear OnDismiss=@(() => isPanelOpen = false) IsOpen=@isPanelOpen IsLightDismiss="true">
+                    <NavigationTemplate>
+                        <IconButton IconName="GlobalNavButton" OnClick=@(() => isPanelOpen = false) />
+                        <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">View Fluent UI Blazor GitHub repo</Link>
+                    </NavigationTemplate>
+                    <ChildContent>
+                        <NavMenu OnLinkClicked=@OnNavLinkClick />
+                    </ChildContent>
+                </Panel>
+            </ResponsiveLayout>
         </StackItem>
-
     </Stack>
 </div>
 
@@ -164,8 +152,8 @@
             Selector = new CssStringSelector() { SelectorName = "div::-webkit-scrollbar-button:vertical:decrement::after" },
             Properties = new CssString()
             {
-                Css=$"border-width:0px 8px 8px 8px;"+
-                    $"border-color:transparent transparent {ThemeProvider.Theme.Palette.NeutralLighter} transparent;"+
+                Css = $"border-width:0px 8px 8px 8px;" +
+                    $"border-color:transparent transparent {ThemeProvider.Theme.Palette.NeutralLighter} transparent;" +
                     $"content:'**';"
             }
         });
