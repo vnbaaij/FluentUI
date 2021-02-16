@@ -101,8 +101,8 @@ app {
 
 .content {
     /*padding-top: 1.1rem;*/
-    overflow-y: auto;
-    height: 100%;
+    /*overflow-y: auto;
+    height: 100%;*/
     /*height: calc(100% - 53.5px);*/
 }
 
@@ -212,14 +212,6 @@ app {
 
 [dir=rtl] .section ul.uListFlex {
     padding-right: 0
-}
-
-[dir=ltr] .section ul.uListFlex {
-    margin-right: -28px
-}
-
-[dir=rtl] .section ul.uListFlex {
-    margin-left: -28px
 }
 
 .section ul.uListFlex li {
