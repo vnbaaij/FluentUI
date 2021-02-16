@@ -39,11 +39,11 @@
                 @foreach (var item in PreviewImages.Take(LIST_ITEM_COUNT))
                 {
                     <li>
-                        <Image ClassName="@FileListIconRule.Selector.SelectorName" Width="16" Height="16" Src="@PreviewImages[0].IconSrc" AriaRoleDescription="presentation" Alt=""
+                        <FluentUI.Image ClassName="@FileListIconRule.Selector.SelectorName" Width="16" Height="16" Src="@PreviewImages[0].IconSrc" AriaRoleDescription="presentation" Alt=""
                                   Style="@($"{item.Styles}")">
 
-                        </Image>
-                        <Link Href="@item.LinkProperties?.Href" Target="@item.LinkProperties?.Target" ClassName="@FileListLinkRule.Selector.SelectorName">@item.Name</Link>
+                        </FluentUI.Image>
+                        <FluentUI.Link Href="@item.LinkProperties?.Href" Target="@item.LinkProperties?.Target" ClassName="@FileListLinkRule.Selector.SelectorName">@item.Name</FluentUI.Link>
                     </li>
                 }
             </ul>
