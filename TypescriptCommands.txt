@@ -1,12 +1,12 @@
 ** Run this line from the src directory to generate a unified javascript file of all projects.
 
-tsc --target es6 --outFile FluentUI.BaseComponent\wwwroot\FluentUI.js FluentUI.BaseComponent\wwwroot\baseComponent.ts FluentUI.Callout\wwwroot\callout.ts FluentUI.DocumentCard\wwwroot\documentCard.ts FluentUI.Callout\wwwroot\callout.ts FluentUI.FocusTrapZone\wwwroot\focusTrapZone.ts FluentUI.FocusZone\wwwroot\focusZone.ts FluentUI.List\wwwroot\fabricList.ts FluentUI.DetailsList\wwwroot\detailsList.ts FluentUI.MarqueeSelection\wwwroot\marqueeSelection.ts  FluentUI.Panel\wwwroot\panel.ts FluentUI.SelectionZone\wwwroot\selectionZone.ts FluentUI.Slider\wwwroot\slider.ts FluentUI.BaseComponent\wwwroot\requestIdleCallbackPolyfill.js --allowJs
+tsc --target es6 --outFile FluentUIBlazor.BaseComponent\wwwroot\fluentUIBlazor.js FluentUIBlazor.BaseComponent\wwwroot\baseComponent.ts FluentUIBlazor.Callout\wwwroot\callout.ts FluentUIBlazor.DocumentCard\wwwroot\documentCard.ts FluentUIBlazor.Callout\wwwroot\callout.ts FluentUIBlazor.FocusTrapZone\wwwroot\focusTrapZone.ts FluentUIBlazor.FocusZone\wwwroot\focusZone.ts FluentUIBlazor.List\wwwroot\fabricList.ts FluentUIBlazor.DetailsList\wwwroot\detailsList.ts FluentUIBlazor.MarqueeSelection\wwwroot\marqueeSelection.ts  FluentUIBlazor.Panel\wwwroot\panel.ts FluentUIBlazor.SelectionZone\wwwroot\selectionZone.ts FluentUIBlazor.Slider\wwwroot\slider.ts FluentUIBlazor.BaseComponent\wwwroot\requestIdleCallbackPolyfill.js --allowJs
 
 ** Run this line inside the basecomponent wwwroot to minify the resulting unified js file. Second one is better as it can uglify (replace var names with shorter names, but not the top-level ones)
 
-jsmin -o FluentUI.min.js FluentUI.js
+jsmin -o fluentUIBlazor.min.js fluentUIBlazor.js
 
 // Needs uglify-es package which supports es6
 
-uglifyjs --compress --mangle --output .\FluentUI.BaseComponent\wwwroot\FluentUI.min.js -- .\FluentUI.BaseComponent\wwwroot\FluentUI.js
+uglifyjs --compress --mangle --output .\FluentUIBlazor.BaseComponent\wwwroot\fluentUIBlazor.min.js -- .\FluentUIBlazor.BaseComponent\wwwroot\fluentUIBlazor.js
 
