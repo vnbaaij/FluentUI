@@ -6,8 +6,6 @@
     <Description>RichTextEditor component from Blazor port of Fluent UI React library. Using quilljs</Description>
     <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
   </PropertyGroup>
 
 

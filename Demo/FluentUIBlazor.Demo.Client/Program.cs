@@ -4,7 +4,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace FluentUI.Demo.ClientSide
+namespace FluentUI.Demo.Client
 {
     public class Program
     {

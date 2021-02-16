@@ -5,8 +5,6 @@
     <AssemblyName>FluentUIBlazor.SearchBox</AssemblyName>
     <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <Description>SearchBox component from Blazor port of Fluent UI React library</Description>
   </PropertyGroup>
 

@@ -1638,8 +1638,8 @@ var FluentUICallout;
                         break;
                 }
             }
-            //if (outsideCallout)
-            //    calloutRef.invokeMethodAsync("FocusHandler");
+            if (outsideCallout)
+                calloutRef.invokeMethodAsync("FocusHandler");
         }, true);
         var clickId = Handler.addListener(document.documentElement, "click", (ev) => {
             var outsideCallout = true;

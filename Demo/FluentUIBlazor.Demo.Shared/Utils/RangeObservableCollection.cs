@@ -77,7 +77,7 @@ namespace System.Collections.ObjectModel
         //------------------------------------------------------
 
         #region Public Properties
-        EqualityComparer<T> _Comparer;
+        EqualityComparer<T>? _Comparer;
         public EqualityComparer<T> Comparer
         {
             get => _Comparer ??= EqualityComparer<T>.Default;
@@ -193,7 +193,7 @@ namespace System.Collections.ObjectModel
 
             var clusters = new Dictionary<int, List<T>>();
             var lastIndex = -1;
-            List<T> lastCluster = null;
+            List<T>? lastCluster = null;
             foreach (T item in collection)
             {
                 var index = IndexOf(item);
@@ -255,7 +255,7 @@ namespace System.Collections.ObjectModel
             if (Count == 0)
                 return 0;
 
-            List<T> cluster = null;
+            List<T>? cluster = null;
             var clusterIndex = -1;
             var removedCount = 0;
 
@@ -410,7 +410,7 @@ namespace System.Collections.ObjectModel
                 var addedCount = list.Count;
 
                 var changesMade = false;
-                List<T>
+                List<T>?
                   newCluster = null,
                   oldCluster = null;
 

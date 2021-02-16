@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FluentUI.Demo.ServerSide
+namespace FluentUI.Demo.Server
 {
     public static class AppConstants
     {

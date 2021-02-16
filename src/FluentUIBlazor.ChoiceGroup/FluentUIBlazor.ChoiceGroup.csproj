@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>FluentUIBlazor.ChoiceGroup</AssemblyName>
+    <AssemblyName>BlazorFluentUI.ChoiceGroup</AssemblyName>
     <Description>ChoiceGroup component from Blazor port of Fluent UI React library</Description>
+    <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>

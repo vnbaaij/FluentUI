@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Globalization;
 
-namespace FluentUI.Demo.ServerSide.Pages
+namespace FluentUI.Demo.Server.Pages
 {
     public class HostModel : PageModel
     {

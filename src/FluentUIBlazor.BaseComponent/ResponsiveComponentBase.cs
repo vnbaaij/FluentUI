@@ -8,10 +8,10 @@ namespace FluentUI
 {
     public class ResponsiveComponentBase : FluentUIComponentBase, IAsyncDisposable
     {
-        private string _resizeRegistration;
+        private string? _resizeRegistration;
 
         [Inject]
-        private IJSRuntime jSRuntime { get; set; }
+        private IJSRuntime? jSRuntime { get; set; }
 
         protected ResponsiveMode CurrentMode { get; set; }
 

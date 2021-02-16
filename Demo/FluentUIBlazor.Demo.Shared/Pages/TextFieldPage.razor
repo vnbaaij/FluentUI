@@ -196,7 +196,7 @@
 
     public void HandleValidSubmit()
     {
-        var i = 3;
+
     }
 
     public string GetErrorMessage(string value)

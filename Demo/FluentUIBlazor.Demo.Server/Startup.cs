@@ -7,7 +7,7 @@ using System;
 using System.Linq;
 using System.Net.Http;
 
-namespace FluentUI.Demo.ServerSide
+namespace FluentUI.Demo.Server
 {
     public class Startup
     {
@@ -18,8 +18,8 @@ namespace FluentUI.Demo.ServerSide
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor(configure => 
-            {                
+            services.AddServerSideBlazor(configure =>
+            {
                 if (_env.IsDevelopment())
                     configure.DetailedErrors = true;
             });

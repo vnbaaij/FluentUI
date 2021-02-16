@@ -786,6 +786,11 @@ namespace FluentUI
         {
             if (_registrationToken != null)
                 await DeregisterListFocusAsync();
+
+            if (IsRadioButton && radioButtons.Contains(this))
+            {
+                radioButtons.Remove(this);
+            }
         }
     }
 }

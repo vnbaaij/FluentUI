@@ -31,7 +31,7 @@
             <Demo Header="Default Button" Key="0" MetadataPath="ButtonsPage">
                 <Stack Horizontal="true" Tokens=@(new StackTokens() { ChildrenGap = new[] { 40.0 } })>
                     <DefaultButton Text="Standard" OnClick=@(() => OnClickHandler("Default Standard")) Disabled="@Disabled.GetValueOrDefault()" Checked="Checked" />
-                    <PrimaryButton OnClick=@(() => OnClickHandler("Default Primary")) Disabled="@Disabled.GetValueOrDefault()" Checked="Checked">!Primary!</PrimaryButton>
+                    <PrimaryButton OnClick=@(() => OnClickHandler("Default Primary")) Disabled="@Disabled.GetValueOrDefault()" Checked="Checked">Primary</PrimaryButton>
                 </Stack>
             </Demo>
         </div>

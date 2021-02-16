@@ -4,9 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>FluentUIBlazor.Callout</AssemblyName>
     <Description>Callout component from Blazor port of Fluent UI React library</Description>
+    <RootNamespace>FluentUI</RootNamespace>
     <Nullable>disable</Nullable>
-    <RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
