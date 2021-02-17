@@ -9,7 +9,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A search box (<code>SearchBox</code>) provides an input field for searching content within a site or app to find specific items.
             </p>
         </div>
     </div>

@@ -1,28 +1,51 @@
 ﻿@page  "/overflowSetPage"
 
-<h1>OverflowSet</h1>
+<header class="root">
+    <h1 class="title">OverflowSet</h1>
+</header>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading hiddenContent">Overview</h2>
+    </div>
+    <div class="content">
+        <div class="ms-Markdown">
+            <p>
 
-<h4>OverflowSet Horizontal Example</h4>
-<OverflowSet Items=@items OverflowItems=@items GetKey=@(x=> x.Key)>
-    <ItemTemplate>
-        <CommandBarButton IconName="Add" Text=@context.Name />
-    </ItemTemplate>
-    <OverflowTemplate>
-        <CommandBarButton HideChevron="true" Style="min-width: 0; padding: 0 4px; align-self: stretch;" IconName="More" MenuItems=@(itemTransform(context)) />
-    </OverflowTemplate>
-</OverflowSet>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading">Usage</h2>
+    </div>
+    <div>
+        <div class="subSection">
 
-<h4>OverflowSet Vertical Example</h4>
-<OverflowSet Items=@smallerItems OverflowItems=@smallerItems Vertical="true" GetKey=@(x=> x.Key)>
-    <ItemTemplate>
-        <CommandBarButton IconName="Add" Text=@context.Name />
-    </ItemTemplate>
-    <OverflowTemplate>
-        <CommandBarButton HideChevron="true" Style="min-width: 0; padding: 10px; font-size:16px;" IconName="More" MenuItems=@(itemTransform(context)) />
-    </OverflowTemplate>
-</OverflowSet>
+            <h4>OverflowSet Horizontal Example</h4>
+            <OverflowSet Items=@items OverflowItems=@items GetKey=@(x=> x.Key)>
+                <ItemTemplate>
+                    <CommandBarButton IconName="Add" Text=@context.Name />
+                </ItemTemplate>
+                <OverflowTemplate>
+                    <CommandBarButton HideChevron="true" Style="min-width: 0; padding: 0 4px; align-self: stretch;" IconName="More" MenuItems=@(itemTransform(context)) />
+                </OverflowTemplate>
+            </OverflowSet>
 
+            <h4>OverflowSet Vertical Example</h4>
+            <OverflowSet Items=@smallerItems OverflowItems=@smallerItems Vertical="true" GetKey=@(x=> x.Key)>
+                <ItemTemplate>
+                    <CommandBarButton IconName="Add" Text=@context.Name />
+                </ItemTemplate>
+                <OverflowTemplate>
+                    <CommandBarButton HideChevron="true" Style="min-width: 0; padding: 10px; font-size:16px;" IconName="More" MenuItems=@(itemTransform(context)) />
+                </OverflowTemplate>
+            </OverflowSet>
+        </div>
+    </div>
+</div>
 @code {
+    //ToDo: Add Demo sections
     System.Collections.Generic.List<OverflowItem> items;
     System.Collections.Generic.List<OverflowItem> smallerItems;
 

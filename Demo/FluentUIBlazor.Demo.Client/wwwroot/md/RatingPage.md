@@ -1,36 +1,62 @@
 ﻿@page "/ratingPage"
 
-<h1>Rating</h1>
+<header class="root">
+    <h1 class="title">Rating</h1>
+</header>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading hiddenContent">Overview</h2>
+    </div>
+    <div class="content">
+        <div class="ms-Markdown">
+            <p>
 
-<Demo Header="Rating" Key="0" MetadataPath="RatingPage">
-    <Label>Large Stars:</Label>
-    <Rating Size="RatingSize.Large" />
+            </p>
+        </div>
+    </div>
+</div>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading">Usage</h2>
+    </div>
+    <div>
+        <div class="subSection">
+            <Demo Header="Rating" Key="0" MetadataPath="RatingPage">
+                <Label>Large Stars:</Label>
+                <Rating Size="RatingSize.Large" />
 
-    <Label>Small Stars:</Label>
-    <Rating RatingValue="3" />
+                <Label>Small Stars:</Label>
+                <Rating RatingValue="3" />
 
-    <Label>10 Small Stars:</Label>
-    <Rating Max="10" />
+                <Label>10 Small Stars:</Label>
+                <Rating Max="10" />
 
-    <Label>Disabled:</Label>
-    <Rating Disabled="true" />
+                <Label>Disabled:</Label>
+                <Rating Disabled="true" />
 
-    <Label>Half star in readOnly mode:</Label>
-    <Rating ReadOnly="true" RatingValue="2.5" />
+                <Label>Half star in readOnly mode:</Label>
+                <Rating ReadOnly="true" RatingValue="2.5" />
 
-    <Label>Custom icons:</Label>
-    <Rating RatingValue="2.5" IconName="StarburstSolid" UnselectedIcon="Starburst" />
-</Demo>
+                <Label>Custom icons:</Label>
+                <Rating RatingValue="2.5" IconName="StarburstSolid" UnselectedIcon="Starburst" />
+            </Demo>
+        </div>
 
-<Demo Header="Two-Way-Binding" Key="1" MetadataPath="RatingPage">
-    <Rating Max="10" @bind-RatingValue="rateten" />
-    @rateten of 10 Stars selected!
-</Demo>
+        <div class="subSection">
+            <Demo Header="Two-Way-Binding" Key="1" MetadataPath="RatingPage">
+                <Rating Max="10" @bind-RatingValue="rateten" />
+                @rateten of 10 Stars selected!
+            </Demo>
+        </div>
 
-<Demo Header="Button Controlled Rating" Key="2" MetadataPath="RatingPage">
-    <Rating AllowZeroStars="true" RatingValue="rate" ReadOnly="true" />
-    <PrimaryButton OnClick="SetRate" Text="@buttonText" />
-</Demo>
+        <div class="subSection">
+            <Demo Header="Button Controlled Rating" Key="2" MetadataPath="RatingPage">
+                <Rating AllowZeroStars="true" RatingValue="rate" ReadOnly="true" />
+                <PrimaryButton OnClick="SetRate" Text="@buttonText" />
+            </Demo>
+        </div>
+    </div>
+</div>
 
 @code {
     private double rate = 0;

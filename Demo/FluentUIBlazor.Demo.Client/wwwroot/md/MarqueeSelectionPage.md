@@ -1,39 +1,59 @@
 ﻿@page "/marqueeSelectionPage"
 
-<h1>MarqueeSelection</h1>
+<header class="root">
+    <h1 class="title">MarqueeSelection</h1>
+</header>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading hiddenContent">Overview</h2>
+    </div>
+    <div class="content">
+        <div class="ms-Markdown">
+            <p>
 
-<style>
-    .photoCell.is-selected {
-        background: var(--palette-ThemeLighter);
-        border: 1px solid var(--palette-ThemePrimary);
-    }
-</style>
-
-<Demo Header="Basic Selection Example" Key="0" MetadataPath="MarqueeSelectionPage">
-
-    <MarqueeSelection TItem="Photo" 
-                         IsEnabled="toggleIsMarqueeEnabled"
-                         Selection="selection"
-                         >
-        <Checkbox Label="Is marquee enabled"
-                     Style="margin:10px 0;"
-                  @bind-Checked="toggleIsMarqueeEnabled" />
-        <p>Drag a rectangle around the items below to select them:</p>
-        <ul style="display:inline-block;border:1px solid var(--palette-NeutralTertiary);margin:0;padding:10px;overflow:hidden;user-select:none;">
-            @foreach (var photo in photos)
-            {
-            <div key=@(photo.Key)
-                 class=@($"photoCell {(selection.IsKeySelected(photo.Key) ? "is-selected" : "")}")
-                 data-is-focusable="true"
-                 data-selection-index=@photo.Key
-                 style="width: @(photo.Width)px;height: @(photo.Height)px;position:relative;display:inline-block;margin:2px;box-sizing:border-box;background:var(--palette-NeutralLighter);line-height:100px;vertical-align:middle;text-align:center;">
-                @photo.Key
-            </div>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading">Usage</h2>
+    </div>
+    <div>
+        <style>
+            .photoCell.is-selected {
+                background: var(--palette-ThemeLighter);
+                border: 1px solid var(--palette-ThemePrimary);
             }
-        </ul>
-    </MarqueeSelection>
-</Demo>
+        </style>
 
+        <div class="subSection">
+            <Demo Header="Basic Selection Example" Key="0" MetadataPath="MarqueeSelectionPage">
+
+                <MarqueeSelection TItem="Photo"
+                                  IsEnabled="toggleIsMarqueeEnabled"
+                                  Selection="selection">
+                    <Checkbox Label="Is marquee enabled"
+                              Style="margin:10px 0;"
+                              @bind-Checked="toggleIsMarqueeEnabled" />
+                    <p>Drag a rectangle around the items below to select them:</p>
+                    <ul style="display:inline-block;border:1px solid var(--palette-NeutralTertiary);margin:0;padding:10px;overflow:hidden;user-select:none;">
+                        @foreach (var photo in photos)
+                        {
+                            <div key=@(photo.Key)
+                                 class=@($"photoCell {(selection.IsKeySelected(photo.Key) ? "is-selected" : "")}")
+                                 data-is-focusable="true"
+                                 data-selection-index=@photo.Key
+                                 style="width: @(photo.Width)px;height: @(photo.Height)px;position:relative;display:inline-block;margin:2px;box-sizing:border-box;background:var(--palette-NeutralLighter);line-height:100px;vertical-align:middle;text-align:center;">
+                                @photo.Key
+                            </div>
+                        }
+                    </ul>
+                </MarqueeSelection>
+            </Demo>
+        </div>
+    </div>
+</div>
 
 @code {
     [Inject] ThemeProvider ThemeProvider { get; set; }
@@ -53,7 +73,7 @@
     protected override Task OnInitializedAsync()
     {
         var random = new Random();
-        for (var i=0; i< 250;i++)
+        for (var i = 0; i < 250; i++)
         {
             var width = 50 + Math.Floor(random.NextDouble() * 150);
             photos.Add(new Photo
@@ -67,7 +87,7 @@
         selection.GetKey = (item) => item.Key;
         selection.SetItems(photos);
         selection.SelectionMode = SelectionMode.Multiple;
-        //selection.SelectionChanged.Subscribe(_ => 
+        //selection.SelectionChanged.Subscribe(_ =>
         //{
         //    InvokeAsync(StateHasChanged);
         //});

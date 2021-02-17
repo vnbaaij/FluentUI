@@ -11,7 +11,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A dropdown is a list in which the selected item is always visible while other items are visible on demand by clicking a dropdown button. Dropdowns are typically used for forms.
             </p>
         </div>
     </div>
@@ -33,7 +33,7 @@
 
         <div class="subSection">
             <Demo Header="Uncontrolled Multi-Selection" Key="1" MetadataPath="DropdownPage">
-                <FluentUI.Label>Selected: @string.Join(", ", uncontrolledMultiSelectionResult.Select(x => x.Text))</FluentUI.Label>
+                <Label>Selected: @string.Join(", ", uncontrolledMultiSelectionResult.Select(x => x.Text))</Label>
                 <Dropdown ItemsSource=@items
                           MultiSelect="true"
                           Placeholder="Select options..."
@@ -44,7 +44,7 @@
 
         <div class="subSection">
             <Demo Header="Controlled Single Selection" Key="2" MetadataPath="DropdownPage">
-                <FluentUI.Label>Selected: @(controlledSingleSelectionResult?.Text)</FluentUI.Label>
+                <Label>Selected: @(controlledSingleSelectionResult?.Text)</Label>
                 <Dropdown ItemsSource=@items
                           Placeholder="Select an option"
                           @bind-SelectedOption=@controlledSingleSelectionResult
@@ -54,7 +54,7 @@
 
         <div class="subSection">
             <Demo Header="Controlled Multi-Selection" Key="3" MetadataPath="DropdownPage">
-                <FluentUI.Label>Selected: @string.Join(", ", controlledMultiSelectionResult.Select(x => x.Text))</FluentUI.Label>
+                <Label>Selected: @string.Join(", ", controlledMultiSelectionResult.Select(x => x.Text))</Label>
                 <Dropdown ItemsSource=@items
                           MultiSelect="true"
                           Placeholder="Select options..."

@@ -1,38 +1,59 @@
 ﻿@page "/calloutPage"
 
-<h1>Callout</h1>
-
-<Dropdown
-          Style="max-width:300px;"
-          ItemsSource=@options
-          @bind-SelectedOption=@selectedOption />
-
-<Demo Header="Callout" Key="0" MetadataPath="CalloutPage">
-
-    <div style="height:200px;"></div>
-    <div style="display:inline;overflow-x:auto;">
-        <div style="width:300px"></div>
-        <DefaultButton Text="Show Callout" OnClick=ClickHandler @ref="calloutTarget" />
-        <div style="width:300px"></div>
+<header class="root">
+    <h1 class="title">Callout</h1>
+</header>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading hiddenContent">Overview</h2>
     </div>
-    <div style="height:400px;"></div>
-    @if (!calloutHidden)
-    {
-        <Callout FabricComponentTarget=@calloutTarget
-                    DirectionalHint=@((DirectionalHint)Enum.Parse(typeof(DirectionalHint),selectedOption.Key))
-                    OnDismiss=@DismissHandler>
-            <div Style="max-width:300px; padding:20px;">
-                <h2>Callout Test</h2>
-                <p style="min-width: 150px;">
-                    There are a few things in here.
-                </p>
-                <PrimaryButton Text="Ok" />
-            </div>
-        </Callout>
-    }
+    <div class="content">
+        <div class="ms-Markdown">
+            <p>
+                A callout is an anchored tip that can be used to teach people or guide them through the app without blocking them.
+            </p>
+        </div>
+    </div>
+</div>
 
-</Demo>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading">Usage</h2>
+    </div>
+    <div>
+        <div class="subSection">
+            <Dropdown Style="max-width:300px;"
+                      ItemsSource=@options
+                      @bind-SelectedOption=@selectedOption />
 
+            <Demo Header="Callout" Key="0" MetadataPath="CalloutPage">
+
+                <div style="height:200px;"></div>
+                <div style="display:inline;overflow-x:auto;">
+                    <div style="width:300px"></div>
+                    <DefaultButton Text="Show Callout" OnClick=ClickHandler @ref="calloutTarget" />
+                    <div style="width:300px"></div>
+                </div>
+                <div style="height:400px;"></div>
+                @if (!calloutHidden)
+                {
+                    <Callout FabricComponentTarget=@calloutTarget
+                             DirectionalHint=@((DirectionalHint)Enum.Parse(typeof(DirectionalHint),selectedOption.Key))
+                             OnDismiss=@DismissHandler>
+                        <div Style="max-width:300px; padding:20px;">
+                            <h2>Callout Test</h2>
+                            <p style="min-width: 150px;">
+                                There are a few things in here.
+                            </p>
+                            <PrimaryButton Text="Ok" />
+                        </div>
+                    </Callout>
+                }
+
+            </Demo>
+        </div>
+    </div>
+</div>
 @code {
 
     bool isInitialized = false;

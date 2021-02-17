@@ -15,6 +15,7 @@
         </div>
     </div>
 </div>
+
 <div class="section" style="transition-delay: 0.05s;">
     <div class="sectionHeader">
         <h2 class="subHeading" id="basic-inputs">Basic Inputs</h2>
@@ -138,6 +139,7 @@
         </ul>
     </div>
 </div>
+
 @code {
 
 }

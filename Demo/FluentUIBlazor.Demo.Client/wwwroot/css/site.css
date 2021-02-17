@@ -602,7 +602,7 @@ ul.md-list--flex > .mdut--half {
     flex-grow: 1;
     margin: 0 auto;
     width: 100%;
-    max-width: 1650px;
+    /*max-width: 1650px;*/
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -682,7 +682,7 @@ ul.md-list--flex > .mdut--half {
 
 @media screen and (min-width:768px) {
     .siteWrapper {
-        max-width: 1722px;
+       /* max-width: 1722px;*/
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;

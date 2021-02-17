@@ -90,13 +90,13 @@ namespace FluentUI
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
 
-            if (!isEventHandlersRegistered) 
+            if (!isEventHandlersRegistered)
             {
                 isEventHandlersRegistered = true;
 
                 eventHandlerIds = await JSRuntime.InvokeAsync<List<int>>("FluentUICallout.registerHandlers", RootElementReference, DotNetObjectReference.Create(this));
 
-                
+
 
                 if (!isMeasured && FabricComponentTarget != null && firstRender)
                 {
@@ -108,7 +108,7 @@ namespace FluentUI
             if (!firstRender && isMeasured && !_finalPositionAnnounced)
             {
                 _finalPositionAnnounced = true;
-                // May have to limit this... 
+                // May have to limit this...
                 await OnPositioned.InvokeAsync(CalloutPosition);
             }
 
@@ -138,14 +138,14 @@ namespace FluentUI
             //await HiddenChanged.InvokeAsync(true);
         }
 
-        //[JSInvokable]
-        //public async void FocusHandler()
-        //{
-        //    //Need way to tie focus handler between all the callouts (linked contextualmenus)  ... only dimiss when ALL of them lost focus.
-        //    System.Diagnostics.Debug.WriteLine($"Callout {PortalId} called dismiss from FocusHandler from {this.DirectionalHint}");
+        [JSInvokable]
+        public async void FocusHandler()
+        {
+            //Need way to tie focus handler between all the callouts (linked contextualmenus)  ... only dimiss when ALL of them lost focus.
+            System.Diagnostics.Debug.WriteLine($"Callout {PortalId} called dismiss from FocusHandler from {this.DirectionalHint}");
 
-        //    //await OnDismiss.InvokeAsync(null);
-        //}
+            //await OnDismiss.InvokeAsync(null);
+        }
 
         [JSInvokable]
         public async void ClickHandler()
@@ -176,7 +176,7 @@ namespace FluentUI
             if (FabricComponentTarget != null && !isMeasured && isRenderedOnce)
             {
                 _finalPositionAnnounced = false;
-                //this will never get called initially because the target won't be rendered yet.  Shouldn't be called after due to isMeasured  
+                //this will never get called initially because the target won't be rendered yet.  Shouldn't be called after due to isMeasured
                 await CalculateCalloutPositionAsync();
 
             }

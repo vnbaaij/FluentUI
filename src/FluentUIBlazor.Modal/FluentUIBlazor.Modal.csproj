@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FluentUIBlazor.FocusTrapZone\FluentUIBlazor.FocusTrapZone.csproj" />
     <ProjectReference Include="..\FluentUIBlazor.Overlay\FluentUIBlazor.Overlay.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Popup\FluentUIBlazor.Popup.csproj" />
   </ItemGroup>
 
 </Project>

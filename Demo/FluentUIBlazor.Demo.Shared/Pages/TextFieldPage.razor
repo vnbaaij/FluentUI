@@ -11,7 +11,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                Text fields (<code>TextField</code>) give people a way to enter and edit text. They’re used in forms, modal dialogs, tables, and other surfaces where text input is required.
             </p>
         </div>
     </div>
