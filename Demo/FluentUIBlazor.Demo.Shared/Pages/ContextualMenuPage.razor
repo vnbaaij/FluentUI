@@ -1,17 +1,41 @@
 @page "/contextualMenuPage"
 
-<h1>ContextualMenu</h1>
+<header class="root">
+    <h1 class="title">ContextualMenu</h1>
+</header>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading hiddenContent">Overview</h2>
+    </div>
+    <div class="content">
+        <div class="ms-Markdown">
+            <p>
 
-<Demo Header="Basic ContextMenu" Key="0" MetadataPath="ContextualMenuPage">
-    <DefaultButton Text="Show ContextualMenu" MenuItems=@contextualMenuItems />
-</Demo>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading">Usage</h2>
+    </div>
+    <div>
 
-<p>
-    <em>@debugText</em>
-</p>
-@*<h3>Starting to look good.  Finish Header, Section, submenu, and wire up events properly</h3>*@
+
+        <div class="subSection">
+            <Demo Header="Basic ContextMenu" Key="0" MetadataPath="ContextualMenuPage">
+                <DefaultButton Text="Show ContextualMenu" MenuItems=@contextualMenuItems />
+            </Demo>
+        </div>
+
+        <p>
+            <em>@debugText</em>
+        </p>
+        @*<h3>Starting to look good.  Finish Header, Section, submenu, and wire up events properly</h3>*@
 
 
+    </div>
+</div>
 @code {
     List<IContextualMenuItem> contextualMenuItems;
 
@@ -41,7 +65,7 @@
         });
 
         contextualMenuItems = new List<IContextualMenuItem>()
-        {
+    {
             new ContextualMenuItem()
             {
                 Text = "Header1",
@@ -82,7 +106,7 @@
                 Command = buttonCommand,
                 CommandParameter = "Test3",
                 Items = new System.Collections.Generic.List<IContextualMenuItem>()
-                {
+            {
                     new ContextualMenuItem()
                     {
                         Text = "SubTest1",

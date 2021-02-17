@@ -1,6 +1,6 @@
 ﻿@page "/buttonsPage"
 <header class="root">
-    <h1 class="title-93">Buttons</h1>
+    <h1 class="title">Buttons</h1>
 </header>
 <div class="section" style="transition-delay: 0s;">
     <div id="overview" tabindex="-1">
@@ -8,7 +8,7 @@
     </div>
     <div class="content">
         <div class="ms-Markdown">
-            <p class="root-129">
+            <p>
                 Buttons give people a way to trigger an action. They’re typically found in forms, dialog panels, and dialogs. Some buttons are specialized for particular tasks, such as navigation, repeated actions, or presenting menus.
             </p>
         </div>
