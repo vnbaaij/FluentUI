@@ -10,7 +10,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A document card (<code>DocumentCard</code>) represents a file, and contains additional metadata or actions. This offers people a richer view into a file than the typical grid view.
             </p>
         </div>
     </div>

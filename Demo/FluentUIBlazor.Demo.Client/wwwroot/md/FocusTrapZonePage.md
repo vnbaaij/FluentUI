@@ -10,8 +10,11 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                FocusTrapZone is used to trap the focus in any html element. Pressing tab will circle focus within the inner focusable elements of the FocusTrapZone.
             </p>
+            <p>
+                <strong>Note:</strong> Trapping focus will restrict interaction with other elements in the website such as the side nav. Turn off the "Use trap zone" toggle control to allow this interaction to happen again.
+            </p>>
         </div>
     </div>
 </div>
@@ -39,7 +42,7 @@
 </div>
 
 @code {
-// ToDo: Add Demo sections
+    // ToDo: Add Demo sections
     bool isFocusTrapped = false;
     string debugText = "";
 

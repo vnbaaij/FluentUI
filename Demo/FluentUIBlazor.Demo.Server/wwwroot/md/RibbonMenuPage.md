@@ -1,91 +1,115 @@
 ﻿@page  "/ribbonMenuPage"
 @using System.Collections.ObjectModel;
-<h1>Ribbon Menu</h1>
-<RibbonMenu ItemsSource=@Items>
-   <ItemTemplate Context="tab">
-       <RibbonTab ItemsSource=@tab.Groups HeaderText=@tab.Header>
-           <ItemTemplate Context="groupData">
-               <RibbonGroup ItemsSource=@groupData ItemTransform=@itemTransform>
-                   <ItemTemplate Context="item">
-                       <TooltipHost>
-                           <TooltipContent>
-                               <div>@(((RibbonItem)item).Text)</div>
-                           </TooltipContent>
-                           <ChildContent>
-                               @switch (item)
-                               {
-                                   case ButtonViewModel buttonViewModel:
-                                       <CommandBarButton IconName=@buttonViewModel.IconName
-                                                            IconSrc=@buttonViewModel.IconSrc
-                                                            Command=@buttonViewModel.Command
-                                                            CommandParameter=@buttonViewModel.CommandParameter
-                                                            Toggle=@buttonViewModel.Toggle />
-                                       break;
-                                   case DropDownViewModel dropDownViewModel:
-                                       <Dropdown ItemsSource=@dropDownViewModel.DropdownOptions
-                                                    Placeholder="Select an option"
-                                                    @bind-SelectedOption=@dropDownViewModel.Selected
-                                                    Style=@("display: inline-block;width:" + @dropDownViewModel.Width) />
-                                       break;
-                               }
-                           </ChildContent>
-                       </TooltipHost>
-                   </ItemTemplate>
-               </RibbonGroup>
-           </ItemTemplate>
-       </RibbonTab>
-   </ItemTemplate>
-</RibbonMenu>
-<h1>Ribbon Menu with backstage</h1>
-@*<Toggle @bind-Checked=@ShowBackstage OnText="On!" OffText="Off!" Label="Backstage state" />*@
-<RibbonMenu ItemsSource=@Items BackstageHeader="File" @bind-ShowBackstage=ShowBackstage>
-    <ItemTemplate Context="tab">
-        <RibbonTab ItemsSource=@tab.Groups HeaderText=@tab.Header>
-            <ItemTemplate Context="groupData">
-                <RibbonGroup ItemsSource=@groupData ItemTransform=@itemTransform>
-                    <ItemTemplate Context="item">
-                        <TooltipHost>
-                            <TooltipContent>
-                                <div>@(((RibbonItem)item).Text)</div>
-                            </TooltipContent>
-                            <ChildContent>
-                                @switch (item)
-                                {
-                                    case ButtonViewModel buttonViewModel:
-                                        <CommandBarButton IconName=@buttonViewModel.IconName
-                                                             IconSrc=@buttonViewModel.IconSrc
-                                                             Command=@buttonViewModel.Command
-                                                             CommandParameter=@buttonViewModel.CommandParameter
-                                                             Toggle=@buttonViewModel.Toggle
-                                                             IsRadioButton=@buttonViewModel.IsRadioButton
-                                                             GroupName=@buttonViewModel.GroupName/>
-                                        break;
-                                    case DropDownViewModel dropDownViewModel:
-                                        <Dropdown ItemsSource=@dropDownViewModel.DropdownOptions
-                                                     Placeholder="Select an option"
-                                                     @bind-SelectedOption=@dropDownViewModel.Selected
-                                                     Style=@("display: inline-block;width:" + @dropDownViewModel.Width) />
-                                        break;
-                                }
-                            </ChildContent>
-                        </TooltipHost>
-                    </ItemTemplate>
-                </RibbonGroup>
-            </ItemTemplate>
-        </RibbonTab>
-    </ItemTemplate>
-    <Backstage>
-        <div style="width: 900px;background-color: white;">
-            <div style="width:150px">
-                <NavBar Direction="LayoutDirection.Vertical" Items=@backstageItems/>
-            </div>
+<header class="root">
+    <h1 class="title">Ribbon Menu</h1>
+</header>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading hiddenContent">Overview</h2>
+    </div>
+    <div class="content">
+        <div class="ms-Markdown">
+            <p>
+
+            </p>
         </div>
-    </Backstage>
-</RibbonMenu>
-
-
+    </div>
+</div>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading">Usage</h2>
+    </div>
+    <div>
+        <div class="subSection">
+            <RibbonMenu ItemsSource=@Items>
+                <ItemTemplate Context="tab">
+                    <RibbonTab ItemsSource=@tab.Groups HeaderText=@tab.Header>
+                        <ItemTemplate Context="groupData">
+                            <RibbonGroup ItemsSource=@groupData ItemTransform=@itemTransform>
+                                <ItemTemplate Context="item">
+                                    <TooltipHost>
+                                        <TooltipContent>
+                                            <div>@(((RibbonItem)item).Text)</div>
+                                        </TooltipContent>
+                                        <ChildContent>
+                                            @switch (item)
+                                            {
+                                                case ButtonViewModel buttonViewModel:
+                                                    <CommandBarButton IconName=@buttonViewModel.IconName
+                                                                      IconSrc=@buttonViewModel.IconSrc
+                                                                      Command=@buttonViewModel.Command
+                                                                      CommandParameter=@buttonViewModel.CommandParameter
+                                                                      Toggle=@buttonViewModel.Toggle />
+                                                    break;
+                                                case DropDownViewModel dropDownViewModel:
+                                                    <Dropdown ItemsSource=@dropDownViewModel.DropdownOptions
+                                                              Placeholder="Select an option"
+                                                              @bind-SelectedOption=@dropDownViewModel.Selected
+                                                              Style=@("display: inline-block;width:" + @dropDownViewModel.Width) />
+                                                    break;
+                                            }
+                                        </ChildContent>
+                                    </TooltipHost>
+                                </ItemTemplate>
+                            </RibbonGroup>
+                        </ItemTemplate>
+                    </RibbonTab>
+                </ItemTemplate>
+            </RibbonMenu>
+        </div>
+        <div class="subSection">
+            <h1>Ribbon Menu with backstage</h1>
+            @*<Toggle @bind-Checked=@ShowBackstage OnText="On!" OffText="Off!" Label="Backstage state" />*@
+            <RibbonMenu ItemsSource=@Items BackstageHeader="File" @bind-ShowBackstage=ShowBackstage>
+                <ItemTemplate Context="tab">
+                    <RibbonTab ItemsSource=@tab.Groups HeaderText=@tab.Header>
+                        <ItemTemplate Context="groupData">
+                            <RibbonGroup ItemsSource=@groupData ItemTransform=@itemTransform>
+                                <ItemTemplate Context="item">
+                                    <TooltipHost>
+                                        <TooltipContent>
+                                            <div>@(((RibbonItem)item).Text)</div>
+                                        </TooltipContent>
+                                        <ChildContent>
+                                            @switch (item)
+                                            {
+                                                case ButtonViewModel buttonViewModel:
+                                                    <CommandBarButton IconName=@buttonViewModel.IconName
+                                                                      IconSrc=@buttonViewModel.IconSrc
+                                                                      Command=@buttonViewModel.Command
+                                                                      CommandParameter=@buttonViewModel.CommandParameter
+                                                                      Toggle=@buttonViewModel.Toggle
+                                                                      IsRadioButton=@buttonViewModel.IsRadioButton
+                                                                      GroupName=@buttonViewModel.GroupName />
+                                                    break;
+                                                case DropDownViewModel dropDownViewModel:
+                                                    <Dropdown ItemsSource=@dropDownViewModel.DropdownOptions
+                                                              Placeholder="Select an option"
+                                                              @bind-SelectedOption=@dropDownViewModel.Selected
+                                                              Style=@("display: inline-block;width:" + @dropDownViewModel.Width) />
+                                                    break;
+                                            }
+                                        </ChildContent>
+                                    </TooltipHost>
+                                </ItemTemplate>
+                            </RibbonGroup>
+                        </ItemTemplate>
+                    </RibbonTab>
+                </ItemTemplate>
+                <Backstage>
+                    <div style="width: 900px;background-color: white;">
+                        <div style="width:150px">
+                            <NavBar Direction="LayoutDirection.Vertical" Items=@backstageItems />
+                        </div>
+                    </div>
+                </Backstage>
+            </RibbonMenu>
+        </div>
+    </div>
+</div>
 
 @code{
+    //ToDo: Add Demo sections
     System.Collections.Generic.List<TabItem<GroupItem>> Items { get; set; } = new System.Collections.Generic.List<TabItem<GroupItem>>();
 
     private List<NavBarItem> backstageItems;
@@ -107,18 +131,18 @@
         BackCommand = new RelayCommand(BackAction);
 
         var undoRedoGroup = new GroupItem();
-        undoRedoGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Undo", IconName = "Undo"});
-        undoRedoGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Redo", IconName = "Redo"});
+        undoRedoGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Undo", IconName = "Undo" });
+        undoRedoGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Redo", IconName = "Redo" });
 
         var clipBoardGroup = new GroupItem();
         clipBoardGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Cut", IconName = "Cut" });
         clipBoardGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Copy", IconName = "Copy" });
-        clipBoardGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Paste", IconName = "Paste",Priority=10 });
+        clipBoardGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Paste", IconName = "Paste", Priority = 10 });
 
 
 
         var formatGroup = new GroupItem();
-        formatGroup.ItemsSource.Add(new ButtonViewModel() { Text="Underline", IconName="Underline", Toggle = true});
+        formatGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Underline", IconName = "Underline", Toggle = true });
         formatGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Bolid", IconName = "Bold", Toggle = true });
         formatGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Italic", IconName = "Italic", Toggle = true });
         var fonts = new List<DropdownOption>();
@@ -126,14 +150,14 @@
         fonts.Add(new DropdownOption() { Text = "Courier" });
         fonts.Add(new DropdownOption() { Text = "Arial" });
         fonts.Add(new DropdownOption() { Text = "Calibri" });
-        formatGroup.ItemsSource.Add(new DropDownViewModel() { DropdownOptions = fonts, Selected = fonts[1],Text="Selected font" });
+        formatGroup.ItemsSource.Add(new DropDownViewModel() { DropdownOptions = fonts, Selected = fonts[1], Text = "Selected font" });
         var sizes = new List<DropdownOption>();
         sizes.Add(new DropdownOption() { Text = "10" });
         sizes.Add(new DropdownOption() { Text = "12" });
         sizes.Add(new DropdownOption() { Text = "15" });
         sizes.Add(new DropdownOption() { Text = "20" });
         sizes.Add(new DropdownOption() { Text = "25" });
-        formatGroup.ItemsSource.Add(new DropDownViewModel() { DropdownOptions = sizes,Width="80px", Selected = sizes[1], Text = "Font size" });
+        formatGroup.ItemsSource.Add(new DropDownViewModel() { DropdownOptions = sizes, Width = "80px", Selected = sizes[1], Text = "Font size" });
 
         #region Paragraph group
 
@@ -142,7 +166,7 @@
         paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Center", IconName = "AlignCenter", IsRadioButton = true, GroupName = "Align" });
         paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Align right", IconName = "AlignRight", IsRadioButton = true, GroupName = "Align" });
         paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Justify", IconName = "AlignJustify", IsRadioButton = true, GroupName = "Align", Priority = 12 });
-        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Sample image button", IconSrc = "sampleImage.jpg"}); //, IconName = "AlignJustify"
+        paragraphGroup.ItemsSource.Add(new ButtonViewModel() { Text = "Sample image button", IconSrc = "sampleImage.jpg" }); //, IconName = "AlignJustify"
         #endregion
 
 
@@ -152,8 +176,8 @@
         homeGroups.Add(formatGroup);
         homeGroups.Add(paragraphGroup);
         Items.Add(new TabItem<GroupItem>() { Header = "Home", Groups = homeGroups });
-        Items.Add(new TabItem<GroupItem>() { Header = "Insert"});
-        Items.Add(new TabItem<GroupItem>() { Header = "Design"});
+        Items.Add(new TabItem<GroupItem>() { Header = "Insert" });
+        Items.Add(new TabItem<GroupItem>() { Header = "Design" });
 
 
         #region backstage items

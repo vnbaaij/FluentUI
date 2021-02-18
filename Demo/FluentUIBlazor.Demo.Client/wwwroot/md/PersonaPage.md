@@ -9,9 +9,9 @@
     </div>
     <div class="content">
         <div class="ms-Markdown">
-            <p>
-
-            </p>
+            <p>A persona is a visual representation of a person across products, typically showcasing the image that person has&nbsp;chosen to&nbsp;upload themselves.&nbsp;The control&nbsp;can also&nbsp;be&nbsp;used to show that person's online status.</p>
+            <p>The persona control is used in the&nbsp;<code>PeoplePicker</code>&nbsp;and&nbsp;<code>Facepile</code>&nbsp;controls.</p>
+            <p>The complete control inclues an individual's avatar (an uploaded image or a composition of the person’s initials on a background&nbsp;color), their name or identification, and online status.</p>
         </div>
     </div>
 </div>

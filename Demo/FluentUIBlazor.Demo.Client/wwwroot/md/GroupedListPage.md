@@ -11,7 +11,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A grouped list (<code>GroupedList</code>) allows you to render a set of items as multiple lists with various grouping properties.
             </p>
         </div>
     </div>

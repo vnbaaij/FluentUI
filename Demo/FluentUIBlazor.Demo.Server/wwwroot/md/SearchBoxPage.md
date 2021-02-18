@@ -1,71 +1,106 @@
 ﻿@page  "/searchBoxPage"
-<h1>SearchBox</h1>
-<Demo Header="Single select string type" Key="1" MetadataPath="SearchBoxPage">
-    <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })" />
-</Demo>
-<Demo Header="Multi select string type" Key="2" MetadataPath="SearchBoxPage">
-    <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })"
-               IsMultiSelect="true" />
-</Demo>
-<Demo Header="Single select templated search suggestions" Key="3" MetadataPath="SearchBoxPage">
-    <SearchBox ProvideSuggestions="@((filter) => { return ProvideSearchItemSuggestions(filter); })"
-               ProvideString="@((element) => { return ((SearchItem)element).Name; })">
-        <SearchItemTemplate>
-            <Persona Text=@(((SearchItem)context).Name)
-                     SecondaryText=@(((SearchItem)context).JobDescription)
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size48
-                     ShowInitialsUntilImageLoads="true" />
-        </SearchItemTemplate>
-    </SearchBox>
-</Demo>
-<Demo Header="Multi select templated search suggestions" Key="4" MetadataPath="SearchBoxPage">
-    <SearchBox ProvideSuggestions="@((filter) => { return ProvideSearchItemSuggestions(filter); })"
-               ProvideString="@((element) => { return ((SearchItem)element).Name; })"
-               IsMultiSelect="true">
-        <SearchItemTemplate>
-            <Persona Text=@(((SearchItem)context).Name)
-                     SecondaryText=@(((SearchItem)context).JobDescription)
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size48
-                     ShowInitialsUntilImageLoads="true" />
-        </SearchItemTemplate>
-    </SearchBox>
-</Demo>
-<Demo Header="Multi select templated search suggestions and templated selected items" Key="5" MetadataPath="SearchBoxPage">
-    <SearchBox ProvideSuggestions="@((filter) => { return ProvideSearchItemSuggestions(filter); })"
-               ProvideString="@((element) => { return ((SearchItem)element).Name; })"
-               IsMultiSelect="true">
-        <SearchItemTemplate>
-            <Persona Text=@(((SearchItem)context).Name)
-                     SecondaryText=@(((SearchItem)context).JobDescription)
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size48
-                     ShowInitialsUntilImageLoads="true" />
-        </SearchItemTemplate>
-        <SelectedItemTemplate>
-            <div style="display:inline;color:red;font-style:italic">@context.Name</div>
-        </SelectedItemTemplate>
-    </SearchBox>
-</Demo>
+<header class="root">
+    <h1 class="title">SearchBox</h1>
+</header>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading hiddenContent">Overview</h2>
+    </div>
+    <div class="content">
+        <div class="ms-Markdown">
+            <p>
+                A search box (<code>SearchBox</code>) provides an input field for searching content within a site or app to find specific items.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="section" style="transition-delay: 0s;">
+    <div id="overview" tabindex="-1">
+        <h2 class="subHeading">Usage</h2>
+    </div>
+    <div>
 
-<Demo Header="'Tell me what you want to do' search box" Key="6" MetadataPath="SearchBoxPage">
-    <div>Start with entering 'a' in order to find suggestions</div>
-    <SearchBox Placeholder="Tell me what you want to do"
-               IconName="Lightbulb"
-               ProvideSuggestions="@((filter) => { return ProvideWhatYouWantToDoSuggestions(filter); })"
-               InputWidth="300">
-    </SearchBox>
-</Demo>
+        <div class="subSection">
+            <Demo Header="Single select string type" Key="1" MetadataPath="SearchBoxPage">
+                <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })" />
+            </Demo>
+        </div>
+        <div class="subSection">
+            <Demo Header="Multi select string type" Key="2" MetadataPath="SearchBoxPage">
+                <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })"
+                           IsMultiSelect="true" />
+            </Demo>
+        </div>
+        <div class="subSection">
+            <Demo Header="Single select templated search suggestions" Key="3" MetadataPath="SearchBoxPage">
+                <SearchBox ProvideSuggestions="@((filter) => { return ProvideSearchItemSuggestions(filter); })"
+                           ProvideString="@((element) => { return ((SearchItem)element).Name; })">
+                    <SearchItemTemplate>
+                        <Persona Text=@(((SearchItem)context).Name)
+                                 SecondaryText=@(((SearchItem)context).JobDescription)
+                                 ImageUrl="personFace.jpg"
+                                 Presence=@PersonaPresenceStatus.Online
+                                 Size=@PersonaSize.Size48
+                                 ShowInitialsUntilImageLoads="true" />
+                    </SearchItemTemplate>
+                </SearchBox>
+            </Demo>
+        </div>
+        <div class="subSection">
+            <Demo Header="Multi select templated search suggestions" Key="4" MetadataPath="SearchBoxPage">
+                <SearchBox ProvideSuggestions="@((filter) => { return ProvideSearchItemSuggestions(filter); })"
+                           ProvideString="@((element) => { return ((SearchItem)element).Name; })"
+                           IsMultiSelect="true">
+                    <SearchItemTemplate>
+                        <Persona Text=@(((SearchItem)context).Name)
+                                 SecondaryText=@(((SearchItem)context).JobDescription)
+                                 ImageUrl="personFace.jpg"
+                                 Presence=@PersonaPresenceStatus.Online
+                                 Size=@PersonaSize.Size48
+                                 ShowInitialsUntilImageLoads="true" />
+                    </SearchItemTemplate>
+                </SearchBox>
+            </Demo>
+        </div>
+        <div class="subSection">
+            <Demo Header="Multi select templated search suggestions and templated selected items" Key="5" MetadataPath="SearchBoxPage">
+                <SearchBox ProvideSuggestions="@((filter) => { return ProvideSearchItemSuggestions(filter); })"
+                           ProvideString="@((element) => { return ((SearchItem)element).Name; })"
+                           IsMultiSelect="true">
+                    <SearchItemTemplate>
+                        <Persona Text=@(((SearchItem)context).Name)
+                                 SecondaryText=@(((SearchItem)context).JobDescription)
+                                 ImageUrl="personFace.jpg"
+                                 Presence=@PersonaPresenceStatus.Online
+                                 Size=@PersonaSize.Size48
+                                 ShowInitialsUntilImageLoads="true" />
+                    </SearchItemTemplate>
+                    <SelectedItemTemplate>
+                        <div style="display:inline;color:red;font-style:italic">@context.Name</div>
+                    </SelectedItemTemplate>
+                </SearchBox>
+            </Demo>
+        </div>
 
-<Modal IsOpen=@modalIsOpen
-       OnDismiss="DismissHandler">
-    <div>@modalText clicked!</div>
-</Modal>
+        <div class="subSection">
+            <Demo Header="'Tell me what you want to do' search box" Key="6" MetadataPath="SearchBoxPage">
+                <div>Start with entering 'a' in order to find suggestions</div>
+                <SearchBox Placeholder="Tell me what you want to do"
+                           IconName="Lightbulb"
+                           ProvideSuggestions="@((filter) => { return ProvideWhatYouWantToDoSuggestions(filter); })"
+                           InputWidth="300">
+                </SearchBox>
+            </Demo>
+        </div>
 
+        <Modal IsOpen=@modalIsOpen
+               OnDismiss="DismissHandler">
+            <div>@modalText clicked!</div>
+        </Modal>
+
+
+    </div>
+</div>
 
 @code {
 

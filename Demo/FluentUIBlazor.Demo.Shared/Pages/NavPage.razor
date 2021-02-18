@@ -10,7 +10,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A navigation pane (<code>Nav</code>) provides links to the main areas of an app or site.
             </p>
         </div>
     </div>

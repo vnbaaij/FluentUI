@@ -16,7 +16,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A details list (<code>DetailsList</code>) is a robust way to display an information-rich collection of items, and allow people to sort, group, and filter the content. Use a details list when information density is critical.
             </p>
         </div>
     </div>
@@ -40,8 +40,7 @@
             <TextField Label="Filter Description"
                        Value=@filter
                        OnInput=@(val => { filter = val; descriptionColumn.FilterPredicate = prop => (prop as string).Contains(filter); }) />
-            <div data-is-scrollable="true"
-                 style="height:100%;overflow-y:auto;">
+            <div data-is-scrollable="true" style="height:100%;overflow-y:auto;">
                 <DetailsListAuto ItemsSource="dataSource"
                                  @ref="detailsList"
                                  Columns="columnsSource"

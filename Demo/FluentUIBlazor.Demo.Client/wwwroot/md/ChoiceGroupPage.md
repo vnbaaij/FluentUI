@@ -13,7 +13,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                Radio buttons (<code class="root-363">ChoiceGroup</code>)&nbsp;let&nbsp;people&nbsp;select a single option from two or more choices.
             </p>
         </div>
     </div>

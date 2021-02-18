@@ -20,8 +20,8 @@ For a more detailed tutorial, head over to our [Public Feed](https://dev.azure.c
 
 ## Breaking Changes for v5.0 (net5)
 #### Renaming all the stuff
-Every project has dropped the 'Blazor' prefix and is now called FluentUI...
-Every component has dropped the 'BFU' prefix and is now on par with it's FluentUI React counterpart (or will be soon)
+Every project has dropped the `Blazor` prefix and is now called `FluentUI...`
+All components have dropped the `BFU` prefix and are now on par with their Fluent UI React counterparts (or will be soon). The rootnamespace had been changed to `FluentUI`
 
 ## Breaking Changes for v4.0 (net5)
 

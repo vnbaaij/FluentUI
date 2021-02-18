@@ -10,7 +10,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                Labels give a name or title to a control or group of controls, including text fields, check boxes, combo boxes, radio buttons, and drop-down menus.
             </p>
         </div>
     </div>

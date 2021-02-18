@@ -1,7 +1,7 @@
 ﻿@page "/"
 
 <header class="root">
-    <h1 class="title-93">Controls</h1>
+    <h1 class="title">Controls</h1>
 </header>
 <div class="section" style="transition-delay: 0s;">
     <div id="overview" tabindex="-1">
@@ -9,12 +9,13 @@
     </div>
     <div class="content">
         <div class="ms-Markdown">
-            <p class="root-129">
+            <p>
                 Fluent UI's robust, up-to-date web controls are built with Blazor. Look through the control list to see the building blocks that are available using Fluent UI Blazor.
             </p>
         </div>
     </div>
 </div>
+
 <div class="section" style="transition-delay: 0.05s;">
     <div class="sectionHeader">
         <h2 class="subHeading" id="basic-inputs">Basic Inputs</h2>
@@ -138,6 +139,7 @@
         </ul>
     </div>
 </div>
+
 @code {
 
 }

@@ -9,8 +9,12 @@
     </div>
     <div class="content">
         <div class="ms-Markdown">
-            <p>
-
+            <p>The OverflowSet is a flexible container component that is useful for displaying a primary set of content with additional content in an overflow callout.
+               Note that the example below is only an example of how to render the component, not a specific use case.
+            </p>
+            <h3 id="accessibility">Accessibility</h3>
+            <p>By default, the OverflowSet is simply <code>role=group</code>. If you used as a menu, you will need to add <code>role="menubar"</code> and add proper aria roles to
+               each rendered item (<code>menuitem</code>, <code>menuitemcheckbox</code>, <code>menuitemradio</code>)
             </p>
         </div>
     </div>

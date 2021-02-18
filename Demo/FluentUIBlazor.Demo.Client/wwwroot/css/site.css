@@ -715,3 +715,27 @@ ul.md-list--flex > .mdut--half {
         padding-right: 40px
     }
 }
+
+code {
+    font-family: Monaco, Menlo, Consolas, "Droid Sans Mono", Inconsolata, "Courier New", monospace;
+    font-size: 14px;
+    background: rgb(250, 249, 248);
+    color: rgb(50, 49, 48);
+    padding: 0px 4px;
+    border: 1px solid rgb(237, 235, 233);
+    border-radius: 3px;
+}
+.title {
+    align-items: baseline;
+    color: rgb(50, 49, 48);
+    display: flex;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0px;
+}
+
+.root {
+    margin-bottom: 0px;
+    padding-top: 25px;
+}

@@ -10,7 +10,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A banner (<code>MessageBar</code>) displays errors, warnings, or important information about an open app or file. For example, if a file failed to upload an error message bar should appear.
             </p>
         </div>
     </div>

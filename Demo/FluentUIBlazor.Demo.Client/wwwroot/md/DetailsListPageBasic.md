@@ -9,7 +9,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A details list (<code>DetailsList</code>) is a robust way to display an information-rich collection of items, and allow people to sort, group, and filter the content. Use a details list when information density is critical.
             </p>
         </div>
     </div>
@@ -21,8 +21,7 @@
     <div>
         <div class="subSection">
             <Demo MetadataPath="DetailsListPageBasic" Key="0" Header="Basic DetailsList">
-                <div style="height:400px;" data-is-scrollable="true">
-                    <Stack Style="height:100%;">
+                <div data-is-scrollable="true" style="height:400px;overflow-y:auto;">
                         <h3>DetailsList</h3>
                         <DetailsList ItemsSource="InputList"
                                      Columns="Columns"
@@ -33,7 +32,6 @@
                                      Selection="selection"
                                      SelectionMode="SelectionMode.Multiple">
                         </DetailsList>
-                    </Stack>
                 </div>
             </Demo>
         </div>

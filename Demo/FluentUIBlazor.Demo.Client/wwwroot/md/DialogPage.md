@@ -10,7 +10,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A dialog box (<code>Dialog</code>) is a temporary pop-up that takes focus from the page or app and requires people to interact with it. It’s primarily used for confirming actions, such as deleting a file, or asking people to make a choice.
             </p>
         </div>
     </div>

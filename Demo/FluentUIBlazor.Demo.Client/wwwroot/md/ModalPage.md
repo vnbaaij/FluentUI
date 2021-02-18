@@ -9,7 +9,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                Modals are temporary pop-ups that take focus from the page or app and require people to interact with them. Unlike a dialog box (<code>Dialog</code>), a modal should be used for hosting lengthy content, such as privacy statements or license agreements, or for asking people to perform complex or multiple actions, such as changing settings.
             </p>
         </div>
     </div>

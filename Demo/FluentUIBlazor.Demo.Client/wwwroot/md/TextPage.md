@@ -10,11 +10,18 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                Text is a component for displaying text. You can use Text to standardize text across your web app.
+            </p>
+            <p>
+                You can specify the <code>variant</code> prop to apply font styles to Text. This variant pulls from the Fluent UI React theme loaded on the page. If you do not specify the <code>variant</code> prop, by default, Text applies the styling from specifying the <code>variant</code> value to <code>medium</code>.
+            </p>
+            <p>
+                The Text control is inline wrap by default. You can specify <code>block</code> to enable block and <code>nowrap</code> to enable <code>nowrap</code>. For ellipsis on overflow to work properly, <code>block</code> and <code>nowrap</code> should be manually set to <code>true</code>.
             </p>
         </div>
     </div>
 </div>
+
 <div class="section" style="transition-delay: 0s;">
     <div id="overview" tabindex="-1">
         <h2 class="subHeading">Usage</h2>

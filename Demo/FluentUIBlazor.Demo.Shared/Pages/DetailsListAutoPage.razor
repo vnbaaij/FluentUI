@@ -13,7 +13,7 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                A details list (<code>DetailsList</code>) is a robust way to display an information-rich collection of items, and allow people to sort, group, and filter the content. Use a details list when information density is critical.
             </p>
         </div>
     </div>
@@ -37,8 +37,7 @@
                 <TextField Label="Filter Description"
                            Value=@filter
                            OnInput=@(val => { filter = val; descriptionColumn.FilterPredicate = prop => prop.Contains(filter); }) />
-                <div data-is-scrollable="true"
-                     style="height:400px;overflow-y:auto;">
+                <div data-is-scrollable="true" style="height:400px;overflow-y:auto;">
                     <DetailsListAuto ItemsSource="dataSource"
                                      IsVirtualizing="@isVirtualizing.GetValueOrDefault()"
                                      TItem="DataItem"
@@ -53,8 +52,7 @@
         </div>
         <div class="subSection">
             <Demo MetadataPath="DetailsListAutoPage" Key="1" Header="DetailsListAuto with Fixed Columns">
-                <div data-is-scrollable="true"
-                     style="height:400px;overflow-y:auto;">
+                <div data-is-scrollable="true" style="height:400px;overflow-y:auto;">
                     <DetailsListAuto ItemsSource="dataSource"
                                      IsVirtualizing="true"
                                      Compact="true"
@@ -68,8 +66,7 @@
         </div>
         <div class="subSection">
             <Demo MetadataPath="DetailsListAutoPage" Key="2" Header="DetailsListAuto with MarqueeSelection">
-                <div data-is-scrollable="true"
-                     style="height:400px;overflow-y:auto;">
+                <div data-is-scrollable="true" style="height:400px;overflow-y:auto;">
                     <MarqueeSelection Selection=@selection3>
                         <DetailsListAuto ItemsSource="dataSource"
                                          IsVirtualizing="true"

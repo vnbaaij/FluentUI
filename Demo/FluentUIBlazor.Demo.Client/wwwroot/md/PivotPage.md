@@ -10,7 +10,14 @@
     <div class="content">
         <div class="ms-Markdown">
             <p>
-
+                The Pivot control and related tabs pattern are used for navigating frequently accessed, distinct content categories.
+                Pivots allow for navigation between two or more content views and relies on text headers to articulate the different sections of content.
+            </p>
+            <ul>
+                <li>Tapping on a pivot item header navigates to that header's section content.</li>
+            </ul>
+            <p>
+                Tabs are a visual variant of Pivot that use a combination of icons and text or just icons to articulate section content.
             </p>
         </div>
     </div>
