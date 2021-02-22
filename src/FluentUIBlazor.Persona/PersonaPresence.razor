@@ -7,7 +7,7 @@
      title=@PresenceTitle>
     @if (RenderIcon)
     {
-        <Icon ClassName=@($"ms-Persona-icon {LocalSpecificityClass} {IconRule.Selector.SelectorName}") 
+        <Icon ClassName=@($"ms-Persona-icon {LocalSpecificityClass} {IconRule.Selector.SelectorName}")
               IconName=@DetermineIcon(Presence, IsOutOfOffice) />
     }
 </div>
