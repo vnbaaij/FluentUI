@@ -1,7 +1,7 @@
 ﻿<Stack HorizontalAlign="Alignment.Start" Style="width:100%;">
     <Stack Horizontal="true" HorizontalAlign="Alignment.SpaceBetween" VerticalAlign="Alignment.End"
            Style=@($"border-bottom: 1px solid {ThemeProvider.Theme.SemanticColors.BodyDivider}; margin-bottom:18.620px;width:100%;")>
-        <div style="font-size:@ThemeProvider.Theme.FontStyle.FontSize.MediumPlus; font-weight:@ThemeProvider.Theme.FontStyle.FontWeight.SemiBold;">@Header</div>
+        <div style="font-size:@ThemeProvider.Theme.FontStyle.FontSize.XLarge; font-weight:@ThemeProvider.Theme.FontStyle.FontWeight.SemiBold;">@Header</div>
         <div>
             <CommandBarButton Text=@codeLabel IconName=@(showCode ? "ChevronUp" : "ChevronDown") OnClick=@(arg=> { showCode = !showCode; showCCode = false; codeLabel = showCode ? "Hide Code" : "Show Code"; }) />
         </div>

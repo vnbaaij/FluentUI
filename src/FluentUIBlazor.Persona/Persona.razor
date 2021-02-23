@@ -9,7 +9,7 @@
                     ImageUrl=@ImageUrl IsOutOfOffice=@IsOutOfOffice Presence=@Presence PresenceTitle=@PresenceTitle  InitialsColor=@InitialsColor ShowInitialsUntilImageLoads=@ShowInitialsUntilImageLoads
                     ShowUnknownPersonaCoin=@ShowUnknownPersonaCoin Size=@Size Text=@Text />
 
-    @if (!HidePersonalDetails || Size == PersonaSize.Size8)
+    @if (!HidePersonaDetails || Size == PersonaSize.Size8)
     {
         <div class=@($"ms-Persona-details {LocalSpecificityClass} {DetailsRule.Selector.SelectorName}")>
             <div dir="auto" class=@($"ms-Persona-primaryText {LocalSpecificityClass} {PrimaryTextRule.Selector.SelectorName}")>

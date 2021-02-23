@@ -13,7 +13,7 @@ namespace FluentUI
         [Parameter] public bool AllowPhoneInitials { get; set; }
         [Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public int CoinSize { get; set; } = -1;
-        [Parameter] public bool HidePersonalDetails { get; set; }
+        [Parameter] public bool HidePersonaDetails { get; set; }
         [Parameter] public string ImageAlt { get; set; }
         [Parameter] public string ImageInitials{ get; set; }
         [Parameter] public bool ImageShouldFadeIn { get; set; }

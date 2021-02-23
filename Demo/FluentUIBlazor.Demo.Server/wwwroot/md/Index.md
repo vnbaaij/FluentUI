@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using System.Reflection
 
 <header class="root">
     <h1 class="title">Controls</h1>

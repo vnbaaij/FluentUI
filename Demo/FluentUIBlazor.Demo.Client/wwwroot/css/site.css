@@ -739,3 +739,7 @@ code {
     margin-bottom: 0px;
     padding-top: 25px;
 }
+
+.persona-presence .ms-Persona {
+    margin: 0 20px 20px 0;
+}

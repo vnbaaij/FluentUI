@@ -21,123 +21,616 @@
     </div>
     <div>
         <div class="subSection">
+            <Demo Header="Persona in various sizes" Key="0" MetadataPath="PersonaPage">
+                <Stack Horizontal="false" Tokens="@(new StackTokens() { ChildrenGap = new [] {10d}})">
+                    <Checkbox DefaultChecked="true" Label="Include persona details" @bind-Checked=ShowDetails />
 
-            <Persona Text="Random Person"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size48
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 8 Persona, with no presence</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Size=@PersonaSize.Size8
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
+                    <Label>Size 8 Persona, with presence</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Offline
+                             Size=@PersonaSize.Size8
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <Persona Text="Someone Else"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size48
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 24 Persona</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Online
+                             Size=@PersonaSize.Size24
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <h3>Size8, no presence</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Size=@PersonaSize.Size8
-                     ShowInitialsUntilImageLoads="true" />
-            <h3>Size8, with presence</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Offline
-                     Size=@PersonaSize.Size8
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 32 Persona</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Online
+                             Size=@PersonaSize.Size32
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <h3>Size24</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size24
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 40 Persona</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Away
+                             Size=@PersonaSize.Size40
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <h3>Size32</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size32
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 48 Persona (default)</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Busy
+                             Size=@PersonaSize.Size48
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <h3>Size40</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Away
-                     Size=@PersonaSize.Size40
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 56 Persona (default)</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Online
+                             Size=@PersonaSize.Size56
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <h3>Size48</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Busy
-                     Size=@PersonaSize.Size48
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 72 Persona</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.DND
+                             Size=@PersonaSize.Size72
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <h3>Size56</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Online
-                     Size=@PersonaSize.Size56
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 100 Persona</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Blocked
+                             Size=@PersonaSize.Size100
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
 
-            <h3>Size72</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.DND
-                     Size=@PersonaSize.Size72
-                     ShowInitialsUntilImageLoads="true" />
+                    <Label>Size 120 Persona</Label>
+                    <Persona Text="Annie Lindqvist"
+                             SecondaryText="Got no job"
+                             TertiaryText="Found on the internet"
+                             OptionalText="Don't worry about this guy"
+                             ImageUrl="personFace.jpg"
+                             Presence=@PersonaPresenceStatus.Away
+                             Size=@PersonaSize.Size120
+                             ShowInitialsUntilImageLoads="true"
+                             HidePersonaDetails="!ShowDetails" />
+                </Stack>
+            </Demo>
+        </div>
+        <div class="subSection">
+            <Demo Header="Persona with initials" Key="1" MetadataPath="PersonaPage">
+                <Stack Horizontal="false" Tokens="@(new StackTokens() { ChildrenGap = new [] {10d}})">
+                    <Persona Text="Kat Larrson" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size24 />
+                    <Persona Text="Annie" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size24 />
+                    <Persona Text="Annie Lind" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size32 />
+                    <Persona Text="Annie Boyl Lind" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size32 />
+                    <Persona Text="David (The man) Goff" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size32 />
+                    <Persona Text="David Goff [The man]" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size32 />
+                    <Persona Text="Annie Boyl Carrie Lindqvist" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size40 />
+                    <Persona Text="+1 (111) 123-4567 X4567" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size40 />
+                    <Persona Text="+1 (555) 123-4567 X4567" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size48 AllowPhoneInitials=true />
+                    <Persona Text="宋智洋" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size48 />
+                    <Persona Text="남궁 성종" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size56 />
+                    <Persona Text="خسرو رحیمی" SecondaryText="Designer" TertiaryText="In a meeting" OptionalText="Available at 4:00pm" Size=@PersonaSize.Size56 />
+                    <Persona Text="Maor Sharett" ImageInitials="MS" SecondaryText="Designer" TertiaryText="In a meeting" InitialsColor=@PersonaInitialsColor.LightBlue Size=@PersonaSize.Size72 />
+                    <Persona Text="Maor Sharett" ImageInitials="MS" SecondaryText="Designer" TertiaryText="In a meeting" InitialsColor=@PersonaInitialsColor.Magenta Size=@PersonaSize.Size100 />
+                    <Persona Text="Maor Sharett" ImageInitials="MS" SecondaryText="Designer" TertiaryText="In a meeting" InitialsColor=@PersonaInitialsColor.Teal CoinSize=150 />
+                </Stack>
+            </Demo>
+        </div>
+        <div class="subSection">
+            <Demo Header="Persona Presence" Key="2" MetadataPath="PersonaPage">
+                <Stack Horizontal="true">
+                    <Stack>
+                        <Label>Online</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     ImageAlt="Annie Lindqvist, status is online." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     ImageAlt="Annie Lindqvist, status is online." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     ImageAlt="Annie Lindqvist, status is online." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     ImageAlt="Annie Lindqvist, status is online." />
+                        </Stack>
+                    </Stack>
 
-            <h3>Size100</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Blocked
-                     Size=@PersonaSize.Size100
-                     ShowInitialsUntilImageLoads="true" />
+                    <Stack>
+                        <Label>Online + Out of Office</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is online and out of office." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is online and out of office." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is online and out of office." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Online
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is online and out of office." />
+                        </Stack>
+                    </Stack>
+                </Stack>
 
-            <h3>Size120</h3>
-            <Persona Text="Annie Lindqvist"
-                     SecondaryText="Got no job"
-                     TertiaryText="Found on the internet"
-                     OptionalText="Don't worry about this guy"
-                     ImageUrl="personFace.jpg"
-                     Presence=@PersonaPresenceStatus.Away
-                     Size=@PersonaSize.Size120
-                     ShowInitialsUntilImageLoads="true" />
+                <Stack Horizontal="true">
+                    <Stack>
+                        <Label>Away</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     ImageAlt="Annie Lindqvist, status is away." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     ImageAlt="Annie Lindqvist, status is away." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     ImageAlt="Annie Lindqvist, status is away." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     ImageAlt="Annie Lindqvist, status is away." />
+                        </Stack>
+                    </Stack>
 
+                    <Stack>
+                        <Label>Away + Out of Office</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is away and out of office." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is away and out of office." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is away and out of office." />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Away
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is away and out of office." />
+                        </Stack>
+                    </Stack>
+                </Stack>
+
+                <Stack Horizontal="true">
+                    <Stack>
+                        <Label>Busy</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     ImageAlt="Annie Lindqvist, status is busy" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     ImageAlt="Annie Lindqvist, status is busy" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     ImageAlt="Annie Lindqvist, status is busy" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     ImageAlt="Annie Lindqvist, status is busy" />
+                        </Stack>
+                    </Stack>
+
+                    <Stack>
+                        <Label>Busy + Out of Office</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is busy and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is busy and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is busy and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Busy
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is busy and out of office" />
+                        </Stack>
+                    </Stack>
+                </Stack>
+
+                <Stack Horizontal="true">
+                    <Stack>
+                        <Label>Do not Disturb</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     ImageAlt="Annie Lindqvist, status is do not disturb" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     ImageAlt="Annie Lindqvist, status is do not disturb" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     ImageAlt="Annie Lindqvist, status is do not disturb" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     ImageAlt="Annie Lindqvist, status is do not disturb" />
+                        </Stack>
+                    </Stack>
+
+                    <Stack>
+                        <Label>Do not Disturb + Out of Office</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is do not disturb and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is do not disturb and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is do not disturb and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.DND
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is do not disturb and out of office" />
+                        </Stack>
+                    </Stack>
+                </Stack>
+
+                <Label>Blocked</Label>
+                <Stack Horizontal="true">
+                    <Persona Text=""
+                             Size=@PersonaSize.Size8
+                             HidePersonaDetails="true"
+                             Presence=@PersonaPresenceStatus.Blocked
+                             ImageAlt="Annie Lindqvist, status is blocked" />
+                    <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                             ImageInitials="AL"
+                             Text="Annie Lindqvist"
+                             SecondaryText="Software Engineer"
+                             TertiaryText="In a meeting"
+                             OptionalText="Available at 4:00pm"
+                             Size=@PersonaSize.Size24
+                             HidePersonaDetails="true"
+                             Presence=@PersonaPresenceStatus.Blocked
+                             ImageAlt="Annie Lindqvist, status is blocked" />
+                    <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                             ImageInitials="AL"
+                             Text="Annie Lindqvist"
+                             SecondaryText="Software Engineer"
+                             TertiaryText="In a meeting"
+                             OptionalText="Available at 4:00pm"
+                             HidePersonaDetails="true"
+                             Presence=@PersonaPresenceStatus.Blocked
+                             ImageAlt="Annie Lindqvist, status is blocked" />
+                    <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                             ImageInitials="AL"
+                             Text="Annie Lindqvist"
+                             SecondaryText="Software Engineer"
+                             TertiaryText="In a meeting"
+                             OptionalText="Available at 4:00pm"
+                             Size=@PersonaSize.Size72
+                             HidePersonaDetails="true"
+                             Presence=@PersonaPresenceStatus.Blocked
+                             ImageAlt="Annie Lindqvist, status is blocked" />
+                </Stack>
+
+                <Stack Horizontal="true">
+                    <Stack>
+                        <Label>Offline</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     ImageAlt="Annie Lindqvist, status is offline" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     ImageAlt="Annie Lindqvist, status is offline" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     ImageAlt="Annie Lindqvist, status is offline" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     ImageAlt="Annie Lindqvist, status is offline" />
+                        </Stack>
+                    </Stack>
+
+                    <Stack>
+                        <Label>Offline + Out of Office</Label>
+                        <Stack Horizontal="true">
+                            <Persona Text=""
+                                     Size=@PersonaSize.Size8
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is offline and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size24
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is offline and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is offline and out of office" />
+                            <Persona ImageUrl="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png"
+                                     ImageInitials="AL"
+                                     Text="Annie Lindqvist"
+                                     SecondaryText="Software Engineer"
+                                     TertiaryText="In a meeting"
+                                     OptionalText="Available at 4:00pm"
+                                     Size=@PersonaSize.Size72
+                                     HidePersonaDetails="true"
+                                     Presence=@PersonaPresenceStatus.Offline
+                                     IsOutOfOffice="true"
+                                     ImageAlt="Annie Lindqvist, status is offline and out of office" />
+                        </Stack>
+                    </Stack>
+                </Stack>
+            </Demo>
         </div>
     </div>
 </div>
 
 @code {
     //ToDo: Add Demo sections
+    bool ShowDetails = true;
 }

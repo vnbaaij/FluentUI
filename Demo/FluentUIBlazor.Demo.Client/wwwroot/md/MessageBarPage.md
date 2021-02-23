@@ -26,7 +26,7 @@
                     <StackItem>
                         <MessageBar>
                             Info/Default MessageBar.
-                            <Link Href="https://github.com/FluentUI/FluentUI" Target="_blank">
+                            <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">
                             Visit us on GitHub.
                             </Link>
                         </MessageBar>
@@ -34,7 +34,7 @@
                     <StackItem>
                         <MessageBar MessageBarType="MessageBarType.Error" IsMultiline="false" OnDismiss="OnDismiss">
                             Error MessageBar with single line, with dismiss button.
-                            <Link Href="https://github.com/FluentUI/FluentUI" Target="_blank">
+                            <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">
                             Visit us on GitHub.
                             </Link>
                         </MessageBar>
@@ -65,7 +65,7 @@
                             </Actions>
                             <ChildContent>
                                 SevereWarning MessageBar with action buttons which defaults to multiline.
-                                <Link Href="https://github.com/FluentUI/FluentUI" Target="_blank">
+                                <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">
                                 Visit us on GitHub.
                                 </Link>
                             </ChildContent>
@@ -82,7 +82,7 @@
                             </Actions>
                             <ChildContent>
                                 Success MessageBar with single line and action buttons.
-                                <Link Href="https://github.com/FluentUI/FluentUI" Target="_blank">
+                                <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">
                                 Visit us on GitHub.
                                 </Link>
                             </ChildContent>
@@ -98,7 +98,7 @@
                             </Actions>
                             <ChildContent>
                                 Warning MessageBar content.
-                                <Link Href="https://github.com/FluentUI/FluentUI" Target="_blank">
+                                <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">
                                 Visit us on GitHub.
                                 </Link>
                             </ChildContent>
@@ -120,7 +120,7 @@
                                 condimentum porttitor et sed lacus. Vivamus ac efficitur leo. Cras faucibus mauris libero, ac placerat erat euismod et. Donec pulvinar
                                 commodo odio sit amet faucibus. In hac habitasse platea dictumst. Duis eu ante commodo, condimentum nibh pellentesque, laoreet enim.
                                 Fusce massa lorem, ultrices eu mi a, fermentum suscipit magna. Integer porta purus pulvinar, hendrerit felis eget, condimentum mauris.
-                                <Link Href="https://github.com/FluentUI/FluentUI" Target="_blank">
+                                <Link Href="https://github.com/vnbaaij/FluentUIBlazor" Target="_blank">
                                 Visit us on GitHub.
                                 </Link>
                             </ChildContent>
