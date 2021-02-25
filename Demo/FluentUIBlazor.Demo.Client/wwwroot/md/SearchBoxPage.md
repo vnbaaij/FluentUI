@@ -22,13 +22,30 @@
 
         <div class="subSection">
             <Demo Header="Single select string type" Key="1" MetadataPath="SearchBoxPage">
-                <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })" />
+                <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })"
+                           @bind-SelectedItem="SelectedItem" />
+                @if (SelectedItem != null)
+                {
+                    <h4>Selected item</h4>
+                    @SelectedItem
+                }
             </Demo>
         </div>
         <div class="subSection">
             <Demo Header="Multi select string type" Key="2" MetadataPath="SearchBoxPage">
                 <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })"
-                           IsMultiSelect="true" />
+                           IsMultiSelect="true"
+                           @bind-SelectedItems="SelectedItems" />
+                @if (SelectedItems != null)
+                {
+                    <h4>Selected items</h4>
+                    <ul>
+                        @foreach (var item in SelectedItems)
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+                }
             </Demo>
         </div>
         <div class="subSection">
@@ -50,7 +67,8 @@
             <Demo Header="Multi select templated search suggestions" Key="4" MetadataPath="SearchBoxPage">
                 <SearchBox ProvideSuggestions="@((filter) => { return ProvideSearchItemSuggestions(filter); })"
                            ProvideString="@((element) => { return ((SearchItem)element).Name; })"
-                           IsMultiSelect="true">
+                           IsMultiSelect="true"
+                           @bind-SelectedItems="SelectedPersons">
                     <SearchItemTemplate>
                         <Persona Text=@(((SearchItem)context).Name)
                                  SecondaryText=@(((SearchItem)context).JobDescription)
@@ -60,6 +78,16 @@
                                  ShowInitialsUntilImageLoads="true" />
                     </SearchItemTemplate>
                 </SearchBox>
+                @if (SelectedPersons != null)
+                {
+                    <h4>Selected persons</h4>
+                    <ul>
+                        @foreach (var item in SelectedPersons)
+                        {
+                        <li>@(item.Name)</li>
+                        }
+                    </ul>
+                }
             </Demo>
         </div>
         <div class="subSection">
@@ -107,6 +135,11 @@
     List<string> allSuggestions = new List<string> { "Aahron", "Aalam", "Aamir", "Abad", "Abbas", "Abbott", "Aberham", "Baaron", "Backstere", "Baen", "Babet", "Bellamie", "Beltran", "Benn" };
     List<SearchItem> allSearchItemSuggestions;
     List<ContextualMenuItem> suggestedItems;
+
+    string SelectedItem { get; set; }
+    ICollection<string> SelectedItems { get; set; }
+    ICollection<SearchItem> SelectedPersons { get; set; }
+
     bool modalIsOpen;
     string modalText;
     IEnumerable<string> ProvideSuggestions(string filter)
@@ -186,7 +219,4 @@
     {
         modalIsOpen = false;
     }
-
-
-
 }

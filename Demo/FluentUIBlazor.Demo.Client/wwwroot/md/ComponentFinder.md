@@ -1,24 +1,27 @@
-﻿@page "/test"
+﻿@page "/componentfinder"
 @using System.Reflection
 @using System.Linq
-<h3>test</h3>
+<h3>Component Finder</h3>
 <div class="section" style="transition-delay: 0.05s;">
     <div class="sectionHeader">
         <h2 class="subHeading" id="basic-inputs">Search for Fluent UI Components</h2>
     </div>
     <div class="content">
-        <input class="form form-control" @bind="ComponentName" @bind:event="oninput" />
-
-        @{
-            Assembly a = Assembly.GetExecutingAssembly();
-            foreach (AssemblyName an in a.GetReferencedAssemblies().Where(x => x.Name.StartsWith("FluentUI")))
-            {
-                string s = $"Name={an.Name}, Version={an.Version}, Culture={an.CultureInfo.Name}, PublicKey token={BitConverter.ToString(an.GetPublicKeyToken())}";
-                @s
-                <br />
-            }
-        }
+        <input class="form form-control" @bind="ComponentName" @bind:event="onchange" />
+        <br />
+        <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })"
+                   ProvideString="@((element) => { return ((Type)element).Name; })"
+                   T="Type"
+                   @bind-SelectedItem="ComponentType">
+            <SearchItemTemplate>
+                <button class="ms-ContextualMenu-link mediumFont">@context.Name</button>
+            </SearchItemTemplate>
+        </SearchBox>
+        <br />
+        <h3>Component</h3>
+        <hr />
         @RenderFragment
+        <hr />
     </div>
 </div>
 
@@ -33,6 +36,7 @@
     Type selectedType;
     RenderFragment RenderFragment;
     private string componentName;
+
     public string ComponentName
     {
         get { return componentName; }
@@ -49,10 +53,41 @@
         }
     }
 
+    private Type componentType;
+    public Type ComponentType
+    {
+        get { return componentType; }
+        set
+        {
+            componentType = value;
+            selectedType = types.Where(type => type.Name.ToUpper() == value.Name.ToUpper())
+                .FirstOrDefault() ?? typeof(Label);
+            RenderFragment = (builder) =>
+            {
+                builder.OpenComponent(0, selectedType);
+                builder.CloseComponent();
+            };
+        }
+    }
+
     protected override void OnInitialized()
     {
         types = FindTypes(x => x.FullName.StartsWith("FluentUI"));
         base.OnInitialized();
+    }
+
+
+    IEnumerable<Type> ProvideSuggestions(string filter)
+    {
+        // System.Threading.Thread.Sleep(1000); // Test the non blocking behavior of the control
+        if (filter == "")
+        {
+            return new List<Type>();
+        }
+
+        var filteredSuggestions = types.Where(suggestion => suggestion.Name.ToLower().Contains(filter.ToLower()));
+
+        return filteredSuggestions;
     }
 
     public static IEnumerable<Type> FindTypes(Func<Type, bool> predicate)

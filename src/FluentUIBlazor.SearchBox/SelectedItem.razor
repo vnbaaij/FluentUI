@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Components.Web;
 @typeparam T
 
-
 <div style="display: inline">
     @if (Content is string)
     {
@@ -19,9 +18,6 @@
         }
     }
     <IconButton OnClick=ButtonClicked IconName="Cancel" />
-    @*<button @onclick="ButtonClicked" class="ms-ContextualMenu-link mediumFont">
-        <Icon IconName="Cancel" />
-    </button>*@
 </div>
 
 @code {
