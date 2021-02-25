@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>FluentUIBlazor.GroupedList</AssemblyName>
     <Description>GroupedList component from Blazor port of Fluent UI React library</Description>
     <RootNamespace>FluentUI</RootNamespace>
@@ -12,8 +12,8 @@
 
 
   <ItemGroup>
-    <PackageReference Include="DynamicData" Version="6.14.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+    <PackageReference Include="DynamicData" Version="6.14.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0-preview.1.21103.6" />
   </ItemGroup>
 
 
