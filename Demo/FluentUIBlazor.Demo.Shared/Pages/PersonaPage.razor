@@ -157,7 +157,7 @@
             </Demo>
         </div>
         <div class="subSection">
-            <Demo Header="PersonaCoin colors" Key="3" MetadataPath="PersonaPage">
+            <Demo Header="PersonaCoin colors" Key="2" MetadataPath="PersonaPage">
                 <Stack Horizontal="true" Wrap="true">
                     <Persona InitialsColor=@PersonaInitialsColor.Green
                              Size=@PersonaSize.Size100
@@ -263,7 +263,7 @@
             </Demo>
         </div>
         <div class="subSection">
-            <Demo Header="Persona Presence" Key="4" MetadataPath="PersonaPage">
+            <Demo Header="Persona Presence" Key="3" MetadataPath="PersonaPage">
                 <Stack ClassName="persona-presence">
                     <Stack Horizontal="true">
                         <Stack>

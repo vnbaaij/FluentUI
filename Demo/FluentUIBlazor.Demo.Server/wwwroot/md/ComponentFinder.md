@@ -7,8 +7,7 @@
         <h2 class="subHeading" id="basic-inputs">Search for Fluent UI Components</h2>
     </div>
     <div class="content">
-        <input class="form form-control" @bind="ComponentName" @bind:event="onchange" />
-        <br />
+
         <SearchBox ProvideSuggestions="@((filter) => { return ProvideSuggestions(filter); })"
                    ProvideString="@((element) => { return ((Type)element).Name; })"
                    T="Type"
@@ -28,30 +27,9 @@
 
 @code {
     private IEnumerable<Type> types;
-    //= from a in AppDomain.CurrentDomain.GetAssemblies().Where(a=>a.FullName.StartsWith("FluentUI") )
-    //                         from t in a.GetExportedTypes()
-    //                          select t;
 
-    //Assembly.GetExecutingAssembly().GetReferencedAssemblies().GetTypes().Where(type => type.BaseType == typeof(ComponentBase)).ToArray();
     Type selectedType;
     RenderFragment RenderFragment;
-    private string componentName;
-
-    public string ComponentName
-    {
-        get { return componentName; }
-        set
-        {
-            componentName = value;
-            selectedType = types.Where(type => type.Name.ToUpper() == value.ToUpper())
-                .FirstOrDefault() ?? typeof(Label);
-            RenderFragment = (builder) =>
-            {
-                builder.OpenComponent(0, selectedType);
-                builder.CloseComponent();
-            };
-        }
-    }
 
     private Type componentType;
     public Type ComponentType
@@ -79,7 +57,6 @@
 
     IEnumerable<Type> ProvideSuggestions(string filter)
     {
-        // System.Threading.Thread.Sleep(1000); // Test the non blocking behavior of the control
         if (filter == "")
         {
             return new List<Type>();

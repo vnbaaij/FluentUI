@@ -115,16 +115,16 @@ namespace FluentUI
 
         protected Task OnClick(MouseEventArgs args)
         {
-            Debug.WriteLine("Clicked");
-            if (!Disabled)
-            {
-                Debug.WriteLine("Not Disabled");
-                if (Checked == null)  // only update internally if Checked is not set
-                {
-                    Debug.WriteLine($"Checked not set so switch to: {!isChecked}");
-                    isChecked = !isChecked;
-                }
-            }
+            Debug.WriteLine($"Clicked and {(!Disabled ? "not" : "")} Disabled");
+            //if (!Disabled)
+            //{
+            //    Debug.WriteLine("Not Disabled");
+            //    if (Checked == null)  // only update internally if Checked is not set
+            //    {
+            //        //Debug.WriteLine($"Checked not set so switch to: {!isChecked}");
+            //        //isChecked = !isChecked;
+            //    }
+            //}
 
             if (Command != null)
             {
