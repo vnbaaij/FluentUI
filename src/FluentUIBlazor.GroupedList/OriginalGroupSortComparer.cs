@@ -8,7 +8,7 @@ namespace FluentUI
 {
     public class OriginalGroupSortComparer<TItem> : IComparer<IGroupedListItem3<TItem>>
     {
-        IList<TItem> _original;
+        readonly IList<TItem> _original;
 
         public OriginalGroupSortComparer(IList<TItem> original)
         {

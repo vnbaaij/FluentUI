@@ -24,7 +24,7 @@ namespace FluentUI
 
         private ICollection<IRule> DocumentCardActivityLocalRules { get; set; } = new List<IRule>();
 
-        private Rule DetailsRule = new Rule();
+        private readonly Rule DetailsRule = new Rule();
 
         private const int VERTICAL_PADDING = 8;
         private const int HORIZONTAL_PADDING = 16;

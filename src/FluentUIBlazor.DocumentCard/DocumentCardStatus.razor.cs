@@ -22,7 +22,7 @@ namespace FluentUI
 
         private ICollection<IRule> DocumentCardStatusRules { get; set; } = new List<IRule>();
 
-        private Rule RootRule = new Rule();
+        private readonly Rule RootRule = new Rule();
 
         protected override void OnParametersSet()
         {

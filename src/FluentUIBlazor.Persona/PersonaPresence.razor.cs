@@ -24,10 +24,10 @@ namespace FluentUI
         private const int presenceFontMaxSize = 20;
 
         private ICollection<IRule> PersonaPresenceLocalRules { get; set; } = new List<IRule>();
-        private Rule PresenceRule = new Rule();
-        private Rule PresenceAfterRule = new Rule();
-        private Rule PresenceBeforeRule = new Rule();
-        private Rule IconRule = new Rule();
+        private readonly Rule PresenceRule = new Rule();
+        private readonly Rule PresenceAfterRule = new Rule();
+        private readonly Rule PresenceBeforeRule = new Rule();
+        private readonly Rule IconRule = new Rule();
 
         private const string LocalSpecificityClass = "localPersonaPresenceRule";
 

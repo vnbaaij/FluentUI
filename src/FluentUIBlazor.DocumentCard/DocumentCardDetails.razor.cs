@@ -13,7 +13,7 @@ namespace FluentUI
 
         private ICollection<IRule> DocumentCardDetailsLocalRules { get; set; } = new List<IRule>();
 
-        private Rule MainRule = new Rule();
+        private readonly Rule MainRule = new Rule();
 
         public static Dictionary<string, string> GlobalClassNames = new Dictionary<string, string>()
         {

@@ -22,7 +22,7 @@ namespace FluentUI
         [Parameter] public IEnumerable<IGroup>? ItemsSource { get; set; }
         [Parameter] public RenderFragment<ResizeGroupData>? ItemTemplate { get; set; }
 
-        Collection<ResizeGroupData> ResizableGroups = new Collection<ResizeGroupData>();
+        readonly Collection<ResizeGroupData> ResizableGroups = new Collection<ResizeGroupData>();
 
 
         public RibbonTab()

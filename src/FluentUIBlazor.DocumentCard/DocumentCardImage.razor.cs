@@ -10,10 +10,10 @@ namespace FluentUI
     {
         private ICollection<IRule> DocumentCardImageRules { get; set; } = new List<IRule>();
 
-        private Rule RootRule = new Rule();
-        private Rule CenteredIconRule = new Rule();
-        private Rule CenteredIconWrapperRule = new Rule();
-        private Rule CornerIconRule = new Rule();
+        private readonly Rule RootRule = new Rule();
+        private readonly Rule CenteredIconRule = new Rule();
+        private readonly Rule CenteredIconWrapperRule = new Rule();
+        private readonly Rule CornerIconRule = new Rule();
         private const string CenteredIconSize = "42px";
         private const string CornerIconSize = "32px";
         private bool ImageLoaded = false;

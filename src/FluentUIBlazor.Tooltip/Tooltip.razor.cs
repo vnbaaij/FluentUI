@@ -18,8 +18,8 @@ namespace FluentUI
 
         private ICollection<IRule> TooltipLocalRules { get; set; } = new List<IRule>();
 
-        private Rule TooltipRule = new Rule();
-        private Rule TooltipAfterRule = new Rule();
+        private readonly Rule TooltipRule = new Rule();
+        private readonly Rule TooltipAfterRule = new Rule();
         private double TooltipGabSpace;
 
         protected override void OnInitialized()

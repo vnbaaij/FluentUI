@@ -52,7 +52,7 @@ namespace FluentUI
 
         [CascadingParameter(Name = "PortalId")] private string PortalId { get; set; }
 
-        [Inject] private IJSRuntime jSRuntime { get; set; }
+        //[Inject] private IJSRuntime JSRuntime { get; set; }
 
         protected double contentMaxHeight = -1;
         protected bool overflowYHidden = false;
@@ -70,9 +70,9 @@ namespace FluentUI
         #region Style
         private ICollection<IRule> CalloutLocalRules { get; set; } = new List<IRule>();
 
-        private Rule CalloutRule = new Rule();
-        private Rule CalloutMainRule = new Rule();
-        private Rule CalloutBeakRule = new Rule();
+        private readonly Rule CalloutRule = new Rule();
+        private readonly Rule CalloutMainRule = new Rule();
+        private readonly Rule CalloutBeakRule = new Rule();
         #endregion
         protected override Task OnInitializedAsync()
         {
@@ -728,7 +728,7 @@ namespace FluentUI
             }
         }
 
-        Dictionary<DirectionalHint, PositionDirectionalHintData> DirectionalDictionary = new Dictionary<DirectionalHint, PositionDirectionalHintData>() {
+        readonly Dictionary<DirectionalHint, PositionDirectionalHintData> DirectionalDictionary = new Dictionary<DirectionalHint, PositionDirectionalHintData>() {
             {DirectionalHint.TopLeftEdge, new PositionDirectionalHintData(RectangleEdge.Top, RectangleEdge.Left) },
             {DirectionalHint.TopCenter, new PositionDirectionalHintData(RectangleEdge.Top, RectangleEdge.None) },
             {DirectionalHint.TopRightEdge, new PositionDirectionalHintData(RectangleEdge.Top, RectangleEdge.Right) },

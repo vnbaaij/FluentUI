@@ -35,7 +35,7 @@ namespace FluentUI
 
         private double _containerDimension = double.NaN;
         private bool _hasRenderedContent = false;
-        private Dictionary<string, double> _measurementCache = new Dictionary<string, double>();
+        private readonly Dictionary<string, double> _measurementCache = new Dictionary<string, double>();
 
         //STATE
         private TObject _renderedData;
@@ -48,10 +48,10 @@ namespace FluentUI
         private ValueTask<string> _resizeEventTokenTask;  // WARNING - can only await this ONCE
 
         private Task<Rectangle> boundsTask;
-        private CancellationTokenSource boundsCTS = new CancellationTokenSource();
+        private readonly CancellationTokenSource boundsCTS = new CancellationTokenSource();
 
         private Task<ResizeGroupState<TObject>> nextStateTask;
-        private CancellationTokenSource nextStateCTS = new CancellationTokenSource();
+        private readonly CancellationTokenSource nextStateCTS = new CancellationTokenSource();
 
         protected override Task OnInitializedAsync()
         {

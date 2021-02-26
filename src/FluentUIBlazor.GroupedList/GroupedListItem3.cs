@@ -34,7 +34,7 @@ namespace FluentUI
             }
         }
 
-        private BehaviorSubject<bool> isOpenSubject;
+        private readonly BehaviorSubject<bool> isOpenSubject;
         public IObservable<bool> IsOpenObservable => isOpenSubject.AsObservable();
 
         public bool IsVisible => true;
@@ -46,7 +46,7 @@ namespace FluentUI
             }
 
         }
-        private BehaviorSubject<int> countSubject;
+        private readonly BehaviorSubject<int> countSubject;
         public IObservable<int> CountChanged => countSubject.AsObservable();
 
         public int Depth { get; private set; }
@@ -55,10 +55,10 @@ namespace FluentUI
 
         public ICollection<IGroupedListItem3<TItem>> Items { get; private set; }
 
-        private HeaderItem3<TItem, TKey> _parent;
-        private IGroup<TItem, TKey, object> _group;
+        private readonly HeaderItem3<TItem, TKey> _parent;
+        private readonly IGroup<TItem, TKey, object> _group;
 
-        private IObservable<ISortedChangeSet<IGroupedListItem3<TItem>, object>> _mainGroupingChangeSet;
+        private readonly IObservable<ISortedChangeSet<IGroupedListItem3<TItem>, object>> _mainGroupingChangeSet;
 
         public int GroupIndex { get; set; }
 

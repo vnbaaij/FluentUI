@@ -62,8 +62,8 @@ namespace FluentUI
         internal bool isSplitButton = false;
         private object _registrationToken;
 
-        private bool _menuShouldFocusOnMount = true;
-        static List<ButtonBase> radioButtons = new List<ButtonBase>();
+        private readonly bool _menuShouldFocusOnMount = true;
+        static readonly List<ButtonBase> radioButtons = new List<ButtonBase>();
 
         protected override Task OnParametersSetAsync()
         {

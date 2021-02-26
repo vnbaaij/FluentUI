@@ -21,7 +21,7 @@ namespace FluentUI
     {
         //private IEnumerable<IGrouping<object, TItem>> groups;
         //private bool _isGrouped;
-        private List<IGroupedListItem3<TItem>> listReference;
+        private readonly List<IGroupedListItem3<TItem>> listReference;
 
         //private ReadOnlyObservableCollection<IGroupedListItem3> dataItems;
 
@@ -37,8 +37,8 @@ namespace FluentUI
         //private TItem _rootGroup;
         //private IEnumerable<TItem> _itemsSource;
 
-        private IDisposable _selectionSubscription;
-        private IDisposable _transformedDisposable;
+        private readonly IDisposable _selectionSubscription;
+        private readonly IDisposable _transformedDisposable;
 
         [CascadingParameter]
         public SelectionZone<TItem> SelectionZone { get; set; }
@@ -104,12 +104,10 @@ namespace FluentUI
         public int StartIndex { get; set; }
 
         
-        private Func<TItem, object> getKeyInternal;
-        private IDisposable sourceCacheSubscription;
-        private ReadOnlyObservableCollection<IGroupedListItem3<TItem>> groupedUIListItems;
-
-
-        Dictionary<HeaderItem3<TItem, TKey>, IDisposable> headerSubscriptions = new Dictionary<HeaderItem3<TItem, TKey>, IDisposable>();
+        private readonly Func<TItem, object> getKeyInternal;
+        private readonly IDisposable sourceCacheSubscription;
+        private readonly ReadOnlyObservableCollection<IGroupedListItem3<TItem>> groupedUIListItems;
+        readonly Dictionary<HeaderItem3<TItem, TKey>, IDisposable> headerSubscriptions = new Dictionary<HeaderItem3<TItem, TKey>, IDisposable>();
 
         //private IList<bool>? _sortDescending;
         //private IList<Func<TItem, object>>? _sortBy;

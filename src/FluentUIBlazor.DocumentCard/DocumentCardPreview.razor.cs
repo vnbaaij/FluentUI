@@ -34,15 +34,15 @@ namespace FluentUI
         };
         private ICollection<IRule> DocumentCardDetailsLocalRules { get; set; } = new List<IRule>();
 
-        private Rule RootRule = new Rule();
-        private Rule PreviewIconRule = new Rule();
-        private Rule IconRule = new Rule();
-        private Rule FileListRule = new Rule();
-        private Rule FileListLiRule = new Rule();
-        private Rule FileListIconRule = new Rule();
-        private Rule FileListLinkRule = new Rule();
-        private Rule FileListLinkHoverRule = new Rule();
-        private Rule FileListOverflowTextRule = new Rule();
+        private readonly Rule RootRule = new Rule();
+        private readonly Rule PreviewIconRule = new Rule();
+        private readonly Rule IconRule = new Rule();
+        private readonly Rule FileListRule = new Rule();
+        private readonly Rule FileListLiRule = new Rule();
+        private readonly Rule FileListIconRule = new Rule();
+        private readonly Rule FileListLinkRule = new Rule();
+        private readonly Rule FileListLinkHoverRule = new Rule();
+        private readonly Rule FileListOverflowTextRule = new Rule();
 
         private void CreateLocalCss()
         {

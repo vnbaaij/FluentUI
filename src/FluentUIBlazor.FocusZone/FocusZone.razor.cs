@@ -66,10 +66,10 @@ namespace FluentUI
         private bool _jsAvailable;
         private int _registrationId = -1;
 
-        private Task<int> _registrationTask = null;
+        private readonly Task<int> _registrationTask = null;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private bool parametersUpdated = false;
+        private readonly bool parametersUpdated = false;
 
         protected override Task OnInitializedAsync()
         {

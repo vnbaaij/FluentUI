@@ -11,7 +11,7 @@ namespace FluentUI
         protected string horizontalMargin;
         protected string verticalMargin;
 
-        private string _id = "g" + Guid.NewGuid().ToString();  //id selectors can't begin with a number
+        private readonly string _id = "g" + Guid.NewGuid().ToString();  //id selectors can't begin with a number
         protected string Id => _id; 
 
         [Parameter] public RenderFragment ChildContent { get; set; }

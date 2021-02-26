@@ -10,8 +10,8 @@ namespace FluentUI
 {
     public class LayerHostService
     {
-        Dictionary<string, LayerHost> hosts = new Dictionary<string, LayerHost>();
-        Dictionary<string, BehaviorSubject<LayerHost>> hostSubjects = new Dictionary<string, BehaviorSubject<LayerHost>>();
+        readonly Dictionary<string, LayerHost> hosts = new Dictionary<string, LayerHost>();
+        readonly Dictionary<string, BehaviorSubject<LayerHost>> hostSubjects = new Dictionary<string, BehaviorSubject<LayerHost>>();
 
         LayerHost? rootHost;
 

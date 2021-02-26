@@ -39,7 +39,7 @@ namespace FluentUI
         public string RowClassNames { get; set; }
 
 
-        private string key;
+        private readonly string key;
 
         protected override Task OnParametersSetAsync()
         {

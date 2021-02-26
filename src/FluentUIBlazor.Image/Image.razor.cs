@@ -27,7 +27,7 @@ namespace FluentUI
         [Parameter] public EventCallback<ImageLoadState> OnLoadingStateChange { get; set; }
 
         protected const string KEY_PREFIX = "fabricImage";
-        private static Regex _svgRegex = new Regex(@"\.svg$");
+        private static readonly Regex _svgRegex = new Regex(@"\.svg$");
 
         protected ElementReference imageRef;
 

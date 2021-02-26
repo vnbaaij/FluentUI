@@ -9,8 +9,7 @@ namespace FluentUI
 {
     public partial class GroupHeader : FluentUIComponentBase, IDisposable
     {
-        
-        bool isLoadingVisible;
+        readonly bool isLoadingVisible;
 
         [Parameter]
         public bool Compact { get; set; }

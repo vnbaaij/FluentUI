@@ -73,7 +73,7 @@ namespace FluentUI
         private bool canSelect;
         private bool showCheckbox;
         private ColumnMeasureInfo<TItem> columnMeasureInfo = null;
-        private ElementReference cellMeasurer;
+        private readonly ElementReference cellMeasurer;
         private bool isSelected;
         private bool isSelectionModal;
         private Rule localCheckCoverRule;

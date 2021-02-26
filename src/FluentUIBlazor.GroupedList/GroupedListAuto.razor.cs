@@ -23,9 +23,9 @@ namespace FluentUI
     {
         //private IEnumerable<IGrouping<object, TItem>> groups;
         //private bool _isGrouped;
-        private List<IGroupedListItem3<TItem>> listReference;
+        private readonly List<IGroupedListItem3<TItem>> listReference;
 
-        private ReadOnlyObservableCollection<IGroupedListItem3<TItem>> dataItems;
+        private readonly ReadOnlyObservableCollection<IGroupedListItem3<TItem>> dataItems;
 
         //private IEnumerable<Group<TItem,TKey>> _groups;
 
@@ -39,8 +39,8 @@ namespace FluentUI
         //private TItem _rootGroup;
         private IEnumerable<TItem> _itemsSource;
 
-        private IDisposable _selectionSubscription;
-        private IDisposable _transformedDisposable;
+        private readonly IDisposable _selectionSubscription;
+        private readonly IDisposable _transformedDisposable;
 
         [CascadingParameter]
         public SelectionZone<TItem> SelectionZone { get; set; }
@@ -109,7 +109,7 @@ namespace FluentUI
         //public Func<TItem, IEnumerable<TItem>> SubGroupSelector { get; set; }
 
 
-        private Func<TItem, object> getKeyInternal;
+        private readonly Func<TItem, object> getKeyInternal;
         private IDisposable sourceCacheSubscription;
         private ReadOnlyObservableCollection<IGroupedListItem3<TItem>> groupedUIListItems;
 
@@ -117,11 +117,10 @@ namespace FluentUI
         private IList<Func<TItem, object>>? _sortBy;
         private BehaviorSubject<IComparer<TItem>> sortExpressionComparer;// = new BehaviorSubject<IComparer<TItem>>(new SortExpressionComparer<TItem>());
         private BehaviorSubject<IComparer<IGroupedListItem3<TItem>>> subGroupSortExpressionComparer;// = new BehaviorSubject<IComparer<IGroupedListItem3<TItem>>>(new SortExpressionComparer<IGroupedListItem3<TItem>>());
-        private bool _groupSortDescending;
+        private readonly bool _groupSortDescending;
 
-        private Subject<Unit> resorter = new Subject<Unit>();
-
-        Dictionary<HeaderItem3<TItem,TKey>, IDisposable> headerSubscriptions = new Dictionary<HeaderItem3<TItem, TKey>, IDisposable>();
+        private readonly Subject<Unit> resorter = new Subject<Unit>();
+        readonly Dictionary<HeaderItem3<TItem,TKey>, IDisposable> headerSubscriptions = new Dictionary<HeaderItem3<TItem, TKey>, IDisposable>();
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

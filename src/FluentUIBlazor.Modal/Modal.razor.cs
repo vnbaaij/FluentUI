@@ -59,9 +59,9 @@ namespace FluentUI
         [Parameter]
         public bool IsClickableOutsideFocusTrap { get; set; }
 
-        private bool _isOpenDelayed = false;
+        private readonly bool _isOpenDelayed = false;
 
-        private ElementReference allowScrollOnModal;
+        private readonly ElementReference allowScrollOnModal;
 
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
@@ -70,10 +70,10 @@ namespace FluentUI
         private bool animationRenderStart = false;
         private ModalVisibilityState previousVisibility = ModalVisibilityState.Closed;
         private ModalVisibilityState currentVisibility = ModalVisibilityState.Closed;
-        private Timer _animationTimer;
-        private Action _clearExistingAnimationTimer;
-        private Action<ModalVisibilityState> _animateTo;
-        private Action _onTransitionComplete;
+        private readonly Timer _animationTimer;
+        private readonly Action _clearExistingAnimationTimer;
+        private readonly Action<ModalVisibilityState> _animateTo;
+        private readonly Action _onTransitionComplete;
         private ElapsedEventHandler _handler = null;
         private bool _jsAvailable;
         private string _keydownRegistration;

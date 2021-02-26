@@ -32,7 +32,7 @@
 
     internal static class PersonaColorUtils
     {
-        static PersonaInitialsColor[] _colorSwatchesLookup = new PersonaInitialsColor[]
+        static readonly PersonaInitialsColor[] _colorSwatchesLookup = new PersonaInitialsColor[]
         {
              PersonaInitialsColor.LightBlue,
         PersonaInitialsColor.Blue,

@@ -84,27 +84,24 @@ namespace FluentUI
 
 
         //State
-        int focusedItemIndex;
-        double _lastWidth = -1;
-        SelectionMode _lastSelectionMode;
+        readonly int focusedItemIndex;
+        readonly double _lastWidth = -1;
+        readonly SelectionMode _lastSelectionMode;
         Viewport _lastViewport;
         Viewport _viewport;
         private IEnumerable<DetailsRowColumn<TItem>> _adjustedColumns = Enumerable.Empty<DetailsRowColumn<TItem>>();
         const double MIN_COLUMN_WIDTH = 100;
-
-
-        Dictionary<string, double> _columnOverrides = new Dictionary<string, double>();
+        readonly Dictionary<string, double> _columnOverrides = new Dictionary<string, double>();
 
         private Selection<TItem> _selection = new Selection<TItem>();
-
-        GroupedList<TItem,object> groupedList;
-        List<TItem> list;
-        SelectionZone<TItem> selectionZone;
+        readonly GroupedList<TItem,object> groupedList;
+        readonly List<TItem> list;
+        readonly SelectionZone<TItem> selectionZone;
 
         protected bool isAllSelected;
-        private bool shouldRender = true;
+        private readonly bool shouldRender = true;
 
-        private IReadOnlyDictionary<string, object> lastParameters = null;
+        private readonly IReadOnlyDictionary<string, object> lastParameters = null;
 
         protected SelectAllVisibility selectAllVisibility = SelectAllVisibility.None;
         private DotNetObjectReference<DetailsList<TItem>> selfReference;

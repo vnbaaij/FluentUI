@@ -10,7 +10,7 @@ namespace FluentUI
     public class KeyedCollection2<TKey, TItem> : KeyedCollection<TKey, TItem>
     {
         private const string DelegateNullExceptionMessage = "Delegate passed cannot be null";
-        private Func<TItem, TKey> _getKeyForItemFunction;
+        private readonly Func<TItem, TKey> _getKeyForItemFunction;
 
         public KeyedCollection2(Func<TItem, TKey> getKeyForItemFunction) : base()
         {

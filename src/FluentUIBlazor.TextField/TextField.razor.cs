@@ -93,10 +93,10 @@ namespace FluentUI
         private string currentValue;
         private bool hasIcon;
         private bool hasLabel;
-        private Rule TextField_Field_HasIcon = new Rule();
+        private readonly Rule TextField_Field_HasIcon = new Rule();
 
         private ICollection<IRule> TextFieldLocalRules { get; set; } = new List<IRule>();
-        private ICollection<Task> DeferredValidationTasks = new List<Task>();
+        private readonly ICollection<Task> DeferredValidationTasks = new List<Task>();
 
         private FieldIdentifier FieldIdentifier;
 

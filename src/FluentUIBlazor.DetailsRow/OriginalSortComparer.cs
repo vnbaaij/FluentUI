@@ -7,7 +7,7 @@ namespace FluentUI
 {
     public class OriginalSortComparer<TItem> : IComparer<TItem>
     {
-        IList<TItem> _original;
+        readonly IList<TItem> _original;
 
         public OriginalSortComparer(IList<TItem> original)
         {
@@ -27,9 +27,9 @@ namespace FluentUI
 
     public class OriginalSortComparerPresortedByGroups<TItem> : IComparer<TItem>
     {
-        IList<TItem> _original;
-        IList<Func<TItem, object>> _preSort;
-        bool _groupSortDescending;
+        readonly IList<TItem> _original;
+        readonly IList<Func<TItem, object>> _preSort;
+        readonly bool _groupSortDescending;
 
         public OriginalSortComparerPresortedByGroups(IList<TItem> original, IList<Func<TItem,object>> preSort, bool groupSortDescending=false)
         {

@@ -25,8 +25,8 @@ namespace FluentUI
 
         [Parameter] public EventCallback<string> RichTextChanged { get; set; }
                
-        private System.Collections.Generic.List<CommandBarItem> items;
-        private bool hasFocus = false;
+        private readonly System.Collections.Generic.List<CommandBarItem> items;
+        private readonly bool hasFocus = false;
 
         private bool isImageDialogOpen = false;
 
@@ -37,12 +37,12 @@ namespace FluentUI
 
         private string internalRichText = "";  //keeps track of changes so we know when we have to update the quilljs contents.
 
-        private RelayCommand buttonCommand;
+        private readonly RelayCommand buttonCommand;
         private int quillId;
         private bool _renderedOnce;
-        private Timer _debounceTextTimer;
+        private readonly Timer _debounceTextTimer;
         private string _waitingText;
-        private Timer _debounceSelectionTimer;
+        private readonly Timer _debounceSelectionTimer;
         private FormattingState _waitingFormattingState;
         private bool _readonlySet;
 

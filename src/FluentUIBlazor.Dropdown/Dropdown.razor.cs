@@ -54,12 +54,12 @@ namespace FluentUI
         protected bool isSmall = false;
         protected Rectangle dropDownBounds = new Rectangle();
 
-        private ElementReference calloutReference;
-        private ElementReference panelReference;
+        private readonly ElementReference calloutReference;
+        private readonly ElementReference panelReference;
         private ElementReference _chosenReference;
         private string? _registrationToken;
 
-        private FocusZone? calloutFocusZone;
+        private readonly FocusZone? calloutFocusZone;
         private CalloutPositionedInfo? _calloutPositionedInfo;
 
         //private bool firstRender = true;
@@ -67,9 +67,9 @@ namespace FluentUI
         #region Style
         private ICollection<IRule> DropdownLocalRules { get; set; } = new List<IRule>();
 
-        private Rule DropdownTitleOpenRule = new Rule();
-        private Rule DropdownCalloutRule = new Rule();
-        private Rule DropdownCalloutMainRule = new Rule();
+        private readonly Rule DropdownTitleOpenRule = new Rule();
+        private readonly Rule DropdownCalloutRule = new Rule();
+        private readonly Rule DropdownCalloutMainRule = new Rule();
         #endregion
 
         protected override Task OnInitializedAsync()

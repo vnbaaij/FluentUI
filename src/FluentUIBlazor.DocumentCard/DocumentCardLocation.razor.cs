@@ -29,8 +29,8 @@ namespace FluentUI
 
         private ICollection<IRule> DocumentCardLocationRules { get; set; } = new List<IRule>();
 
-        private Rule RootRule = new Rule();
-        private Rule RootHoverRule = new Rule();
+        private readonly Rule RootRule = new Rule();
+        private readonly Rule RootHoverRule = new Rule();
 
         protected override void OnParametersSet()
         {

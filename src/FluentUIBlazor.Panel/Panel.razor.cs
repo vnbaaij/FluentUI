@@ -98,15 +98,15 @@ namespace FluentUI
         private bool isAnimating = false;
         private bool animationRenderStart = false;
 
-        private EventCallback ThrowawayCallback;
+        private readonly EventCallback ThrowawayCallback;
 
         private PanelVisibilityState previousVisibility = PanelVisibilityState.Closed;
         private PanelVisibilityState currentVisibility = PanelVisibilityState.Closed;
         private bool isFooterSticky = false;
 
-        private Action onPanelClick;
-        private Action _dismiss;
-        private List<int> _scrollerEventId = new List<int>();
+        private readonly Action onPanelClick;
+        private readonly Action _dismiss;
+        private readonly List<int> _scrollerEventId = new List<int>();
         private int _resizeId = -1;
         private int _mouseDownId = -1;
 
@@ -115,8 +115,8 @@ namespace FluentUI
         private Action<PanelVisibilityState> _animateTo;
         private Action _onTransitionComplete;
 
-        private ElementReference panelElement;
-        private ElementReference scrollableContent;
+        private readonly ElementReference panelElement;
+        private readonly ElementReference scrollableContent;
         private bool _scrollerRegistered;
 
         private ElapsedEventHandler _handler = null;

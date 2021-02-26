@@ -22,12 +22,12 @@ namespace FluentUI
 
         private ICollection<IRule> DocumentCardActionsRules { get; set; } = new List<IRule>();
 
-        private Rule RootRule = new Rule();
-        private Rule ActionRule = new Rule();
-        private Rule ActionButtonRule = new Rule();
-        private Rule ActionButtonHoverRule = new Rule();
-        private Rule ViewsRule = new Rule();
-        private Rule ViewsIconRule = new Rule();
+        private readonly Rule RootRule = new Rule();
+        private readonly Rule ActionRule = new Rule();
+        private readonly Rule ActionButtonRule = new Rule();
+        private readonly Rule ActionButtonHoverRule = new Rule();
+        private readonly Rule ViewsRule = new Rule();
+        private readonly Rule ViewsIconRule = new Rule();
 
         private const int ACTION_SIZE = 34;
         private const int HORIZONTAL_PADDING = 12;

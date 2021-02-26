@@ -103,24 +103,22 @@ namespace FluentUI
         private Selection<TItem> _selection = new Selection<TItem>();
 
         //State
-        int focusedItemIndex;
-        double _lastWidth = -1;
-        SelectionMode _lastSelectionMode;
+        readonly int focusedItemIndex;
+        readonly double _lastWidth = -1;
+        readonly SelectionMode _lastSelectionMode;
         Viewport _lastViewport;
         Viewport _viewport;
         private IEnumerable<DetailsRowColumn<TItem>> _adjustedColumns = Enumerable.Empty<DetailsRowColumn<TItem>>();
         const double MIN_COLUMN_WIDTH = 100;
-
-        Dictionary<string, double> _columnOverrides = new Dictionary<string, double>();
-
-        GroupedListAuto<TItem,object>? groupedList;
-        List<TItem>? list;
-        SelectionZone<TItem>? selectionZone;
+        readonly Dictionary<string, double> _columnOverrides = new Dictionary<string, double>();
+        readonly GroupedListAuto<TItem,object>? groupedList;
+        readonly List<TItem>? list;
+        readonly SelectionZone<TItem>? selectionZone;
 
         protected bool isAllSelected;
-        private bool shouldRender = true;
+        private readonly bool shouldRender = true;
 
-        private IReadOnlyDictionary<string, object> lastParameters = null;
+        private readonly IReadOnlyDictionary<string, object> lastParameters = null;
 
         protected SelectAllVisibility selectAllVisibility = SelectAllVisibility.None;
 
@@ -128,10 +126,10 @@ namespace FluentUI
         private ReadOnlyObservableCollection<TItem> items;
         //private ReadOnlyObservableCollection<GroupedListItem2<TItem>> groupedUIItems;
 
-        private IObservable<Func<TItem, bool>>? DynamicDescriptionFilter;
+        private readonly IObservable<Func<TItem, bool>>? DynamicDescriptionFilter;
         private IEnumerable<TItem>? itemsSource;
         private IDisposable? sourceCacheSubscription;
-        private Subject<Unit> applyFilter = new Subject<Unit>();
+        private readonly Subject<Unit> applyFilter = new Subject<Unit>();
 
         private Func<TItem, object> getKeyInternal;
 
@@ -140,7 +138,7 @@ namespace FluentUI
         private DotNetObjectReference<DetailsListAuto<TItem>> selfReference;
         private int _viewportRegistration;
 
-        private Dictionary<object, DetailsRow<TItem>> _activeRows = new Dictionary<object, DetailsRow<TItem>>();
+        private readonly Dictionary<object, DetailsRow<TItem>> _activeRows = new Dictionary<object, DetailsRow<TItem>>();
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

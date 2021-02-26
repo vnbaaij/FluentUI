@@ -29,10 +29,10 @@ namespace FluentUI
         private decimal _percent = -1;
         private const int marginBetweenText = 8;
         private const int textHeight = 18;
-        private bool isRTL = false;
-        private Rule ProgressIndicatorItemProgressRule = new Rule();
-        private Rule ProgressIndicatorProgressTrackRule = new Rule();
-        private Rule ProgressIndicatorProgressBarRule = new Rule();
+        private readonly bool isRTL = false;
+        private readonly Rule ProgressIndicatorItemProgressRule = new Rule();
+        private readonly Rule ProgressIndicatorProgressTrackRule = new Rule();
+        private readonly Rule ProgressIndicatorProgressBarRule = new Rule();
 
         private ICollection<IRule> ProgressIndicatorLocalRules { get; set; } = new List<IRule>();
 

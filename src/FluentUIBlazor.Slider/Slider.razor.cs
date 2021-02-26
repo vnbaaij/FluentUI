@@ -34,10 +34,10 @@ namespace FluentUI
         [Inject] private IJSRuntime? JSRuntime { get; set; }
 
 
-        private string id = Guid.NewGuid().ToString();
-        private ElementReference slideBox;
-        private ElementReference sliderLine;
-        private ElementReference thumb;
+        private readonly string id = Guid.NewGuid().ToString();
+        private readonly ElementReference slideBox;
+        private readonly ElementReference sliderLine;
+        private readonly ElementReference thumb;
         private double zeroOffsetPercent;
         private double thumbOffsetPercent;
         private double _renderedValue;
@@ -46,7 +46,7 @@ namespace FluentUI
         private double value;
         private bool jsAvailable;
         private DotNetObjectReference<Slider>? dotNetObjectReference;
-        private Timer timer = new Timer();
+        private readonly Timer timer = new Timer();
 
         private string lengthString => (Vertical ? "height" : "width");
 

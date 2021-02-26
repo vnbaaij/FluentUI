@@ -11,17 +11,19 @@ namespace FluentUI
     {
         [Parameter] public string? BackstageHeader { get; set; }
         [Parameter] public RenderFragment Backstage { get; set; }
-        bool showBackstage;
+
+        readonly bool showBackstage;
         [Parameter] public bool ShowBackstage { get; set; } 
 
         [Parameter] public EventCallback<bool> ShowBackstageChanged { get; set; }
+
         //private async Task OnShowBackstageChanged(ChangeEventArgs e)
         //{
         //    bool showBackstage = (bool)e.Value;
 
         //    await ShowBackstageChanged.InvokeAsync(showBackstage);
         //}
-        FluentUIComponentBase calloutTarget;
+        readonly FluentUIComponentBase calloutTarget;
         string backstageItemKey;
         public override PivotItem Selected
         {

@@ -44,7 +44,7 @@ namespace FluentUI
 
         public int? Count { get; set; }
 
-        private Subject<Unit> selectionChanged = new Subject<Unit>();
+        private readonly Subject<Unit> selectionChanged = new Subject<Unit>();
         public IObservable<Unit> SelectionChanged => selectionChanged.AsObservable();
         public event EventHandler OnSelectionChanged;
 
@@ -58,7 +58,7 @@ namespace FluentUI
 
         private HashSet<object> _exemptedKeys = new HashSet<object>();
         private HashSet<object> _unselectableKeys = new HashSet<object>();
-        private List<object> _selectedKeys = new List<object>();
+        private readonly List<object> _selectedKeys = new List<object>();
 
         private int _changeEventSuppressionCount;
         private List<TItem> _selectedItems = new List<TItem>();

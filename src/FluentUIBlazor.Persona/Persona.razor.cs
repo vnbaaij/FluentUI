@@ -33,12 +33,12 @@ namespace FluentUI
         [Parameter] public string Text { get; set; }
 
         private ICollection<IRule> PersonaLocalRules { get; set; } = new List<IRule>();
-        private Rule PersonaRootRule = new Rule();
-        private Rule DetailsRule = new Rule();
-        private Rule PrimaryTextRule = new Rule();
-        private Rule SecondaryTextRule = new Rule();
-        private Rule TertiaryTextRule = new Rule();
-        private Rule OptionalTextRule = new Rule();
+        private readonly Rule PersonaRootRule = new Rule();
+        private readonly Rule DetailsRule = new Rule();
+        private readonly Rule PrimaryTextRule = new Rule();
+        private readonly Rule SecondaryTextRule = new Rule();
+        private readonly Rule TertiaryTextRule = new Rule();
+        private readonly Rule OptionalTextRule = new Rule();
 
         private const string LocalSpecificityClass = "localPersonaRule";
 

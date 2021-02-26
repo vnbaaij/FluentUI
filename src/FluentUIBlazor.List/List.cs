@@ -13,7 +13,7 @@ namespace FluentUI
 {
     public class List<TItem> : FluentUIComponentBase, IAsyncDisposable
     {
-        private IJSRuntime? _jsInterop;
+        private readonly IJSRuntime? _jsInterop;
 
         private ElementReference _spacerBefore;
 

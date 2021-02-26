@@ -25,7 +25,7 @@ namespace FluentUI
 
         //public static readonly int[] Responsive_Max_Constraint = { 479, 639, 1023, 1365, 1919, 99999999 };
 
-        private string _id = "B" + Guid.NewGuid().ToString();
+        private readonly string _id = "B" + Guid.NewGuid().ToString();
 
         //private string GenerateMediaQuery()
         //{

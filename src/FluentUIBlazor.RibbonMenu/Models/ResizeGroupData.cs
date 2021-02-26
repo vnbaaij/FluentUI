@@ -15,7 +15,8 @@ namespace FluentUI.Models
 
 
         public event EventHandler Changed;
-        IEnumerable<IRibbonItem> allItems;
+
+        readonly IEnumerable<IRibbonItem> allItems;
 
         public ResizeGroupData(IEnumerable<IRibbonItem> allItems, bool isLastGroupInTab)// IEnumerable<IRibbonItem> items, IEnumerable<IRibbonItem> overflowItems, string cacheKey)
         {

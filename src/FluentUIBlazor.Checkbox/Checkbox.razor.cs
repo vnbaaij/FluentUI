@@ -81,7 +81,7 @@ namespace FluentUI
 
         private FieldIdentifier FieldIdentifier;
 
-        private string Id = Guid.NewGuid().ToString();
+        private readonly string Id = Guid.NewGuid().ToString();
         private bool _isChecked;
         private bool _reversed;
         private bool _indeterminate;

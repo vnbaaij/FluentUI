@@ -5,7 +5,7 @@ namespace FluentUI.ResizeGroupInternal
 {
     public class InteropHelper
     {
-        private Action<bool> _resizeHappenedTrigger;
+        private readonly Action<bool> _resizeHappenedTrigger;
 
         public InteropHelper(Action<bool> resizeHappenedTrigger)
         {

@@ -103,13 +103,13 @@ namespace FluentUI
         private bool isCheckboxHidden;
         private bool isCheckboxAlwaysVisible;
         private int frozenColumnCountFromStart;
-        private int frozenColumnCountFromEnd;
+        private readonly int frozenColumnCountFromEnd;
 
         private string id;
-        private object dragDropHelper;
+        private readonly object dragDropHelper;
         private (int SourceIndex, int TargetIndex) onDropIndexInfo;
         private int currentDropHintIndex;
-        private int draggedColumnIndex = -1;
+        private readonly int draggedColumnIndex = -1;
 
         private bool isResizingColumn;
 
@@ -117,14 +117,14 @@ namespace FluentUI
 
         //state
         //private bool isAllSelected;
-        private bool isAllCollapsed;
+        private readonly bool isAllCollapsed;
         private bool isSizing;
         private int resizeColumnIndex;
         private double resizeColumnMinWidth;
         private double resizeColumnOriginX;
 
         private DotNetObjectReference<DetailsHeader<TItem>>? dotNetRef;
-        private ElementReference cellSizer;
+        private readonly ElementReference cellSizer;
 
         protected override Task OnInitializedAsync()
         {

@@ -50,12 +50,12 @@ namespace FluentUI
         // for debugging only
         [CascadingParameter(Name = "PortalId")] public string PortalId { get; set; }
 
-        private bool isOpen = false;
+        private readonly bool isOpen = false;
 
         private bool HasIcons = false; //needed to shift margins and make space for all 
         private bool HasCheckables = false;
 
-        private FocusZone _focusZoneReference;
+        private readonly FocusZone _focusZoneReference;
 
         public string SubmenuActiveKey { get; set; }
         //public void SetSubmenuActiveKey(string key)

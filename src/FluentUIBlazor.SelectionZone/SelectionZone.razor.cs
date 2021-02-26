@@ -70,7 +70,7 @@ namespace FluentUI
         [Inject]
         private IJSRuntime? JSRuntime { get; set; }
 
-        private bool isModal = false;
+        private readonly bool isModal = false;
 
         private bool doNotRenderOnce = false;
 
