@@ -44,8 +44,8 @@ namespace FluentUI
         protected bool isSelected { get; set; }
         protected string depthClass = "";
 
-        private readonly Rule NavLinkLeftPaddingRule = new Rule();
-        private readonly Rule ChevronButtonLeftRule = new Rule();
+        private readonly Rule NavLinkLeftPaddingRule = new();
+        private readonly Rule ChevronButtonLeftRule = new();
         private ICollection<IRule> NavLinkLocalRules { get; set; } = new List<IRule>();
 
 

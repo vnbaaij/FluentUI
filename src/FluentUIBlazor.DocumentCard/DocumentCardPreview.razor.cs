@@ -26,7 +26,7 @@ namespace FluentUI
 
         public bool IsFileList => PreviewImages != null && PreviewImages.Length > 1;
 
-        public static Dictionary<string, string> GlobalClassNames = new Dictionary<string, string>()
+        public static Dictionary<string, string> GlobalClassNames = new()
         {
             {"root", "ms-DocumentCardPreview"},
             {"icon", "ms-DocumentCardPreview-icon"},
@@ -34,15 +34,15 @@ namespace FluentUI
         };
         private ICollection<IRule> DocumentCardDetailsLocalRules { get; set; } = new List<IRule>();
 
-        private readonly Rule RootRule = new Rule();
-        private readonly Rule PreviewIconRule = new Rule();
-        private readonly Rule IconRule = new Rule();
-        private readonly Rule FileListRule = new Rule();
-        private readonly Rule FileListLiRule = new Rule();
-        private readonly Rule FileListIconRule = new Rule();
-        private readonly Rule FileListLinkRule = new Rule();
-        private readonly Rule FileListLinkHoverRule = new Rule();
-        private readonly Rule FileListOverflowTextRule = new Rule();
+        private readonly Rule RootRule = new();
+        private readonly Rule PreviewIconRule = new();
+        private readonly Rule IconRule = new();
+        private readonly Rule FileListRule = new();
+        private readonly Rule FileListLiRule = new();
+        private readonly Rule FileListIconRule = new();
+        private readonly Rule FileListLinkRule = new();
+        private readonly Rule FileListLinkHoverRule = new();
+        private readonly Rule FileListOverflowTextRule = new();
 
         private void CreateLocalCss()
         {

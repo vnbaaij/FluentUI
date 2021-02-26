@@ -9,7 +9,7 @@ namespace FluentUI
 {
     public partial class FocusTrapZone : FluentUIComponentBase, IDisposable
     {
-        protected static Stack<FocusTrapZone> _focusStack = new Stack<FocusTrapZone>();
+        protected static Stack<FocusTrapZone> _focusStack = new();
 
         [Inject]
         private IJSRuntime jsRuntime { get; set; }
@@ -63,7 +63,7 @@ namespace FluentUI
         {
             if (_id != -1)
             {
-                FocusTrapZoneProps props = new FocusTrapZoneProps(this, _firstBumper, _lastBumper);
+                FocusTrapZoneProps props = new(this, _firstBumper, _lastBumper);
                 await jsRuntime.InvokeVoidAsync("FluentUIFocusTrapZone.updateProps", _id, props);
             }
 
@@ -82,7 +82,7 @@ namespace FluentUI
 
         private async void RegisterFocusTrapZone()
         {
-            FocusTrapZoneProps props = new FocusTrapZoneProps(this, _firstBumper, _lastBumper);
+            FocusTrapZoneProps props = new(this, _firstBumper, _lastBumper);
             _id = await jsRuntime.InvokeAsync<int>("FluentUIFocusTrapZone.register", props, DotNetObjectReference.Create(this));
         }
      

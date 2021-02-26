@@ -29,7 +29,7 @@ namespace FluentUI.Resize
         protected ElementReference updateHiddenDiv;
 
         private readonly bool _hasRenderedContent = false;
-        private readonly Dictionary<string, double> _measurementCache = new Dictionary<string, double>();
+        private readonly Dictionary<string, double> _measurementCache = new();
 
         //STATE
         private bool _jsAvailable;
@@ -38,7 +38,7 @@ namespace FluentUI.Resize
         private ValueTask<string> _resizeEventTokenTask;  // WARNING - can only await this ONCE
 
         private Task<Rectangle> boundsTask;
-        private readonly CancellationTokenSource boundsCTS = new CancellationTokenSource();
+        private readonly CancellationTokenSource boundsCTS = new();
 
         protected override Task OnInitializedAsync()
         {

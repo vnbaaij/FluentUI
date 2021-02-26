@@ -59,11 +59,11 @@ namespace FluentUI
         [Parameter] public RenderFragment<T> SearchItemTemplate { get; set; }
         [Parameter] public RenderFragment<T> SelectedItemTemplate { get; set; }
 
-        readonly List<object> suggestions = new List<object>();
+        readonly List<object> suggestions = new();
         protected bool isOpen { get; set; }
 
         readonly TextField textFieldRef;
-        readonly List<SelectedItem<T>> selectedItemsVisuals = new List<SelectedItem<T>>();
+        readonly List<SelectedItem<T>> selectedItemsVisuals = new();
 
         private ICollection<IRule> DropdownLocalRules { get; set; } = new List<IRule>();
 

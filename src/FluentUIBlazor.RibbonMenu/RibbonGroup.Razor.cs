@@ -23,7 +23,7 @@ namespace FluentUI
 
 
         private readonly Task<Rectangle>? boundsTask;
-        private readonly CancellationTokenSource boundsCTS = new CancellationTokenSource();
+        private readonly CancellationTokenSource boundsCTS = new();
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             try
@@ -39,8 +39,8 @@ namespace FluentUI
             await base.OnAfterRenderAsync(firstRender);
         }
 
-        readonly List<IRibbonItem> items = new List<IRibbonItem>();
-        readonly List<IRibbonItem> overflowItems = new List<IRibbonItem>();
+        readonly List<IRibbonItem> items = new();
+        readonly List<IRibbonItem> overflowItems = new();
         readonly Func<ResizeGroupData, ResizeGroupData> onGrowData;
         readonly Func<ResizeGroupData, ResizeGroupData> onReduceData;
 

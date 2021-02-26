@@ -35,7 +35,7 @@ namespace FluentUI
 
         private double _containerDimension = double.NaN;
         private bool _hasRenderedContent = false;
-        private readonly Dictionary<string, double> _measurementCache = new Dictionary<string, double>();
+        private readonly Dictionary<string, double> _measurementCache = new();
 
         //STATE
         private TObject _renderedData;
@@ -48,10 +48,10 @@ namespace FluentUI
         private ValueTask<string> _resizeEventTokenTask;  // WARNING - can only await this ONCE
 
         private Task<Rectangle> boundsTask;
-        private readonly CancellationTokenSource boundsCTS = new CancellationTokenSource();
+        private readonly CancellationTokenSource boundsCTS = new();
 
         private Task<ResizeGroupState<TObject>> nextStateTask;
-        private readonly CancellationTokenSource nextStateCTS = new CancellationTokenSource();
+        private readonly CancellationTokenSource nextStateCTS = new();
 
         protected override Task OnInitializedAsync()
         {
@@ -182,7 +182,7 @@ namespace FluentUI
                 // If we know what the last container size was and we rendered data at that width/height, we can do an optimized render
                 if (!double.IsNaN(oldContainerDimension) && renderedData != null && dataToMeasure == null)
                 {
-                    ResizeGroupState<TObject> state = new ResizeGroupState<TObject>(renderedData, resizeDirection, dataToMeasure);
+                    ResizeGroupState<TObject> state = new(renderedData, resizeDirection, dataToMeasure);
                     ResizeGroupState<TObject> alteredState = UpdateContainerDimension(oldContainerDimension, newContainerDimension, Data, renderedData);
                     state.ReplaceProperties(alteredState);
                     return state;
@@ -191,7 +191,7 @@ namespace FluentUI
                 replacementContainerDimension = newContainerDimension;
             }
 
-            ResizeGroupState<TObject> nextState = new ResizeGroupState<TObject>(renderedData, resizeDirection, dataToMeasure);
+            ResizeGroupState<TObject> nextState = new(renderedData, resizeDirection, dataToMeasure);
             nextState.MeasureContainer = false;
             if (replacementContainerDimension != oldContainerDimension)
                 nextState.ContainerDimension = replacementContainerDimension;

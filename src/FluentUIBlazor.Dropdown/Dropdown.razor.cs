@@ -52,7 +52,7 @@ namespace FluentUI
 
         protected string id = Guid.NewGuid().ToString();
         protected bool isSmall = false;
-        protected Rectangle dropDownBounds = new Rectangle();
+        protected Rectangle dropDownBounds = new();
 
         private readonly ElementReference calloutReference;
         private readonly ElementReference panelReference;
@@ -67,9 +67,9 @@ namespace FluentUI
         #region Style
         private ICollection<IRule> DropdownLocalRules { get; set; } = new List<IRule>();
 
-        private readonly Rule DropdownTitleOpenRule = new Rule();
-        private readonly Rule DropdownCalloutRule = new Rule();
-        private readonly Rule DropdownCalloutMainRule = new Rule();
+        private readonly Rule DropdownTitleOpenRule = new();
+        private readonly Rule DropdownCalloutRule = new();
+        private readonly Rule DropdownCalloutMainRule = new();
         #endregion
 
         protected override Task OnInitializedAsync()

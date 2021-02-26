@@ -13,9 +13,9 @@ namespace FluentUI
         [Parameter] public RenderFragment? ChildContent { get; set; }
 
         //private int sequenceCount = 0;
-        private readonly Dictionary<string, int> portalSequenceStarts = new Dictionary<string, int>();
-        private readonly List<PortalDetails> portalFragments = new List<PortalDetails>();
-        private readonly Dictionary<string, LayerPortal> portals = new Dictionary<string, LayerPortal>();
+        private readonly Dictionary<string, int> portalSequenceStarts = new();
+        private readonly List<PortalDetails> portalFragments = new();
+        private readonly Dictionary<string, LayerPortal> portals = new();
 
 
         private void Portals_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

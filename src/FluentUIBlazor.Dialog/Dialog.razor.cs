@@ -48,8 +48,8 @@ namespace FluentUI
         private string _defaultMinWidth;
         private string _defaultMaxWidth;
         private ICollection<IRule> DialogLocalRules { get; set; } = new List<IRule>();
-        private readonly Rule DialogMainRule = new Rule();
-        private readonly Rule DialogMainMediaRule = new Rule();
+        private readonly Rule DialogMainRule = new();
+        private readonly Rule DialogMainMediaRule = new();
 
 
         public Dialog()

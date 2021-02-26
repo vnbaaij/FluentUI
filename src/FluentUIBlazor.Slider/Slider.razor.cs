@@ -46,11 +46,11 @@ namespace FluentUI
         private double value;
         private bool jsAvailable;
         private DotNetObjectReference<Slider>? dotNetObjectReference;
-        private readonly Timer timer = new Timer();
+        private readonly Timer timer = new();
 
         private string lengthString => (Vertical ? "height" : "width");
 
-        public static Dictionary<string, string> GlobalClassNames = new Dictionary<string, string>()
+        public static Dictionary<string, string> GlobalClassNames = new()
         {
             {"root", "ms-Slider"},
             {"enabled", "ms-Slider-enabled"},

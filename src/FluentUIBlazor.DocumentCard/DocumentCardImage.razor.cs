@@ -10,10 +10,10 @@ namespace FluentUI
     {
         private ICollection<IRule> DocumentCardImageRules { get; set; } = new List<IRule>();
 
-        private readonly Rule RootRule = new Rule();
-        private readonly Rule CenteredIconRule = new Rule();
-        private readonly Rule CenteredIconWrapperRule = new Rule();
-        private readonly Rule CornerIconRule = new Rule();
+        private readonly Rule RootRule = new();
+        private readonly Rule CenteredIconRule = new();
+        private readonly Rule CenteredIconWrapperRule = new();
+        private readonly Rule CornerIconRule = new();
         private const string CenteredIconSize = "42px";
         private const string CornerIconSize = "32px";
         private bool ImageLoaded = false;
@@ -35,7 +35,7 @@ namespace FluentUI
         [Parameter]
         public ImageFit ImageFit { get; set; } = ImageFit.Unset;
 
-        public static Dictionary<string, string> GlobalClassNames = new Dictionary<string, string>()
+        public static Dictionary<string, string> GlobalClassNames = new()
         {
             {"root", "root"},
             {"centeredIcon", "centeredIcon"},

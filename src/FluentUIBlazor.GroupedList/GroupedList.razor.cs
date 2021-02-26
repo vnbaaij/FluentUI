@@ -73,7 +73,7 @@ namespace FluentUI
         [Parameter]
         public Func<TItem, IEnumerable<TItem>> SubGroupSelector { get; set; }
 
-        readonly Dictionary<HeaderItem3<TItem, TKey>, IDisposable> headerSubscriptions = new Dictionary<HeaderItem3<TItem, TKey>, IDisposable>();
+        readonly Dictionary<HeaderItem3<TItem, TKey>, IDisposable> headerSubscriptions = new();
 
 
         protected override Task OnInitializedAsync()
@@ -150,7 +150,7 @@ namespace FluentUI
                         int cummulativeCount = 0;
                         for (int i =0; i< _itemsSource.Count; i++)
                         {
-                            HeaderItem3<TItem, TKey> group = new HeaderItem3<TItem, TKey>(_itemsSource[i], 0, cummulativeCount, SubGroupSelector, GroupTitleSelector);
+                            HeaderItem3<TItem, TKey> group = new(_itemsSource[i], 0, cummulativeCount, SubGroupSelector, GroupTitleSelector);
                             dataItems.Add(group);
                             int subItemCount = GroupedList<TItem, TKey>.GetPlainItemsCount(_itemsSource[i], SubGroupSelector);
                             cummulativeCount += subItemCount;

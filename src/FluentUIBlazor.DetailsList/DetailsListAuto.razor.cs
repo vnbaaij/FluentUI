@@ -100,7 +100,7 @@ namespace FluentUI
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
 
-        private Selection<TItem> _selection = new Selection<TItem>();
+        private Selection<TItem> _selection = new();
 
         //State
         readonly int focusedItemIndex;
@@ -110,7 +110,7 @@ namespace FluentUI
         Viewport _viewport;
         private IEnumerable<DetailsRowColumn<TItem>> _adjustedColumns = Enumerable.Empty<DetailsRowColumn<TItem>>();
         const double MIN_COLUMN_WIDTH = 100;
-        readonly Dictionary<string, double> _columnOverrides = new Dictionary<string, double>();
+        readonly Dictionary<string, double> _columnOverrides = new();
         readonly GroupedListAuto<TItem,object>? groupedList;
         readonly List<TItem>? list;
         readonly SelectionZone<TItem>? selectionZone;
@@ -129,7 +129,7 @@ namespace FluentUI
         private readonly IObservable<Func<TItem, bool>>? DynamicDescriptionFilter;
         private IEnumerable<TItem>? itemsSource;
         private IDisposable? sourceCacheSubscription;
-        private readonly Subject<Unit> applyFilter = new Subject<Unit>();
+        private readonly Subject<Unit> applyFilter = new();
 
         private Func<TItem, object> getKeyInternal;
 
@@ -138,7 +138,7 @@ namespace FluentUI
         private DotNetObjectReference<DetailsListAuto<TItem>> selfReference;
         private int _viewportRegistration;
 
-        private readonly Dictionary<object, DetailsRow<TItem>> _activeRows = new Dictionary<object, DetailsRow<TItem>>();
+        private readonly Dictionary<object, DetailsRow<TItem>> _activeRows = new();
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -605,7 +605,7 @@ namespace FluentUI
             double availableWidth = viewportWidth - (rowCheckWidth + groupExpandedWidth);
             int count = 0;
 
-            System.Collections.Generic.List<DetailsRowColumn<TItem>> adjustedColumns = new System.Collections.Generic.List<DetailsRowColumn<TItem>>();
+            System.Collections.Generic.List<DetailsRowColumn<TItem>> adjustedColumns = new();
             foreach (DetailsRowColumn<TItem> col in newColumns)
             {
                 adjustedColumns.Add(col);

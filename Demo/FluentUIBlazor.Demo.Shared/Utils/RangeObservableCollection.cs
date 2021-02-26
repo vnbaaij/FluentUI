@@ -191,7 +191,7 @@ namespace System.Collections.ObjectModel
 
             CheckReentrancy();
 
-            Dictionary<int, List<T>> clusters = new Dictionary<int, List<T>>();
+            Dictionary<int, List<T>> clusters = new();
             int lastIndex = -1;
             List<T>? lastCluster = null;
             foreach (T item in collection)
@@ -659,8 +659,8 @@ namespace System.Collections.ObjectModel
     /// </remarks>
     internal static class EventArgsCache
     {
-        internal static readonly PropertyChangedEventArgs CountPropertyChanged = new PropertyChangedEventArgs("Count");
-        internal static readonly PropertyChangedEventArgs IndexerPropertyChanged = new PropertyChangedEventArgs("Item[]");
-        internal static readonly NotifyCollectionChangedEventArgs ResetCollectionChanged = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset);
+        internal static readonly PropertyChangedEventArgs CountPropertyChanged = new("Count");
+        internal static readonly PropertyChangedEventArgs IndexerPropertyChanged = new("Item[]");
+        internal static readonly NotifyCollectionChangedEventArgs ResetCollectionChanged = new(NotifyCollectionChangedAction.Reset);
     }
 }

@@ -13,9 +13,9 @@ namespace FluentUI
 {
     public class ComponentStyle : IComponentStyle
     {
-        private static readonly Dictionary<Type, List<PropertyInfo>> _propertyDictionary = new Dictionary<Type, List<PropertyInfo>>();
-        private static readonly Dictionary<PropertyInfo, List<Attribute>> _attributeDictionary = new Dictionary<PropertyInfo, List<Attribute>>();
-        private static readonly Dictionary<PropertyInfo, Func<object, object>> _rulePropertiesGetters = new Dictionary<PropertyInfo, Func<object, object>>();
+        private static readonly Dictionary<Type, List<PropertyInfo>> _propertyDictionary = new();
+        private static readonly Dictionary<PropertyInfo, List<Attribute>> _attributeDictionary = new();
+        private static readonly Dictionary<PropertyInfo, Func<object, object>> _rulePropertiesGetters = new();
 
         public bool isClient { get; } = RuntimeInformation.IsOSPlatform(OSPlatform.Create("WEBASSEMBLY"));
 
@@ -184,7 +184,7 @@ namespace FluentUI
 
         private ICollection<string>? GetAllGlobalCSRules()
         {
-            HashSet<string> globalCSRules = new HashSet<string>();
+            HashSet<string> globalCSRules = new();
             bool update = false;
             foreach (IGlobalCSSheet styleSheet in GlobalRulesSheets)
             {

@@ -6,7 +6,7 @@ namespace FluentUI.Style
     {
         public static IList<Rule> GetPlaceholderStyle(string selectorName ,IRuleProperties properties)
         {
-            List<Rule> placeholderRules = new List<Rule>();
+            List<Rule> placeholderRules = new();
 
             placeholderRules.Add(new Rule()
             {

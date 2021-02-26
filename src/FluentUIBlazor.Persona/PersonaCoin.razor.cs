@@ -31,17 +31,17 @@ namespace FluentUI
         private bool _isImageLoaded;
         private bool _isImageError;
         private readonly bool _hideImage;
-        readonly Regex UNWANTED_CHARS_REGEX = new Regex(@"\([^)]*\)|[\0-\u001F\!-/:-@\[-`\{-\u00BF\u0250-\u036F\uD800-\uFFFF]");
-        readonly Regex PHONENUMBER_REGEX = new Regex(@"^\d+[\d\s]*(:?ext|x|)\s*\d+$");
-        readonly Regex MULTIPLE_WHITESPACES_REGEX = new Regex(@"\s+");
-        readonly Regex UNSUPPORTED_TEXT_REGEX = new Regex(@"[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\u1100-\u11FF\u3130-\u318F\uA960-\uA97F\uAC00-\uD7AF\uD7B0-\uD7FF\u3040-\u309F\u30A0-\u30FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]|[\uD840-\uD869][\uDC00-\uDED6]");
+        readonly Regex UNWANTED_CHARS_REGEX = new(@"\([^)]*\)|[\0-\u001F\!-/:-@\[-`\{-\u00BF\u0250-\u036F\uD800-\uFFFF]");
+        readonly Regex PHONENUMBER_REGEX = new(@"^\d+[\d\s]*(:?ext|x|)\s*\d+$");
+        readonly Regex MULTIPLE_WHITESPACES_REGEX = new(@"\s+");
+        readonly Regex UNSUPPORTED_TEXT_REGEX = new(@"[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\u1100-\u11FF\u3130-\u318F\uA960-\uA97F\uAC00-\uD7AF\uD7B0-\uD7FF\u3040-\u309F\u30A0-\u30FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]|[\uD840-\uD869][\uDC00-\uDED6]");
 
         private const string LocalSpecificityClass = "localPersonaCoinRule";
 
         private ICollection<IRule> PersonaCoinLocalRules { get; set; } = new List<IRule>();
-        private readonly Rule InitialsRule = new Rule();
-        private readonly Rule ImageAreaRule = new Rule();
-        private readonly Rule ImageRule = new Rule();
+        private readonly Rule InitialsRule = new();
+        private readonly Rule ImageAreaRule = new();
+        private readonly Rule ImageRule = new();
 
 
         protected override Task OnInitializedAsync()

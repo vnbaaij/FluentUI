@@ -107,7 +107,7 @@ namespace FluentUI
         private readonly Func<TItem, object> getKeyInternal;
         private readonly IDisposable sourceCacheSubscription;
         private readonly ReadOnlyObservableCollection<IGroupedListItem3<TItem>> groupedUIListItems;
-        readonly Dictionary<HeaderItem3<TItem, TKey>, IDisposable> headerSubscriptions = new Dictionary<HeaderItem3<TItem, TKey>, IDisposable>();
+        readonly Dictionary<HeaderItem3<TItem, TKey>, IDisposable> headerSubscriptions = new();
 
         //private IList<bool>? _sortDescending;
         //private IList<Func<TItem, object>>? _sortBy;

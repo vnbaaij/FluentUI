@@ -12,7 +12,7 @@ namespace FluentUI.Demo.Shared.Models
     {
         public class DataItemGrouped
         {
-            public static Random random = new Random();
+            public static Random random = new();
 
             public DataItemGrouped()
             {

@@ -60,7 +60,7 @@ namespace FluentUI
         }
         public static ICollection<IRule> CreateGlobalCss(ITheme theme)
         {
-            HashSet<IRule> spinnerRules = new HashSet<IRule>();
+            HashSet<IRule> spinnerRules = new();
             spinnerRules.Add(new Rule()
             {
                 Selector = new CssStringSelector() { SelectorName = ".ms-Spinner" },

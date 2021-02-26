@@ -91,9 +91,9 @@ namespace FluentUI
         Viewport _viewport;
         private IEnumerable<DetailsRowColumn<TItem>> _adjustedColumns = Enumerable.Empty<DetailsRowColumn<TItem>>();
         const double MIN_COLUMN_WIDTH = 100;
-        readonly Dictionary<string, double> _columnOverrides = new Dictionary<string, double>();
+        readonly Dictionary<string, double> _columnOverrides = new();
 
-        private Selection<TItem> _selection = new Selection<TItem>();
+        private Selection<TItem> _selection = new();
         readonly GroupedList<TItem,object> groupedList;
         readonly List<TItem> list;
         readonly SelectionZone<TItem> selectionZone;
@@ -330,7 +330,7 @@ namespace FluentUI
             double availableWidth = viewportWidth - (rowCheckWidth + groupExpandedWidth);
             int count = 0;
 
-            System.Collections.Generic.List<DetailsRowColumn<TItem>> adjustedColumns = new System.Collections.Generic.List<DetailsRowColumn<TItem>>();
+            System.Collections.Generic.List<DetailsRowColumn<TItem>> adjustedColumns = new();
             foreach (DetailsRowColumn<TItem> col in newColumns)
             {
                 adjustedColumns.Add(col);

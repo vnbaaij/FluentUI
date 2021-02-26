@@ -405,7 +405,7 @@ namespace FluentUI
                 cancellationToken = _refreshCts.Token;
             }
 
-            ItemsProviderRequest request = new ItemsProviderRequest(_itemsBefore, _visibleItemCapacity, cancellationToken);
+            ItemsProviderRequest request = new(_itemsBefore, _visibleItemCapacity, cancellationToken);
 
             try
             {

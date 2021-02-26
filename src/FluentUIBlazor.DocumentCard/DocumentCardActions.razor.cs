@@ -22,19 +22,19 @@ namespace FluentUI
 
         private ICollection<IRule> DocumentCardActionsRules { get; set; } = new List<IRule>();
 
-        private readonly Rule RootRule = new Rule();
-        private readonly Rule ActionRule = new Rule();
-        private readonly Rule ActionButtonRule = new Rule();
-        private readonly Rule ActionButtonHoverRule = new Rule();
-        private readonly Rule ViewsRule = new Rule();
-        private readonly Rule ViewsIconRule = new Rule();
+        private readonly Rule RootRule = new();
+        private readonly Rule ActionRule = new();
+        private readonly Rule ActionButtonRule = new();
+        private readonly Rule ActionButtonHoverRule = new();
+        private readonly Rule ViewsRule = new();
+        private readonly Rule ViewsIconRule = new();
 
         private const int ACTION_SIZE = 34;
         private const int HORIZONTAL_PADDING = 12;
         private const int VERTICAL_PADDING = 4;
 
 
-        public static Dictionary<string, string> GlobalClassNames = new Dictionary<string, string>()
+        public static Dictionary<string, string> GlobalClassNames = new()
         {
             {"root", "ms-DocumentCardActions"},
             {"action", "ms-DocumentCardActions-action"},

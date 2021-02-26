@@ -119,8 +119,8 @@ namespace FluentUI
         private BehaviorSubject<IComparer<IGroupedListItem3<TItem>>> subGroupSortExpressionComparer;// = new BehaviorSubject<IComparer<IGroupedListItem3<TItem>>>(new SortExpressionComparer<IGroupedListItem3<TItem>>());
         private readonly bool _groupSortDescending;
 
-        private readonly Subject<Unit> resorter = new Subject<Unit>();
-        readonly Dictionary<HeaderItem3<TItem,TKey>, IDisposable> headerSubscriptions = new Dictionary<HeaderItem3<TItem, TKey>, IDisposable>();
+        private readonly Subject<Unit> resorter = new();
+        readonly Dictionary<HeaderItem3<TItem,TKey>, IDisposable> headerSubscriptions = new();
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -313,7 +313,7 @@ namespace FluentUI
                     sortExpression = new OriginalSortComparer<TItem>(ItemsSource);
                 //    sortExpression = (sortExpression as SortExpressionComparer<TItem>).Add(ThenByAscending(new OriginalSortComparer<TItem>(ItemsSource));
 
-                OriginalGroupSortComparer<TItem> subGroupListSortExpression = new OriginalGroupSortComparer<TItem>(ItemsSource); //new SortExpression<IGroupedListItem3<TItem>>((x,y)=> x.Item);
+                OriginalGroupSortComparer<TItem> subGroupListSortExpression = new(ItemsSource); //new SortExpression<IGroupedListItem3<TItem>>((x,y)=> x.Item);
 
                 if (sortExpressionComparer == null)
                     sortExpressionComparer = new BehaviorSubject<IComparer<TItem>>(sortExpression);
@@ -431,9 +431,9 @@ namespace FluentUI
             IConnectableObservable<IChangeSet<TItem, TKey>> published = sourceCache.Connect()                
                 .Publish();
 
-            Subject<Unit> reindexTrigger = new Subject<Unit>();
+            Subject<Unit> reindexTrigger = new();
 
-            ReplaySubject<IConnectableObservable<ISortedChangeSet<IGroupedListItem3<TItem>, object>>> futureGroups = new ReplaySubject<IConnectableObservable<ISortedChangeSet<IGroupedListItem3<TItem>, object>>>();
+            ReplaySubject<IConnectableObservable<ISortedChangeSet<IGroupedListItem3<TItem>, object>>> futureGroups = new();
 
             IConnectableObservable<ISortedChangeSet<IGroup<TItem, TKey, object>, object>> groupsPublished = published.Group(firstGrouping)
                 .Sort(SortExpressionComparer<IGroup<TItem, TKey, object>>.Ascending(x => x.Key as IComparable))

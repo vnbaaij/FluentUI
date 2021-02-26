@@ -106,7 +106,7 @@ namespace FluentUI
 
         private readonly Action onPanelClick;
         private readonly Action _dismiss;
-        private readonly List<int> _scrollerEventId = new List<int>();
+        private readonly List<int> _scrollerEventId = new();
         private int _resizeId = -1;
         private int _mouseDownId = -1;
 

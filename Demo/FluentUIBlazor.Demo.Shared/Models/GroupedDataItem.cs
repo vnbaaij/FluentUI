@@ -12,7 +12,7 @@ namespace FluentUI.Demo.Shared.Models
 {
     public class GroupedDataItem : DataItem
     {
-        private readonly System.Reactive.Disposables.CompositeDisposable disposables = new System.Reactive.Disposables.CompositeDisposable();
+        private readonly System.Reactive.Disposables.CompositeDisposable disposables = new();
         public System.Collections.Generic.List<GroupedDataItem> Data { get; set; }
         public IObservableCollection<GroupedDataItem> ObservableData { get; set; } = new ObservableCollectionExtended<GroupedDataItem>();
 

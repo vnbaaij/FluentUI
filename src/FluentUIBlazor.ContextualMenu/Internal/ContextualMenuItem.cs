@@ -57,7 +57,7 @@ namespace FluentUI.ContextualMenuInternal
 
         //private ElementReference linkElementReference;
         //private List<int> eventHandlerIds;
-        private readonly Timer enterTimer = new Timer();
+        private readonly Timer enterTimer = new();
 
 
         //[JSInvokable] public void MouseEnterHandler()

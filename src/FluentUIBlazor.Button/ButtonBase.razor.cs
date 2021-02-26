@@ -63,7 +63,7 @@ namespace FluentUI
         private object _registrationToken;
 
         private readonly bool _menuShouldFocusOnMount = true;
-        static readonly List<ButtonBase> radioButtons = new List<ButtonBase>();
+        static readonly List<ButtonBase> radioButtons = new();
 
         protected override Task OnParametersSetAsync()
         {

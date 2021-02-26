@@ -30,9 +30,9 @@ namespace FluentUI
         private const int marginBetweenText = 8;
         private const int textHeight = 18;
         private readonly bool isRTL = false;
-        private readonly Rule ProgressIndicatorItemProgressRule = new Rule();
-        private readonly Rule ProgressIndicatorProgressTrackRule = new Rule();
-        private readonly Rule ProgressIndicatorProgressBarRule = new Rule();
+        private readonly Rule ProgressIndicatorItemProgressRule = new();
+        private readonly Rule ProgressIndicatorProgressTrackRule = new();
+        private readonly Rule ProgressIndicatorProgressBarRule = new();
 
         private ICollection<IRule> ProgressIndicatorLocalRules { get; set; } = new List<IRule>();
 

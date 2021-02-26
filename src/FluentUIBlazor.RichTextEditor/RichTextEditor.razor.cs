@@ -277,7 +277,7 @@ namespace FluentUI
 
         private ICollection<IRule> CreateGlobalCss()
         {
-            HashSet<IRule> richTextEditorGlobalRules = new HashSet<IRule>();
+            HashSet<IRule> richTextEditorGlobalRules = new();
             richTextEditorGlobalRules.Add(new Rule()
             {
                 Selector = new CssStringSelector() { SelectorName = ".bf-richTextEditor" },
