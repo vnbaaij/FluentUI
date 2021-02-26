@@ -160,7 +160,7 @@ namespace FluentUI
             focusOnUpdate = true;
         }
 
-    protected Task OnDatePickerPopupKeyDown(KeyboardEventArgs keyboardEventArgs)
+    protected static Task OnDatePickerPopupKeyDown(KeyboardEventArgs keyboardEventArgs)
         {
             return Task.CompletedTask;
         }

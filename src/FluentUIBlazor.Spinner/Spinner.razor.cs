@@ -58,7 +58,7 @@ namespace FluentUI
                     return " ms-Spinner--medium";
             }
         }
-        public ICollection<IRule> CreateGlobalCss(ITheme theme)
+        public static ICollection<IRule> CreateGlobalCss(ITheme theme)
         {
             HashSet<IRule> spinnerRules = new HashSet<IRule>();
             spinnerRules.Add(new Rule()

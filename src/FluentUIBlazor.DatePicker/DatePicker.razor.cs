@@ -126,7 +126,7 @@ namespace FluentUI
             return base.SetParametersAsync(parameters);
         }
 
-        int DateTimeCompareNullable(DateTime? val1, DateTime? val2)
+        static int DateTimeCompareNullable(DateTime? val1, DateTime? val2)
         {
             if(val1 == null && val2 == null)
             {

@@ -375,7 +375,7 @@ namespace FluentUI.ContextualMenuInternal
             builder.CloseElement();
         }
 
-        private void RenderSubMenuIcon(RenderTreeBuilder builder)
+        private static void RenderSubMenuIcon(RenderTreeBuilder builder)
         {
             builder.OpenComponent<Icon>(65);
             builder.AddAttribute(66, "ClassName", "ms-ContextualMenu-submenuIcon");

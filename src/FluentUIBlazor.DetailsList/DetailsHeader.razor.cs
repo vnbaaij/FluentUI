@@ -191,7 +191,7 @@ namespace FluentUI
             }
         }
 
-        private void OnToggleCollapseAll(MouseEventArgs mouseEventArgs)
+        private static void OnToggleCollapseAll(MouseEventArgs mouseEventArgs)
         {
             
         }
@@ -227,7 +227,7 @@ namespace FluentUI
             isSizing = false;
         }
 
-        private void UpdateDragInfo(int itemIndex)
+        private static void UpdateDragInfo(int itemIndex)
         {
 
         }

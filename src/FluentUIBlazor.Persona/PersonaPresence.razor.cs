@@ -83,7 +83,7 @@ namespace FluentUI
         //        return "";
         //}
 
-        protected string DetermineIcon(PersonaPresenceStatus presence, bool isOutofOffice)
+        protected static string DetermineIcon(PersonaPresenceStatus presence, bool isOutofOffice)
         {
             if (presence == PersonaPresenceStatus.None)
                 return "";

@@ -286,7 +286,7 @@ namespace FluentUI
             return ruleAsString;
         }
 
-        private List<PropertyInfo> GetCachedProperties(Type type)
+        private static List<PropertyInfo> GetCachedProperties(Type type)
         {
             List<PropertyInfo> properties;
             if (_propertyDictionary.TryGetValue(type, out properties) == false)
@@ -298,7 +298,7 @@ namespace FluentUI
             return properties;
         }
 
-        private Attribute? GetCachedCustomAttribute(PropertyInfo property, Type attributeType)
+        private static Attribute? GetCachedCustomAttribute(PropertyInfo property, Type attributeType)
         {
             Attribute? attribute = null;
             List<Attribute> attributes;

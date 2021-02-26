@@ -470,19 +470,19 @@ namespace FluentUI
             await base.OnAfterRenderAsync(firstRender);
         }
 
-        private void OnHeaderKeyDown(KeyboardEventArgs keyboardEventArgs)
+        private static void OnHeaderKeyDown(KeyboardEventArgs keyboardEventArgs)
         {
             // this was attached in the ms-DetailsList-headerWrapper div.  When holding Ctrl nothing happens (since it's a meta key), but if you click while holding Ctrl, a large number of keydown events is sent to this handler and freezes the UI. 
         }
 
-        private void OnContentKeyDown(KeyboardEventArgs keyboardEventArgs)
+        private static void OnContentKeyDown(KeyboardEventArgs keyboardEventArgs)
         {
             // this was attached in the ms-DetailsList-contentWrapper div.  When holding Ctrl nothing happens (since it's a meta key), but if you click while holding Ctrl, a large number of keydown events is sent to this handler and freezes the UI. 
         }
 
         
 
-        private void OnAllSelected()
+        private static void OnAllSelected()
         {
             //if (GroupBy == null)
             //{
@@ -568,7 +568,7 @@ namespace FluentUI
             return adjustedColumns;
         }
 
-        private IEnumerable<DetailsRowColumn<TItem>> GetFixedColumns(IEnumerable<DetailsRowColumn<TItem>> newColumns)
+        private static IEnumerable<DetailsRowColumn<TItem>> GetFixedColumns(IEnumerable<DetailsRowColumn<TItem>> newColumns)
         {
             foreach (DetailsRowColumn<TItem> col in newColumns)
             {
@@ -669,7 +669,7 @@ namespace FluentUI
             return adjustedColumns;
         }
 
-        private double GetPaddedWidth(DetailsRowColumn<TItem> column, bool isFirst)
+        private static double GetPaddedWidth(DetailsRowColumn<TItem> column, bool isFirst)
         {
             return column.CalculatedWidth +
                     DetailsRow<TItem>.CELL_LEFT_PADDING +
