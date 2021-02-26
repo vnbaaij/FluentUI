@@ -115,8 +115,8 @@ namespace FluentUI
         private Action<PanelVisibilityState> _animateTo;
         private Action _onTransitionComplete;
 
-        private readonly ElementReference panelElement;
-        private readonly ElementReference scrollableContent;
+        private ElementReference panelElement;
+        private ElementReference scrollableContent;
         private bool _scrollerRegistered;
 
         private ElapsedEventHandler _handler = null;

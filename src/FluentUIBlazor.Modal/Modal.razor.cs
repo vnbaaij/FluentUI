@@ -36,7 +36,7 @@ namespace FluentUI
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
-       
+
         [Parameter]
         public EventCallback<EventArgs> OnDismiss { get; set; }
 
@@ -61,7 +61,7 @@ namespace FluentUI
 
         private readonly bool _isOpenDelayed = false;
 
-        private readonly ElementReference allowScrollOnModal;
+        private ElementReference allowScrollOnModal;
 
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
@@ -166,11 +166,11 @@ namespace FluentUI
                 // 27 is Escape code
                 _keydownRegistration = await JSRuntime.InvokeAsync<string>("FluentUIBaseComponent.registerWindowKeyDownEvent", DotNetObjectReference.Create(this), "27", "ProcessKeyDown");
             }
-            
+
             await base.OnAfterRenderAsync(firstRender);
         }
 
-        
+
 
         [JSInvokable]
         public void ProcessKeyDown(string keyCode)
@@ -189,7 +189,7 @@ namespace FluentUI
                 return true;
             }
         }
-               
+
         private bool GetDelayedIsOpened()
         {
 

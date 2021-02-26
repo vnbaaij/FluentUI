@@ -21,7 +21,7 @@ namespace FluentUI
     {
         //private IEnumerable<IGrouping<object, TItem>> groups;
         //private bool _isGrouped;
-        private readonly List<IGroupedListItem3<TItem>> listReference;
+        private List<IGroupedListItem3<TItem>> listReference;
 
         //private ReadOnlyObservableCollection<IGroupedListItem3> dataItems;
 
@@ -47,7 +47,7 @@ namespace FluentUI
         public bool Compact { get; set; }
 
         /// <summary>
-        /// GetKey must get a key that can be transformed into a unique string because the key will be written as HTML.  You can leave this null if your ItemsSource implements IList as the index will be used as a key.  
+        /// GetKey must get a key that can be transformed into a unique string because the key will be written as HTML.  You can leave this null if your ItemsSource implements IList as the index will be used as a key.
         /// </summary>
         [Parameter]
         public Func<TItem, TKey> GetKey { get; set; }
@@ -103,7 +103,7 @@ namespace FluentUI
         [Parameter]
         public int StartIndex { get; set; }
 
-        
+
         private readonly Func<TItem, object> getKeyInternal;
         private readonly ICollection<IGroupedListItem3<TItem>> groupedUIListItems;
 
@@ -267,7 +267,7 @@ namespace FluentUI
 
             if (GetKey == null)
                 throw new Exception("Must have GetKey.");
-           
+
 
             //if (SubGroupSelector != null)
             {
@@ -278,7 +278,7 @@ namespace FluentUI
                 //    //    Selection.SetItems(ItemsSource);
                 //    //}
                 //    _itemsSource = ItemsSource;
-                    
+
                 //    //if (_itemsSource != null)
                 //    //{
                 //    //    dataItems = new ObservableCollection<IGroupedListItem3<TItem>>();
@@ -294,7 +294,7 @@ namespace FluentUI
                 //    //}
                 //}
             }
-           
+
 
 
             await base.OnParametersSetAsync();
@@ -307,7 +307,7 @@ namespace FluentUI
             return base.OnAfterRenderAsync(firstRender);
         }
 
-        
+
 
         //public void SelectAll()
         //{

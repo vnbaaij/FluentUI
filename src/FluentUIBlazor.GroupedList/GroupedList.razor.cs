@@ -15,7 +15,7 @@ namespace FluentUI
     {
         //private IEnumerable<IGrouping<object, TItem>> groups;
         //private bool _isGrouped;
-        private readonly List<IGroupedListItem3<TItem>> listReference;
+        private List<IGroupedListItem3<TItem>> listReference;
 
         private ObservableCollection<IGroupedListItem3<TItem>> dataItems;
 

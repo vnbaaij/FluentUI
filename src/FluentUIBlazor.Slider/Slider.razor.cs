@@ -35,9 +35,9 @@ namespace FluentUI
 
 
         private readonly string id = Guid.NewGuid().ToString();
-        private readonly ElementReference slideBox;
-        private readonly ElementReference sliderLine;
-        private readonly ElementReference thumb;
+        private ElementReference slideBox;
+        private ElementReference sliderLine;
+        private ElementReference thumb;
         private double zeroOffsetPercent;
         private double thumbOffsetPercent;
         private double _renderedValue;

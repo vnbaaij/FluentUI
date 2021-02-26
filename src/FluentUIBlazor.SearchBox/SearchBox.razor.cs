@@ -62,7 +62,7 @@ namespace FluentUI
         readonly List<object> suggestions = new();
         protected bool isOpen { get; set; }
 
-        readonly TextField textFieldRef;
+        TextField textFieldRef;
         readonly List<SelectedItem<T>> selectedItemsVisuals = new();
 
         private ICollection<IRule> DropdownLocalRules { get; set; } = new List<IRule>();

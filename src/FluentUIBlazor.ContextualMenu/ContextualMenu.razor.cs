@@ -31,7 +31,7 @@ namespace FluentUI
 
         /// <summary>
         /// If true, it is tried first to generate the default item
-        /// if it is IContextualMenuItem. If not than the 
+        /// if it is IContextualMenuItem. If not than the
         /// ItemTemplate will be applied.
         /// </summary>
         [Parameter] public bool SubordinateItemTemplate { get; set; }
@@ -52,10 +52,10 @@ namespace FluentUI
 
         private readonly bool isOpen = false;
 
-        private bool HasIcons = false; //needed to shift margins and make space for all 
+        private bool HasIcons = false; //needed to shift margins and make space for all
         private bool HasCheckables = false;
 
-        private readonly FocusZone _focusZoneReference;
+        private  FocusZone _focusZoneReference;
 
         public string SubmenuActiveKey { get; set; }
         //public void SetSubmenuActiveKey(string key)

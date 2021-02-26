@@ -23,7 +23,7 @@ namespace FluentUI
 
         //    await ShowBackstageChanged.InvokeAsync(showBackstage);
         //}
-        readonly FluentUIComponentBase calloutTarget;
+        FluentUIComponentBase calloutTarget;
         string backstageItemKey;
         public override PivotItem Selected
         {

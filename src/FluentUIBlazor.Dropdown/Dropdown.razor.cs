@@ -54,12 +54,12 @@ namespace FluentUI
         protected bool isSmall = false;
         protected Rectangle dropDownBounds = new();
 
-        private readonly ElementReference calloutReference;
-        private readonly ElementReference panelReference;
+        private ElementReference calloutReference;
+        private ElementReference panelReference;
         private ElementReference _chosenReference;
         private string? _registrationToken;
 
-        private readonly FocusZone? calloutFocusZone;
+        private FocusZone? calloutFocusZone;
         private CalloutPositionedInfo? _calloutPositionedInfo;
 
         //private bool firstRender = true;

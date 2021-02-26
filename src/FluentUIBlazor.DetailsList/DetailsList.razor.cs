@@ -68,7 +68,7 @@ namespace FluentUI
 
 
         [Parameter]
-        public Selection<TItem> Selection { get; set; } 
+        public Selection<TItem> Selection { get; set; }
 
         [Parameter]
         public SelectionMode SelectionMode { get; set; }
@@ -94,9 +94,9 @@ namespace FluentUI
         readonly Dictionary<string, double> _columnOverrides = new();
 
         private Selection<TItem> _selection = new();
-        readonly GroupedList<TItem,object> groupedList;
+        GroupedList<TItem,object> groupedList;
         readonly List<TItem> list;
-        readonly SelectionZone<TItem> selectionZone;
+         SelectionZone<TItem> selectionZone;
 
         protected bool isAllSelected;
         private readonly bool shouldRender = true;
@@ -217,12 +217,12 @@ namespace FluentUI
 
         private static void OnHeaderKeyDown(KeyboardEventArgs keyboardEventArgs)
         {
-            // this was attached in the ms-DetailsList-headerWrapper div.  When holding Ctrl nothing happens (since it's a meta key), but if you click while holding Ctrl, a large number of keydown events is sent to this handler and freezes the UI. 
+            // this was attached in the ms-DetailsList-headerWrapper div.  When holding Ctrl nothing happens (since it's a meta key), but if you click while holding Ctrl, a large number of keydown events is sent to this handler and freezes the UI.
         }
 
         private static void OnContentKeyDown(KeyboardEventArgs keyboardEventArgs)
         {
-            // this was attached in the ms-DetailsList-contentWrapper div.  When holding Ctrl nothing happens (since it's a meta key), but if you click while holding Ctrl, a large number of keydown events is sent to this handler and freezes the UI. 
+            // this was attached in the ms-DetailsList-contentWrapper div.  When holding Ctrl nothing happens (since it's a meta key), but if you click while holding Ctrl, a large number of keydown events is sent to this handler and freezes the UI.
         }
 
 

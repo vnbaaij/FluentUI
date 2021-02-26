@@ -111,9 +111,9 @@ namespace FluentUI
         private IEnumerable<DetailsRowColumn<TItem>> _adjustedColumns = Enumerable.Empty<DetailsRowColumn<TItem>>();
         const double MIN_COLUMN_WIDTH = 100;
         readonly Dictionary<string, double> _columnOverrides = new();
-        readonly GroupedListAuto<TItem,object>? groupedList;
+        GroupedListAuto<TItem,object>? groupedList;
         readonly List<TItem>? list;
-        readonly SelectionZone<TItem>? selectionZone;
+        SelectionZone<TItem>? selectionZone;
 
         protected bool isAllSelected;
         private readonly bool shouldRender = true;
