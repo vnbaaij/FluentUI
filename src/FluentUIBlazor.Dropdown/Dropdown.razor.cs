@@ -109,7 +109,7 @@ namespace FluentUI
 
         public void AddSelection(string key)
         {
-            var option = ItemsSource.FirstOrDefault(x => x.Key == key);
+            IDropdownOption option = ItemsSource.FirstOrDefault(x => x.Key == key);
             if (option == null)
                 return;
 
@@ -146,7 +146,7 @@ namespace FluentUI
 
         public void RemoveSelection(string key)
         {
-            var option = ItemsSource.FirstOrDefault(x => x.Key == key);
+            IDropdownOption option = ItemsSource.FirstOrDefault(x => x.Key == key);
             if (option == null)
                 return;
 
@@ -187,7 +187,7 @@ namespace FluentUI
         [JSInvokable]
         public override async Task OnResizedAsync(double windowWidth, double windowHeight)
         {
-            var oldBounds = dropDownBounds;
+            Rectangle oldBounds = dropDownBounds;
             dropDownBounds = await GetBoundsAsync();
             if (oldBounds.width != dropDownBounds.width)
             {
@@ -222,12 +222,12 @@ namespace FluentUI
             await base.OnParametersSetAsync();
             if (DefaultSelectedKeys != null)
             {
-                foreach (var key in DefaultSelectedKeys)
+                foreach (string key in DefaultSelectedKeys)
                     AddSelection(key);
             }
             if (DefaultSelectedOptions != null)
             {
-                foreach (var option in DefaultSelectedOptions)
+                foreach (IDropdownOption option in DefaultSelectedOptions)
                     AddSelection(option.Key);
             }
             if (ItemTemplate == null)

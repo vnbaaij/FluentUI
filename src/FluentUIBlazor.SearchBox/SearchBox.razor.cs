@@ -69,10 +69,10 @@ namespace FluentUI
         void SearchNewEntries()
         {
             suggestions.Clear();
-            var suggestionsInt = ProvideSuggestions(filter);
+            IEnumerable<T> suggestionsInt = ProvideSuggestions(filter);
             if (suggestionsInt != null)
             {
-                foreach (var suggestionInt in suggestionsInt)
+                foreach (T suggestionInt in suggestionsInt)
                 {
                      suggestions.Add(suggestionInt);
                 }

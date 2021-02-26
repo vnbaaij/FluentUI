@@ -40,9 +40,9 @@ namespace FluentUI
 
         protected override Task OnInitializedAsync()
         {
-            for (var i=0; i< ShortMonthNames.Length; i++)
+            for (int i =0; i< ShortMonthNames.Length; i++)
             {
-                var index = i;
+                int index = i;
                 SelectMonthCallbacks.Add(() => OnSelectMonth(index + 1));
             }
 
@@ -50,13 +50,13 @@ namespace FluentUI
         }
 
         protected override Task OnParametersSetAsync()
-        {            
-            var firstDayOfYear = new DateTime(NavigatedDate.Year, 1, 1);
+        {
+            DateTime firstDayOfYear = new DateTime(NavigatedDate.Year, 1, 1);
             IsPrevYearInBounds = DateTime.Compare(MinDate, firstDayOfYear) < 0;
             IsNextYearInBounds = DateTime.Compare(firstDayOfYear.AddYears(1).AddDays(-1), MaxDate) < 0;
 
             RowIndexes = new List<int>();
-            for (var i=0; i < 12 / 4; i++) //12 months, 4 per row
+            for (int i =0; i < 12 / 4; i++) //12 months, 4 per row
             {
                 RowIndexes.Add(i);
             }
@@ -90,10 +90,10 @@ namespace FluentUI
         protected Task OnSelectYear(int selectedYear)
         {
             focusOnUpdate = true;
-            var navYear = NavigatedDate.Year;
+            int navYear = NavigatedDate.Year;
             if (navYear != selectedYear)
             {
-                var newNavDate = new DateTime(NavigatedDate.Year, NavigatedDate.Month, NavigatedDate.Day);
+                DateTime newNavDate = new DateTime(NavigatedDate.Year, NavigatedDate.Month, NavigatedDate.Day);
                 newNavDate = newNavDate.AddYears(selectedYear - newNavDate.Year);
                 if (newNavDate > MaxDate)
                 {
@@ -121,10 +121,10 @@ namespace FluentUI
 
         protected string GetMonthClasses(int monthIndex, bool isInBounds)
         {
-            var isCurrentMonth = (monthIndex + 1 == Today.Month && NavigatedDate.Year == Today.Year);
-            var isNavigatedMonth = NavigatedDate.Month == (monthIndex + 1);
-            var isSelectedMonth = SelectedDate.Month == (monthIndex + 1);
-            var isSelectedYear = SelectedDate.Year == NavigatedDate.Year;
+            bool isCurrentMonth = (monthIndex + 1 == Today.Month && NavigatedDate.Year == Today.Year);
+            bool isNavigatedMonth = NavigatedDate.Month == (monthIndex + 1);
+            bool isSelectedMonth = SelectedDate.Month == (monthIndex + 1);
+            bool isSelectedYear = SelectedDate.Year == NavigatedDate.Year;
 
             string classNames = "";
             classNames += "ms-Calendar-monthOption";

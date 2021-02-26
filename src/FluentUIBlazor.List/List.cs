@@ -167,7 +167,7 @@ namespace FluentUI
                 // When we have a fixed set of in-memory data, it doesn't cost anything to
                 // re-query it on each cycle, so do that. This means the developer can add/remove
                 // items in the collection and see the UI update without having to call RefreshDataAsync.
-                var refreshTask = RefreshDataCoreAsync(renderOnSuccess: false);
+                ValueTask refreshTask = RefreshDataCoreAsync(renderOnSuccess: false);
 
                 // We know it's synchronous and has its own error handling
                 Debug.Assert(refreshTask.IsCompletedSuccessfully);
@@ -198,7 +198,7 @@ namespace FluentUI
         {
             if (_refreshException != null)
             {
-                var oldRefreshException = _refreshException;
+                Exception oldRefreshException = _refreshException;
                 _refreshException = null;
 
                 throw oldRefreshException;
@@ -215,9 +215,9 @@ namespace FluentUI
 
 
 
-            var lastItemIndex = Math.Min(_itemsBefore + _visibleItemCapacity, _itemCount);
-            var renderIndex = _itemsBefore;
-            var placeholdersBeforeCount = Math.Min(_loadedItemsStartIndex, lastItemIndex);
+            int lastItemIndex = Math.Min(_itemsBefore + _visibleItemCapacity, _itemCount);
+            int renderIndex = _itemsBefore;
+            int placeholdersBeforeCount = Math.Min(_loadedItemsStartIndex, lastItemIndex);
 
             builder.OpenRegion(5);
 
@@ -236,7 +236,7 @@ namespace FluentUI
             // Render the loaded items.
             if (_loadedItems != null && _itemTemplate != null)
             {
-                var itemsToShow = _loadedItems
+                IEnumerable<TItem> itemsToShow = _loadedItems
                     .Skip(_itemsBefore - _loadedItemsStartIndex)
                     .Take(lastItemIndex - _loadedItemsStartIndex);
 
@@ -244,7 +244,7 @@ namespace FluentUI
 
 
 
-                foreach (var item in itemsToShow)
+                foreach (TItem item in itemsToShow)
                 {
                     builder.OpenElement(11, "div");
                     builder.SetKey(item);
@@ -272,7 +272,7 @@ namespace FluentUI
 
             builder.CloseRegion();
 
-            var itemsAfter = Math.Max(0, _itemCount - _visibleItemCapacity - _itemsBefore);
+            int itemsAfter = Math.Max(0, _itemCount - _visibleItemCapacity - _itemsBefore);
 
             builder.OpenElement(13, "div");
             builder.AddAttribute(14, "style", GetSpacerStyle(itemsAfter));
@@ -299,7 +299,7 @@ namespace FluentUI
         {
             if (IsVirtualizing)
             {
-                CalcualteItemDistribution(spacerSize, spacerSeparation, containerSize, out var itemsBefore, out var visibleItemCapacity);
+                CalcualteItemDistribution(spacerSize, spacerSeparation, containerSize, out int itemsBefore, out int visibleItemCapacity);
 
                 UpdateItemDistribution(itemsBefore, visibleItemCapacity);
             }
@@ -319,14 +319,14 @@ namespace FluentUI
         {
             if (IsVirtualizing)
             {
-                CalcualteItemDistribution(spacerSize, spacerSeparation, containerSize, out var itemsAfter, out var visibleItemCapacity);
+                CalcualteItemDistribution(spacerSize, spacerSeparation, containerSize, out int itemsAfter, out int visibleItemCapacity);
 
-                var itemsBefore = Math.Max(0, _itemCount - itemsAfter - visibleItemCapacity);
+                int itemsBefore = Math.Max(0, _itemCount - itemsAfter - visibleItemCapacity);
 
                 if (UseGridFlexLayout)
                 {
                     //itemsBefore needs to be a multiple of numberPerRow
-                    var numberPerRow = (int)Math.Floor(_containerWidth / ItemWidth);
+                    int numberPerRow = (int)Math.Floor(_containerWidth / ItemWidth);
                     itemsBefore = (int)Math.Ceiling((double)itemsBefore / numberPerRow) * numberPerRow;
                 }
 
@@ -366,7 +366,7 @@ namespace FluentUI
 
             if (UseGridFlexLayout)
             {
-                var numberPerRow = (int)Math.Floor(_containerWidth / ItemWidth);
+                int numberPerRow = (int)Math.Floor(_containerWidth / ItemWidth);
                 visibleItemCapacity = visibleItemCapacity * numberPerRow;
             }
         }
@@ -377,7 +377,7 @@ namespace FluentUI
             {
                 _itemsBefore = itemsBefore;
                 _visibleItemCapacity = visibleItemCapacity;
-                var refreshTask = RefreshDataCoreAsync(renderOnSuccess: true);
+                ValueTask refreshTask = RefreshDataCoreAsync(renderOnSuccess: true);
 
                 if (!refreshTask.IsCompleted)
                 {
@@ -405,11 +405,11 @@ namespace FluentUI
                 cancellationToken = _refreshCts.Token;
             }
 
-            var request = new ItemsProviderRequest(_itemsBefore, _visibleItemCapacity, cancellationToken);
+            ItemsProviderRequest request = new ItemsProviderRequest(_itemsBefore, _visibleItemCapacity, cancellationToken);
 
             try
             {
-                var result = await _itemsProvider(request);
+                ItemsProviderResult<TItem> result = await _itemsProvider(request);
 
                 // Only apply result if the task was not canceled.
                 if (!cancellationToken.IsCancellationRequested)

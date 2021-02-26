@@ -71,7 +71,7 @@ namespace FluentUI
         {
             try
             {
-                var rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", RootElementReference);
+                Rectangle rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", RootElementReference);
                 return rectangle;
             }
             catch (JSException)
@@ -84,7 +84,7 @@ namespace FluentUI
         {
             try
             {
-                var rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", cancellationToken, RootElementReference);
+                Rectangle rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", cancellationToken, RootElementReference);
                 return rectangle;
             }
             catch (JSException) 
@@ -97,7 +97,7 @@ namespace FluentUI
         {
             try
             {
-                var rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", cancellationToken, elementReference);
+                Rectangle rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", cancellationToken, elementReference);
                 return rectangle;
             }
             catch (JSException)
@@ -110,7 +110,7 @@ namespace FluentUI
         {
             try
             {
-                var rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", elementReference);
+                Rectangle rectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", elementReference);
                 return rectangle;
             }
             catch (JSException)

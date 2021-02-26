@@ -68,11 +68,11 @@ namespace FluentUI
         {
             items.Clear();
             overflowItems.Clear();
-            foreach (var item in ItemsSource.Items)
+            foreach (IRibbonItem item in ItemsSource.Items)
             {
                 items.Add(item);
             }
-            foreach (var item in ItemsSource.OverflowItems)
+            foreach (IRibbonItem item in ItemsSource.OverflowItems)
             {
                 overflowItems.Add(item);
             }

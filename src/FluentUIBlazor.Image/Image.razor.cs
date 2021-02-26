@@ -178,8 +178,8 @@ namespace FluentUI
         {
             if (CoverStyle == ImageCoverStyle.None)
             {
-                var rootBounds = await GetBoundsAsync();
-                var imageNaturalBounds = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.getNaturalBounds", imageRef);
+                Rectangle rootBounds = await GetBoundsAsync();
+                Rectangle imageNaturalBounds = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.getNaturalBounds", imageRef);
 
                 if (imageNaturalBounds== null)
                 {
@@ -196,7 +196,7 @@ namespace FluentUI
                     desiredRatio = rootBounds.width / rootBounds.height;
                 }
 
-                var naturalRatio = imageNaturalBounds.width / imageNaturalBounds.height;
+                double naturalRatio = imageNaturalBounds.width / imageNaturalBounds.height;
 
                 if (naturalRatio> desiredRatio)
                 {

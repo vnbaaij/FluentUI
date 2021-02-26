@@ -20,7 +20,7 @@ namespace FluentUI.Models
         public ResizeGroupData(IEnumerable<IRibbonItem> allItems, bool isLastGroupInTab)// IEnumerable<IRibbonItem> items, IEnumerable<IRibbonItem> overflowItems, string cacheKey)
         {
             this.allItems = allItems;
-            foreach(var item in allItems)
+            foreach(IRibbonItem item in allItems)
             {
                 Items.Add(item);
             }
@@ -35,7 +35,7 @@ namespace FluentUI.Models
         {
             Items.Clear();
             OverflowItems.Clear();
-            foreach (var item in allItems)
+            foreach (IRibbonItem item in allItems)
             {
                 Items.Add(item);
             }
@@ -81,7 +81,7 @@ namespace FluentUI.Models
             {
                 #region get the shrink item
                 IRibbonItem? itemToMove = source[0];
-                foreach (var item in source)
+                foreach (IRibbonItem item in source)
                 {
                     if (highPrio)
                     {

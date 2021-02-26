@@ -146,7 +146,7 @@ namespace FluentUI
                     );
             }
 
-            var selectionMode = parameters.GetValueOrDefault<SelectionMode>("SelectionMode");
+            SelectionMode selectionMode = parameters.GetValueOrDefault<SelectionMode>("SelectionMode");
             if (selectionMode == SelectionMode.None)
             {
                 selectAllVisibility = SelectAllVisibility.None;
@@ -254,9 +254,9 @@ namespace FluentUI
 
         private IEnumerable<DetailsRowColumn<TItem>> GetAdjustedColumns(IEnumerable<TItem> newItems, DetailsListLayoutMode newLayoutMode, SelectionMode newSelectionMode, CheckboxVisibility newCheckboxVisibility, IEnumerable<DetailsRowColumn<TItem>> newColumns, bool forceUpdate, int resizingColumnIndex)
         {
-            var columns = Columns.EmptyIfNull();
-            var lastWidth = _lastWidth;
-            var lastSelectionMode = _lastSelectionMode;
+            IEnumerable<DetailsRowColumn<TItem>> columns = Columns.EmptyIfNull();
+            double lastWidth = _lastWidth;
+            SelectionMode lastSelectionMode = _lastSelectionMode;
 
             if (!forceUpdate && _lastViewport.Width == _viewport.Width && SelectionMode == newSelectionMode && (Columns == null || newColumns == Columns))
                 return Enumerable.Empty<DetailsRowColumn<TItem>>();
@@ -269,7 +269,7 @@ namespace FluentUI
             {
                 adjustedColumns = GetFixedColumns(newColumns);
 
-                foreach (var col in adjustedColumns)
+                foreach (DetailsRowColumn<TItem> col in adjustedColumns)
                     _columnOverrides[col.Key] = col.CalculatedWidth;
             }
             else
@@ -283,7 +283,7 @@ namespace FluentUI
                     adjustedColumns = GetJustifiedColumns(newColumns, newCheckboxVisibility, newSelectionMode, _viewport.Width, resizingColumnIndex);
                 }
 
-                foreach (var col in adjustedColumns)
+                foreach (DetailsRowColumn<TItem> col in adjustedColumns)
                 {
                     _columnOverrides[col.Key] = col.CalculatedWidth;
                 }
@@ -296,7 +296,7 @@ namespace FluentUI
 
         private IEnumerable<DetailsRowColumn<TItem>> GetFixedColumns(IEnumerable<DetailsRowColumn<TItem>> newColumns)
         {
-            foreach (var col in newColumns)
+            foreach (DetailsRowColumn<TItem> col in newColumns)
             {
                 col.CalculatedWidth = !double.IsNaN(col.MaxWidth) ? col.MaxWidth : (!double.IsNaN(col.MinWidth) ? col.MinWidth : MIN_COLUMN_WIDTH);
             }
@@ -305,58 +305,58 @@ namespace FluentUI
 
         private IEnumerable<DetailsRowColumn<TItem>> GetJustifiedColumnsAfterResize(IEnumerable<DetailsRowColumn<TItem>> newColumns, CheckboxVisibility newCheckboxVisibility, SelectionMode newSelectionMode, double viewportWidth, int resizingColumnIndex)
         {
-            var fixedColumns = newColumns.Take(resizingColumnIndex);
-            foreach (var col in fixedColumns)
+            IEnumerable<DetailsRowColumn<TItem>> fixedColumns = newColumns.Take(resizingColumnIndex);
+            foreach (DetailsRowColumn<TItem> col in fixedColumns)
             {
-                if (_columnOverrides.TryGetValue(col.Key, out var overridenWidth))
+                if (_columnOverrides.TryGetValue(col.Key, out double overridenWidth))
                     col.CalculatedWidth = overridenWidth;
                 else
                     col.CalculatedWidth = double.NaN;
             }
 
             int count = 0;
-            var fixedWidth = fixedColumns.Aggregate<DetailsRowColumn<TItem>, double, double>(0, (total, column) => total + GetPaddedWidth(column, ++count == 0), x => x);
+            double fixedWidth = fixedColumns.Aggregate<DetailsRowColumn<TItem>, double, double>(0, (total, column) => total + GetPaddedWidth(column, ++count == 0), x => x);
 
-            var remainingColumns = newColumns.Skip(resizingColumnIndex).Take(newColumns.Count() - resizingColumnIndex);
-            var remainingWidth = viewportWidth - fixedWidth;
+            IEnumerable<DetailsRowColumn<TItem>> remainingColumns = newColumns.Skip(resizingColumnIndex).Take(newColumns.Count() - resizingColumnIndex);
+            double remainingWidth = viewportWidth - fixedWidth;
 
-            var adjustedColumns = GetJustifiedColumns(remainingColumns, newCheckboxVisibility, newSelectionMode, remainingWidth, resizingColumnIndex);
+            IEnumerable<DetailsRowColumn<TItem>> adjustedColumns = GetJustifiedColumns(remainingColumns, newCheckboxVisibility, newSelectionMode, remainingWidth, resizingColumnIndex);
 
             return Enumerable.Concat(fixedColumns, adjustedColumns);
         }
 
         private IEnumerable<DetailsRowColumn<TItem>> GetJustifiedColumns(IEnumerable<DetailsRowColumn<TItem>> newColumns, CheckboxVisibility newCheckboxVisibility, SelectionMode newSelectionMode, double viewportWidth, int resizingColumnIndex)
         {
-            var rowCheckWidth = newSelectionMode != SelectionMode.None && newCheckboxVisibility != CheckboxVisibility.Hidden ? 48 : 0;  //DetailsRowCheckbox width
-            var groupExpandedWidth = 0; //skipping this for now.
+            int rowCheckWidth = newSelectionMode != SelectionMode.None && newCheckboxVisibility != CheckboxVisibility.Hidden ? 48 : 0;  //DetailsRowCheckbox width
+            int groupExpandedWidth = 0; //skipping this for now.
             double totalWidth = 0;
-            var availableWidth = viewportWidth - (rowCheckWidth + groupExpandedWidth);
+            double availableWidth = viewportWidth - (rowCheckWidth + groupExpandedWidth);
             int count = 0;
 
             System.Collections.Generic.List<DetailsRowColumn<TItem>> adjustedColumns = new System.Collections.Generic.List<DetailsRowColumn<TItem>>();
-            foreach (var col in newColumns)
+            foreach (DetailsRowColumn<TItem> col in newColumns)
             {
                 adjustedColumns.Add(col);
                 col.CalculatedWidth = !double.IsNaN(col.MinWidth) ? col.MinWidth : 100;
-                if (_columnOverrides.TryGetValue(col.Key, out var overridenWidth))
+                if (_columnOverrides.TryGetValue(col.Key, out double overridenWidth))
                     col.CalculatedWidth = overridenWidth;
 
-                var isFirst = count + resizingColumnIndex == 0;
+                bool isFirst = count + resizingColumnIndex == 0;
                 totalWidth += GetPaddedWidth(col, isFirst);
             }
 
-            var lastIndex = adjustedColumns.Count() - 1;
+            int lastIndex = adjustedColumns.Count() - 1;
 
             // Shrink or remove collapsable columns.
             while (lastIndex > 0 && totalWidth > availableWidth)
             {
-                var col = adjustedColumns.ElementAt(lastIndex);
-                var minWidth = !double.IsNaN(col.MinWidth) ? col.MinWidth : 100;
-                var overflowWidth = totalWidth - availableWidth;
+                DetailsRowColumn<TItem> col = adjustedColumns.ElementAt(lastIndex);
+                double minWidth = !double.IsNaN(col.MinWidth) ? col.MinWidth : 100;
+                double overflowWidth = totalWidth - availableWidth;
 
                 if (col.CalculatedWidth - minWidth >= overflowWidth || !col.IsCollapsible)
                 {
-                    var originalWidth = col.CalculatedWidth;
+                    double originalWidth = col.CalculatedWidth;
                     col.CalculatedWidth = Math.Max(col.CalculatedWidth - overflowWidth, minWidth);
                     totalWidth -= originalWidth - col.CalculatedWidth;
                 }
@@ -369,22 +369,22 @@ namespace FluentUI
             }
 
             //Then expand columns starting at the beginning, until we've filled the width.
-            for (var i = 0; i < adjustedColumns.Count && totalWidth < availableWidth; i++)
+            for (int i = 0; i < adjustedColumns.Count && totalWidth < availableWidth; i++)
             {
-                var col = adjustedColumns[i];
-                var isLast = i == adjustedColumns.Count - 1;
-                var hasOverrides = _columnOverrides.TryGetValue(col.Key, out var overrides);
+                DetailsRowColumn<TItem> col = adjustedColumns[i];
+                bool isLast = i == adjustedColumns.Count - 1;
+                bool hasOverrides = _columnOverrides.TryGetValue(col.Key, out double overrides);
                 if (hasOverrides && !isLast)
                     continue;
 
-                var spaceLeft = availableWidth - totalWidth;
+                double spaceLeft = availableWidth - totalWidth;
                 double increment = 0;
                 if (isLast)
                     increment = spaceLeft;
                 else
                 {
-                    var maxWidth = col.MaxWidth;
-                    var minWidth = !double.IsNaN(col.MinWidth) ? col.MinWidth : (!double.IsNaN(col.MaxWidth) ? col.MaxWidth : 100);
+                    double maxWidth = col.MaxWidth;
+                    double minWidth = !double.IsNaN(col.MinWidth) ? col.MinWidth : (!double.IsNaN(col.MaxWidth) ? col.MaxWidth : 100);
                     increment = !double.IsNaN(maxWidth) ? Math.Min(spaceLeft, maxWidth - minWidth) : spaceLeft;
                 }
 

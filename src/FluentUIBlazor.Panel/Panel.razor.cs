@@ -173,8 +173,8 @@ namespace FluentUI
         public async Task UpdateFooterPositionAsync()
         {
             //Debug.WriteLine("Calling UpdateFooterPositionAsync");
-            var clientHeight = await JSRuntime.InvokeAsync<double>("FluentUIBaseComponent.getClientHeight", scrollableContent);
-            var scrollHeight = await JSRuntime.InvokeAsync<double>("FluentUIBaseComponent.getScrollHeight", scrollableContent);
+            double clientHeight = await JSRuntime.InvokeAsync<double>("FluentUIBaseComponent.getClientHeight", scrollableContent);
+            double scrollHeight = await JSRuntime.InvokeAsync<double>("FluentUIBaseComponent.getScrollHeight", scrollableContent);
 
             if (clientHeight < scrollHeight)
                 isFooterSticky = true;
@@ -304,11 +304,11 @@ namespace FluentUI
 
             if (!IsOpen && _scrollerRegistered)
             {
-                var copied = _scrollerEventId.ToList();
+                List<int> copied = _scrollerEventId.ToList();
                 _scrollerEventId.Clear();
                 _scrollerRegistered = false;
 
-                foreach (var id in copied)
+                foreach (int id in copied)
                 {
                     await JSRuntime.InvokeVoidAsync("FluentUIPanel.unregisterHandler", id);
                 }
@@ -453,7 +453,7 @@ namespace FluentUI
             _clearExistingAnimationTimer?.Invoke();
             if (_scrollerEventId != null)
             {
-                foreach (var id in _scrollerEventId)
+                foreach (int id in _scrollerEventId)
                 {
                     await JSRuntime.InvokeVoidAsync("FluentUIPanel.unregisterHandler", id);
                 }

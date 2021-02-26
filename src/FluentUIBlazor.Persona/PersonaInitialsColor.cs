@@ -59,15 +59,15 @@
 
         public static PersonaInitialsColor GetInitialsColorFromName(string displayName)
         {
-            var color = PersonaInitialsColor.Blue;
+            PersonaInitialsColor color = PersonaInitialsColor.Blue;
             if (string.IsNullOrWhiteSpace(displayName))
                 return color;
 
-            var hashCode = 0;
-            for (var iLen = displayName.Length - 1; iLen >= 0; iLen--)
+            int hashCode = 0;
+            for (int iLen = displayName.Length - 1; iLen >= 0; iLen--)
             {
-                var ch = displayName[iLen];
-                var shift = iLen % 8;
+                char ch = displayName[iLen];
+                int shift = iLen % 8;
                 hashCode ^= (ch << shift) + (ch >> (8 - shift));
             }
 

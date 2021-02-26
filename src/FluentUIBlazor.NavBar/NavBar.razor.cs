@@ -60,7 +60,7 @@ namespace FluentUI
             {
                 if (data.OverflowItems.Count > data.MinimumOverflowItems)
                 {
-                    var movedItem = data.OverflowItems[0];
+                    INavBarItem movedItem = data.OverflowItems[0];
                     movedItem.RenderedInOverflow = false;
                     data.OverflowItems.Remove(movedItem);
 
@@ -103,9 +103,9 @@ namespace FluentUI
 
         private string ComputeCacheKey(NavBarData data)
         {
-            var primaryKey = data.PrimaryItems.Aggregate("", (acc, item) => acc + item.CacheKey);
+            string primaryKey = data.PrimaryItems.Aggregate("", (acc, item) => acc + item.CacheKey);
             //var farKey = data.FarItems.Aggregate("", (acc, item) => acc + item.CacheKey);
-            var overflowKey = data.OverflowItems.Aggregate("", (acc, item) => acc + item.CacheKey);
+            string overflowKey = data.OverflowItems.Aggregate("", (acc, item) => acc + item.CacheKey);
             return string.Join(" ", primaryKey, overflowKey);
         }
 
@@ -125,30 +125,30 @@ namespace FluentUI
 
             processedUriRelative = uri.Split('?', '#')[0];
 
-            var split = uri.Split('?');
+            string[] split = uri.Split('?');
             processedUriAnchorIncluded = split[0];
             if (split.Length > 1)
             {
-                var anchorSplit = split[1].Split('#');
+                string[] anchorSplit = split[1].Split('#');
                 if (anchorSplit.Length > 1)
                     processedUriAnchorIncluded += "#" + anchorSplit[1];
             }
             else
             {
-                var anchorSplit = split[0].Split('#');
+                string[] anchorSplit = split[0].Split('#');
                 if (anchorSplit.Length > 1)
                     processedUriAnchorIncluded += "#" + anchorSplit[1];
             }
 
-            var split2 = uri.Split('#');
+            string[] split2 = uri.Split('#');
             if (split2.Length > 1)
                 processUriAnchorOnly = split2[1];
             else
                 processUriAnchorOnly = "";
 
-            var allItems = Items.Concat(Items.Where(x => x.Items != null).SelectMany(x => GetChild(x.Items)).Cast<INavBarItem>())
+            IEnumerable<INavBarItem> allItems = Items.Concat(Items.Where(x => x.Items != null).SelectMany(x => GetChild(x.Items)).Cast<INavBarItem>())
                 .Concat(OverflowItems.Concat(OverflowItems.Where(x => x.Items != null).SelectMany(x => GetChild(x.Items)).Cast<INavBarItem>()));
-            foreach (var item in allItems)
+            foreach (INavBarItem item in allItems)
             {
                 switch (item.NavMatchType)
                 {

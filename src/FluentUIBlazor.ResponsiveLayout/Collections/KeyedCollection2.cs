@@ -31,31 +31,31 @@ namespace FluentUI
 
         public void SortByKeys()
         {
-            var comparer = Comparer<TKey>.Default;
+            Comparer<TKey> comparer = Comparer<TKey>.Default;
             SortByKeys(comparer);
         }
 
         public void SortByKeys(IComparer<TKey> keyComparer)
         {
-            var comparer = new Comparer2<TItem>((x, y) => keyComparer.Compare(GetKeyForItem(x), GetKeyForItem(y)));
+            Comparer2<TItem> comparer = new Comparer2<TItem>((x, y) => keyComparer.Compare(GetKeyForItem(x), GetKeyForItem(y)));
             Sort(comparer);
         }
 
         public void SortByKeys(Comparison<TKey> keyComparison)
         {
-            var comparer = new Comparer2<TItem>((x, y) => keyComparison(GetKeyForItem(x), GetKeyForItem(y)));
+            Comparer2<TItem> comparer = new Comparer2<TItem>((x, y) => keyComparison(GetKeyForItem(x), GetKeyForItem(y)));
             Sort(comparer);
         }
 
         public void Sort()
         {
-            var comparer = Comparer<TItem>.Default;
+            Comparer<TItem> comparer = Comparer<TItem>.Default;
             Sort(comparer);
         }
 
         public void Sort(Comparison<TItem> comparison)
         {
-            var newComparer = new Comparer2<TItem>((x, y) => comparison(x, y));
+            Comparer2<TItem> newComparer = new Comparer2<TItem>((x, y) => comparison(x, y));
             Sort(newComparer);
         }
 

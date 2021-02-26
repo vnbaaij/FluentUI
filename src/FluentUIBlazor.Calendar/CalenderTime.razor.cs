@@ -18,9 +18,9 @@ namespace FluentUI
 
         protected override Task OnInitializedAsync()
         {
-            for (var i = 0; i < 24; i++)
+            for (int i = 0; i < 24; i++)
             {
-                var index = i;
+                int index = i;
                 SelectMonthCallbacks.Add(() => OnSelectMonth(index));
             }
 

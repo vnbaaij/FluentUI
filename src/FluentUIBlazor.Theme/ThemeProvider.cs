@@ -27,7 +27,7 @@ namespace FluentUI
         public void UpdateTheme(IPalette palette)
         {
             _theme = CreateTheme(palette);
-            foreach (var comp in ThemeComponents)
+            foreach (Theme comp in ThemeComponents)
             {
                 comp.UpdateTheme();
             }
@@ -61,7 +61,7 @@ namespace FluentUI
             //}
             semanticTextColorOverrides.CopyTo(_theme.SemanticTextColors);
 
-            foreach (var comp in ThemeComponents)
+            foreach (Theme comp in ThemeComponents)
             {
                 comp.UpdateTheme();
             }
@@ -70,7 +70,7 @@ namespace FluentUI
 
         private ITheme CreateTheme(IPalette palette = null)
         {
-            var theme = new Theme();
+            Theme theme = new Theme();
             theme.Palette = palette ?? new DefaultPalette();
             theme.SemanticColors = MakeSemanticColorsFromPalette(theme.Palette, false);
             theme.SemanticTextColors = MakeSemanticTextColorsFromPalette(theme.Palette, false);

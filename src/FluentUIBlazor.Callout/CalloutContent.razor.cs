@@ -209,7 +209,7 @@ namespace FluentUI
                 maxBounds.width -= (2 * MinPagePadding);
                 maxBounds.height -= (2 * MinPagePadding);
             }
-            var targetRect = await FabricComponentTarget.GetBoundsAsync();
+            Rectangle targetRect = await FabricComponentTarget.GetBoundsAsync();
             //Debug.WriteLine($"TargetRect: {targetRect.left}, {targetRect.top}, {targetRect.right}, {targetRect.bottom}");
 
             contentMaxHeight = GetMaxHeight(targetRect, maxBounds);
@@ -235,7 +235,7 @@ namespace FluentUI
         {
             if (DirectionalHintFixed)
             {
-                var gap = GapSpace + BeakWidth + (1/*BORDER_WIDTH*/ * 2);
+                int gap = GapSpace + BeakWidth + (1/*BORDER_WIDTH*/ * 2);
                 return GetMaxHeightFromTargetRectangle(targetRect, DirectionalHint, gap, maxBounds);
             }
             else
@@ -247,9 +247,9 @@ namespace FluentUI
         private double GetMaxHeightFromTargetRectangle(Rectangle targetRect, DirectionalHint targetEdge, double gapSpace, Rectangle bounds)
         {
             double maxHeight = 0;
-            var directionalHint = DirectionalDictionary[targetEdge];
+            PositionDirectionalHintData directionalHint = DirectionalDictionary[targetEdge];
 
-            var target = CoverTarget ? (RectangleEdge)((int)directionalHint.TargetEdge * -1) : directionalHint.TargetEdge;
+            RectangleEdge target = CoverTarget ? (RectangleEdge)((int)directionalHint.TargetEdge * -1) : directionalHint.TargetEdge;
 
             if (target == RectangleEdge.Top)
             {
@@ -268,17 +268,17 @@ namespace FluentUI
 
         private async Task<CalloutPositionedInfo> PositionCalloutAsync(Rectangle targetRect, Rectangle maxBounds)
         {
-            var beakWidth = IsBeakVisible ? BeakWidth : 0;
-            var gap = Math.Sqrt(beakWidth * beakWidth * 2) / 2 + GapSpace;
+            int beakWidth = IsBeakVisible ? BeakWidth : 0;
+            double gap = Math.Sqrt(beakWidth * beakWidth * 2) / 2 + GapSpace;
 
             //Debug.WriteLine($"MaxBounds: {maxBounds.left}, {maxBounds.top}, {maxBounds.right}, {maxBounds.bottom}");
-            var positionedElement = await PositionElementRelativeAsync(gap, targetRect, maxBounds);
+            ElementPositionInfo positionedElement = await PositionElementRelativeAsync(gap, targetRect, maxBounds);
 
-            var beakPositioned = PositionBeak(beakWidth, positionedElement);
+            Rectangle beakPositioned = PositionBeak(beakWidth, positionedElement);
 
-            var finalizedBeakPosition = FinalizeBeakPosition(positionedElement, beakPositioned, maxBounds);
+            CalloutBeakPositionedInfo finalizedBeakPosition = FinalizeBeakPosition(positionedElement, beakPositioned, maxBounds);
 
-            var finalizedElemenentPosition = await FinalizePositionDataAsync(positionedElement, maxBounds);
+            (PartialRectangle element, RectangleEdge targetEdge, RectangleEdge alignmentEdge) finalizedElemenentPosition = await FinalizePositionDataAsync(positionedElement, maxBounds);
 
             return new CalloutPositionedInfo(finalizedElemenentPosition.element, finalizedElemenentPosition.targetEdge, finalizedElemenentPosition.alignmentEdge, finalizedBeakPosition);
 
@@ -286,10 +286,10 @@ namespace FluentUI
 
         private CalloutBeakPositionedInfo FinalizeBeakPosition(ElementPosition elementPosition, Rectangle positionedBeak, Rectangle bounds)
         {
-            var targetEdge = (RectangleEdge)((int)elementPosition.TargetEdge * -1);
-            var actualElement = new Rectangle(0, elementPosition.ElementRectangle.width, 0, elementPosition.ElementRectangle.height);
+            RectangleEdge targetEdge = (RectangleEdge)((int)elementPosition.TargetEdge * -1);
+            Rectangle actualElement = new Rectangle(0, elementPosition.ElementRectangle.width, 0, elementPosition.ElementRectangle.height);
             PartialRectangle returnValue = new PartialRectangle();
-            var returnEdge = FinalizeReturnEdge(
+            RectangleEdge returnEdge = FinalizeReturnEdge(
                 elementPosition.ElementRectangle,
                 elementPosition.AlignmentEdge != RectangleEdge.None ? elementPosition.AlignmentEdge : GetFlankingEdges(targetEdge).positiveEdge,
                 bounds);
@@ -331,16 +331,16 @@ namespace FluentUI
 
         private Rectangle PositionBeak(double beakWidth, ElementPositionInfo elementPosition)
         {
-            var target = elementPosition.TargetRectangle;
-            var edges = GetFlankingEdges(elementPosition.TargetEdge);
-            var beakTargetPoint = GetCenterValue(target, elementPosition.TargetEdge);
-            var elementBounds = new Rectangle(
+            Rectangle target = elementPosition.TargetRectangle;
+            (RectangleEdge positiveEdge, RectangleEdge negativeEdge) edges = GetFlankingEdges(elementPosition.TargetEdge);
+            double beakTargetPoint = GetCenterValue(target, elementPosition.TargetEdge);
+            Rectangle elementBounds = new Rectangle(
                 beakWidth / 2,
                 elementPosition.ElementRectangle.width - beakWidth / 2,
                 beakWidth / 2,
                 elementPosition.ElementRectangle.height - beakWidth / 2
                 );
-            var beakPosition = new Rectangle(0, beakWidth, 0, beakWidth);
+            Rectangle beakPosition = new Rectangle(0, beakWidth, 0, beakWidth);
             beakPosition = MoveEdge(beakPosition, (RectangleEdge)((int)elementPosition.TargetEdge * -1), -beakWidth / 2);
             beakPosition = CenterEdgeToPoint(
                 beakPosition,
@@ -363,22 +363,22 @@ namespace FluentUI
 
         private async Task<(PartialRectangle element, RectangleEdge targetEdge, RectangleEdge alignmentEdge)> FinalizePositionDataAsync(ElementPositionInfo positionedElement, Rectangle bounds)
         {
-            var finalizedElement = await FinalizeElementPositionAsync(positionedElement.ElementRectangle,/*hostElement,*/ positionedElement.TargetEdge, bounds, positionedElement.AlignmentEdge);
+            PartialRectangle finalizedElement = await FinalizeElementPositionAsync(positionedElement.ElementRectangle,/*hostElement,*/ positionedElement.TargetEdge, bounds, positionedElement.AlignmentEdge);
             return (finalizedElement, positionedElement.TargetEdge, positionedElement.AlignmentEdge);
         }
 
         private async Task<PartialRectangle> FinalizeElementPositionAsync(Rectangle elementRectangle, /* hostElement, */ RectangleEdge targetEdge, Rectangle bounds, RectangleEdge alignmentEdge)
         {
-            var hostRectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", RootElementReference);
+            Rectangle hostRectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", RootElementReference);
             //Debug.WriteLine($"HostRect: {hostRectangle.left}, {hostRectangle.top}, {hostRectangle.right}, {hostRectangle.bottom}");
 
 
-            var elementEdge = CoverTarget ? targetEdge : (RectangleEdge)((int)targetEdge * -1);
+            RectangleEdge elementEdge = CoverTarget ? targetEdge : (RectangleEdge)((int)targetEdge * -1);
             //elementEdgeString
-            var returnEdge = FinalizeReturnEdge(elementRectangle, alignmentEdge != RectangleEdge.None ? alignmentEdge : GetFlankingEdges(targetEdge).positiveEdge, bounds);
+            RectangleEdge returnEdge = FinalizeReturnEdge(elementRectangle, alignmentEdge != RectangleEdge.None ? alignmentEdge : GetFlankingEdges(targetEdge).positiveEdge, bounds);
 
             //HOW TO DO THE PARTIAL STUFF?  Might need to set other sides to -1
-            var returnValue = new PartialRectangle();
+            PartialRectangle returnValue = new PartialRectangle();
             switch (elementEdge)
             {
                 case RectangleEdge.Bottom:
@@ -425,7 +425,7 @@ namespace FluentUI
 
         private double GetRelativeEdgeDifference(Rectangle rect, Rectangle hostRect, RectangleEdge edge)
         {
-            var edgeDifference = GetEdgeValue(rect, edge) - GetEdgeValue(hostRect, edge);
+            double edgeDifference = GetEdgeValue(rect, edge) - GetEdgeValue(hostRect, edge);
             return GetRelativeEdgeValue(edge, edgeDifference);
         }
 
@@ -448,19 +448,19 @@ namespace FluentUI
 
             //Now calculate positionedElement
             //GetRectangleFromElement()
-            var calloutRectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", calloutReference);
+            Rectangle calloutRectangle = await JSRuntime.InvokeAsync<Rectangle>("FluentUIBaseComponent.measureElementRect", calloutReference);
             //Debug.WriteLine($"Callout: {calloutRectangle.left}, {calloutRectangle.top}, {calloutRectangle.right}, {calloutRectangle.bottom}");
 
-            var positionedElement = PositionElementWithinBounds(calloutRectangle, targetRect, boundingRect, positionData, gap);
+            ElementPosition positionedElement = PositionElementWithinBounds(calloutRectangle, targetRect, boundingRect, positionData, gap);
 
-            var elementPositionInfo = positionedElement.ToElementPositionInfo(targetRect);
+            ElementPositionInfo elementPositionInfo = positionedElement.ToElementPositionInfo(targetRect);
             return elementPositionInfo;
 
         }
 
         private ElementPosition PositionElementWithinBounds(Rectangle elementToPosition, Rectangle target, Rectangle bounding, PositionDirectionalHintData positionData, double gap)
         {
-            var estimatedElementPosition = EstimatePosition(elementToPosition, target, positionData, gap);
+            Rectangle estimatedElementPosition = EstimatePosition(elementToPosition, target, positionData, gap);
             if (IsRectangleWithinBounds(estimatedElementPosition, bounding))
             {
                 return new ElementPosition(estimatedElementPosition, positionData.TargetEdge, positionData.AlignmentEdge);
@@ -473,20 +473,20 @@ namespace FluentUI
 
         private ElementPosition AdjustFitWithinBounds(Rectangle element, Rectangle target, Rectangle bounding, PositionDirectionalHintData positionData, double gap = 0)
         {
-            var alignmentEdge = positionData.AlignmentEdge;
-            var alignTargetEdge = positionData.AlignTargetEdge;
+            RectangleEdge alignmentEdge = positionData.AlignmentEdge;
+            bool alignTargetEdge = positionData.AlignTargetEdge;
             ElementPosition elementEstimate = new ElementPosition(element, positionData.TargetEdge, alignmentEdge);
             if (!DirectionalHintFixed && !CoverTarget)
             {
                 elementEstimate = FlipToFit(element, target, bounding, positionData, gap);
             }
-            var outOfBounds = GetOutOfBoundsEdges(element, bounding);
+            List<RectangleEdge> outOfBounds = GetOutOfBoundsEdges(element, bounding);
             if (alignTargetEdge)
             {
                 // The edge opposite to the alignment edge might be out of bounds. Flip alignment to see if we can get it within bounds.
                 if (elementEstimate.AlignmentEdge != RectangleEdge.None && outOfBounds.IndexOf((RectangleEdge)((int)elementEstimate.AlignmentEdge * -1)) > -1)
                 {
-                    var flippedElementEstimate = FlipAlignmentEdge(elementEstimate, target, gap);
+                    ElementPosition flippedElementEstimate = FlipAlignmentEdge(elementEstimate, target, gap);
                     if (IsRectangleWithinBounds(flippedElementEstimate.ElementRectangle, bounding))
                     {
                         return flippedElementEstimate;
@@ -495,7 +495,7 @@ namespace FluentUI
             }
             else
             {
-                foreach (var direction in outOfBounds)
+                foreach (RectangleEdge direction in outOfBounds)
                 {
                     elementEstimate.ElementRectangle = AlignEdges(elementEstimate.ElementRectangle, bounding, direction);
                 }
@@ -506,14 +506,14 @@ namespace FluentUI
 
         private Rectangle EstimatePosition(Rectangle elementToPosition, Rectangle target, PositionDirectionalHintData positionData, double gap = 0)
         {
-            var elementEdge = CoverTarget ? positionData.TargetEdge : (RectangleEdge)((int)positionData.TargetEdge * -1);
+            RectangleEdge elementEdge = CoverTarget ? positionData.TargetEdge : (RectangleEdge)((int)positionData.TargetEdge * -1);
             Rectangle estimatedElementPosition = null;
             estimatedElementPosition = CoverTarget
                 ? AlignEdges(elementToPosition, target, positionData.TargetEdge, gap)
                 : AlignOppositeEdges(elementToPosition, target, positionData.TargetEdge, gap);
             if (positionData.AlignmentEdge == RectangleEdge.None)
             {
-                var targetMiddlePoint = GetCenterValue(target, positionData.TargetEdge);
+                double targetMiddlePoint = GetCenterValue(target, positionData.TargetEdge);
                 estimatedElementPosition = CenterEdgeToPoint(estimatedElementPosition, elementEdge, targetMiddlePoint);
             }
             else
@@ -525,14 +525,14 @@ namespace FluentUI
 
         private ElementPosition FlipToFit(Rectangle rect, Rectangle target, Rectangle bounding, PositionDirectionalHintData positionData, double gap = 0)
         {
-            var currentEstimate = rect;
-            var currentEdge = positionData.TargetEdge;
-            var currentAlignment = positionData.AlignmentEdge;
+            Rectangle currentEstimate = rect;
+            RectangleEdge currentEdge = positionData.TargetEdge;
+            RectangleEdge currentAlignment = positionData.AlignmentEdge;
             List<RectangleEdge> directions = new List<RectangleEdge> { RectangleEdge.Left, RectangleEdge.Right, RectangleEdge.Bottom, RectangleEdge.Top };
 
             //RTL not implemented
 
-            for (var i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (!IsEdgeInBounds(currentEstimate, bounding, currentEdge))
                 {
@@ -562,17 +562,17 @@ namespace FluentUI
 
         private ElementPosition FlipAlignmentEdge(ElementPosition elementEstimate, Rectangle target, double gap)
         {
-            var alignmentEdge = elementEstimate.AlignmentEdge;
-            var targetEdge = elementEstimate.TargetEdge;
-            var elementRectangle = elementEstimate.ElementRectangle;
-            var oppositeEdge = (RectangleEdge)((int)alignmentEdge * -1);
-            var newEstimate = EstimatePosition(elementRectangle, target, new PositionDirectionalHintData(targetEdge, oppositeEdge), gap);
+            RectangleEdge alignmentEdge = elementEstimate.AlignmentEdge;
+            RectangleEdge targetEdge = elementEstimate.TargetEdge;
+            Rectangle elementRectangle = elementEstimate.ElementRectangle;
+            RectangleEdge oppositeEdge = (RectangleEdge)((int)alignmentEdge * -1);
+            Rectangle newEstimate = EstimatePosition(elementRectangle, target, new PositionDirectionalHintData(targetEdge, oppositeEdge), gap);
             return new ElementPosition(newEstimate, targetEdge, oppositeEdge);
         }
 
         private List<RectangleEdge> GetOutOfBoundsEdges(Rectangle rect, Rectangle boundingRect)
         {
-            var outOfBounds = new List<RectangleEdge>();
+            List<RectangleEdge> outOfBounds = new List<RectangleEdge>();
             if (rect.top < boundingRect.top)
             {
                 outOfBounds.Add(RectangleEdge.Top);
@@ -594,7 +594,7 @@ namespace FluentUI
 
         private bool IsEdgeInBounds(Rectangle rect, Rectangle bounds, RectangleEdge edge)
         {
-            var adjustedRectValue = GetRelativeRectEdgeValue(edge, rect);
+            double adjustedRectValue = GetRelativeRectEdgeValue(edge, rect);
             return adjustedRectValue > GetRelativeRectEdgeValue(edge, bounds);
         }
 
@@ -614,9 +614,9 @@ namespace FluentUI
 
         private Rectangle CenterEdgeToPoint(Rectangle rect, RectangleEdge edge, double point)
         {
-            var positiveEdge = GetFlankingEdges(edge).positiveEdge;
-            var elementMiddle = GetCenterValue(rect, edge);
-            var distanceToMiddle = elementMiddle - GetEdgeValue(rect, positiveEdge);
+            RectangleEdge positiveEdge = GetFlankingEdges(edge).positiveEdge;
+            double elementMiddle = GetCenterValue(rect, edge);
+            double distanceToMiddle = elementMiddle - GetEdgeValue(rect, positiveEdge);
             return MoveEdge(rect, positiveEdge, point - distanceToMiddle);
         }
 
@@ -627,14 +627,14 @@ namespace FluentUI
 
         private Rectangle AlignOppositeEdges(Rectangle rect, Rectangle target, RectangleEdge targetEdge, double gap = 0)
         {
-            var oppositeEdge = (int)targetEdge * -1;
-            var adjustedGap = GetRelativeEdgeValue((RectangleEdge)oppositeEdge, gap);
+            int oppositeEdge = (int)targetEdge * -1;
+            double adjustedGap = GetRelativeEdgeValue((RectangleEdge)oppositeEdge, gap);
             return MoveEdge(rect, (RectangleEdge)((int)targetEdge * -1), GetEdgeValue(target, targetEdge) + adjustedGap);
         }
 
         private Rectangle MoveEdge(Rectangle rect, RectangleEdge edge, double newValue)
         {
-            var difference = GetEdgeValue(rect, edge) - newValue;
+            double difference = GetEdgeValue(rect, edge) - newValue;
             rect = SetEdgeValue(rect, edge, newValue);
             rect = SetEdgeValue(rect, (RectangleEdge)((int)edge * -1), GetEdgeValue(rect, (RectangleEdge)((int)edge * -1)) - difference);
             return rect;
@@ -659,9 +659,9 @@ namespace FluentUI
 
         private RectangleEdge GetClosestEdge(RectangleEdge targetEdge, Rectangle targetRect, Rectangle boundingRect)
         {
-            var targetCenter = GetCenterValue(targetRect, targetEdge);
-            var boundingCenter = GetCenterValue(boundingRect, targetEdge);
-            var flankingEdges = GetFlankingEdges(targetEdge);
+            double targetCenter = GetCenterValue(targetRect, targetEdge);
+            double boundingCenter = GetCenterValue(boundingRect, targetEdge);
+            (RectangleEdge positiveEdge, RectangleEdge negativeEdge) flankingEdges = GetFlankingEdges(targetEdge);
             if (targetCenter <= boundingCenter)
                 return flankingEdges.positiveEdge;
             else
@@ -670,7 +670,7 @@ namespace FluentUI
 
         private double GetCenterValue(Rectangle rect, RectangleEdge edge)
         {
-            var edges = GetFlankingEdges(edge);
+            (RectangleEdge positiveEdge, RectangleEdge negativeEdge) edges = GetFlankingEdges(edge);
             return (GetEdgeValue(rect, edges.positiveEdge) + GetEdgeValue(rect, edges.negativeEdge)) / 2;
         }
 

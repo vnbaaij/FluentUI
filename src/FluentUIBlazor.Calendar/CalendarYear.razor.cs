@@ -27,7 +27,7 @@ namespace FluentUI
 
         protected override Task OnParametersSetAsync()
         {
-            var rangeYear = SelectedYear != 0 ? SelectedYear : (NavigatedYear != 0 ? NavigatedYear : (DateTime.Now.Year));
+            int rangeYear = SelectedYear != 0 ? SelectedYear : (NavigatedYear != 0 ? NavigatedYear : (DateTime.Now.Year));
             FromYear = rangeYear / 10 * 10;
 
             RangeAriaLabel = $"{DateTimeFormatter.FormatYear(new DateTime(FromYear,1,1))} - {DateTimeFormatter.FormatYear(new DateTime(FromYear + 12 -1, 1, 1))}";

@@ -7,7 +7,7 @@ namespace FluentUI
     {
         public static List<DateTime> GetDateRangeArray(DateTime date, DateRangeType dateRangeType, DayOfWeek firstDayOfWeek, List<DayOfWeek> workWeekDays, int daysToSelectInDayView = 1)
         {
-            var datesArray = new List<DateTime>();
+            List<DateTime> datesArray = new List<DateTime>();
             DateTime startDate;
             DateTime endDate;
 
@@ -41,7 +41,7 @@ namespace FluentUI
             }
 
             // Populate the dates array with the dates in range
-            var nextDate = startDate;
+            DateTime nextDate = startDate;
 
             do
             {
@@ -62,7 +62,7 @@ namespace FluentUI
 
         public static DateTime GetStartDateOfWeek(DateTime date, DayOfWeek firstDayOfWeek)
         {
-            var daysOffset = firstDayOfWeek - date.DayOfWeek;
+            int daysOffset = firstDayOfWeek - date.DayOfWeek;
             if (daysOffset > 0)
             {
                 // If first day of week is > date, go 1 week back, to ensure resulting date is in the past.
@@ -74,15 +74,15 @@ namespace FluentUI
 
         public static List<int> GetWeekNumbersInMonth(int weeksInMonth, DayOfWeek firstDayOfWeek, FirstWeekOfYear firstWeekOfYear, DateTime navigatedDate)
         {
-            var selectedYear = navigatedDate.Year;
-            var selectedMonth = navigatedDate.Month;
+            int selectedYear = navigatedDate.Year;
+            int selectedMonth = navigatedDate.Month;
             int dayOfMonth = 1;
-            var fistDayOfMonth = new DateTime(selectedYear, selectedMonth, dayOfMonth);
-            var endOfFirstWeek = dayOfMonth + (firstDayOfWeek + 7 - 1) - AdjustWeekDay(firstDayOfWeek, fistDayOfMonth.DayOfWeek);
-            var endOfWeekRange = new DateTime(selectedYear, selectedMonth, (int)endOfFirstWeek);
+            DateTime fistDayOfMonth = new DateTime(selectedYear, selectedMonth, dayOfMonth);
+            DayOfWeek endOfFirstWeek = dayOfMonth + (firstDayOfWeek + 7 - 1) - AdjustWeekDay(firstDayOfWeek, fistDayOfMonth.DayOfWeek);
+            DateTime endOfWeekRange = new DateTime(selectedYear, selectedMonth, (int)endOfFirstWeek);
             dayOfMonth = endOfWeekRange.Day;
-            var weeksArray = new List<int>();
-            for (var i = 0; i < weeksInMonth; i++)
+            List<int> weeksArray = new List<int>();
+            for (int i = 0; i < weeksInMonth; i++)
             {
                 // Get week number for end of week
                 weeksArray.Add(GetWeekNumber(endOfWeekRange, firstDayOfWeek, firstWeekOfYear));
@@ -117,28 +117,28 @@ namespace FluentUI
 
         public static int GetFirstDayWeekOfYear(DateTime date, DayOfWeek firstDayOfWeek)
         {
-            var num = date.DayOfYear - 1;
-            var num2 = date.DayOfWeek - (num % 7);
-            var num3 = ((int)num2 - (int)firstDayOfWeek + 2 * 7) % 7;
+            int num = date.DayOfYear - 1;
+            DayOfWeek num2 = date.DayOfWeek - (num % 7);
+            int num3 = ((int)num2 - (int)firstDayOfWeek + 2 * 7) % 7;
 
             return (num + num3) / 7 + 1;
         }
 
         public static int GetWeekOfYearFullDays(DateTime date, DayOfWeek firstDayOfWeek, int numberOfFullDays)
         {
-            var dayOfYear = date.DayOfYear - 1;
-            var num = date.DayOfWeek - (dayOfYear % 7);
+            int dayOfYear = date.DayOfYear - 1;
+            DayOfWeek num = date.DayOfWeek - (dayOfYear % 7);
 
-            var lastDayOfPrevYear = new DateTime(date.Year, 12, 31);
-            var daysInYear = lastDayOfPrevYear.DayOfYear - 1;
+            DateTime lastDayOfPrevYear = new DateTime(date.Year, 12, 31);
+            int daysInYear = lastDayOfPrevYear.DayOfYear - 1;
 
-            var num2 = (firstDayOfWeek - num + 2 * 7) % 7;
+            int num2 = (firstDayOfWeek - num + 2 * 7) % 7;
             if (num2 != 0 && num2 >= numberOfFullDays)
             {
                 num2 -= 7;
             }
 
-            var num3 = dayOfYear - num2;
+            int num3 = dayOfYear - num2;
             if (num3 < 0)
             {
                 num -= daysInYear % 7;

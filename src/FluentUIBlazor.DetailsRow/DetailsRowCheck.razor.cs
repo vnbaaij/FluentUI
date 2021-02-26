@@ -43,7 +43,7 @@ namespace FluentUI
 
         public ICollection<IRule> CreateGlobalCss(ITheme theme)
         {
-            var detailsRowRules = new HashSet<IRule>();
+            HashSet<IRule> detailsRowRules = new HashSet<IRule>();
             //var focusProps = new FocusStyleProps(theme);
             //var focusStyles = FocusStyle.GetFocusStyle(focusProps, ".ms-DetailsRow-check");
 

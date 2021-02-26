@@ -96,7 +96,7 @@ namespace FluentUI
 
         public ICollection<IRule> CreateGlobalCss(ITheme theme)
         {
-            var documentCardActivityRules = new HashSet<IRule>();
+            HashSet<IRule> documentCardActivityRules = new HashSet<IRule>();
 
             documentCardActivityRules.Add(new Rule()
             {

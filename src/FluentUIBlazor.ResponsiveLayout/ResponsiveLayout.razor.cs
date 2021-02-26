@@ -49,7 +49,7 @@ namespace FluentUI
 
         private string GenerateCSSMediaQuery()
         {
-            var mediaQuery = "";
+            string mediaQuery = "";
             if (MinWidth != null)
                 mediaQuery = $"(min-width: {MinWidth.AsLength})";
             if (MaxWidth != null)
@@ -68,7 +68,7 @@ namespace FluentUI
             //    mediaQuery = $"(max-width: {ResponsiveModeUtils.RESPONSIVE_MAX_CONSTRAINT[(int)ResponsiveMode]}px)";
             //}
 
-            var css = "#" + _id + "{display: none;}";
+            string css = "#" + _id + "{display: none;}";
             css += "@media " + mediaQuery + " {" + "#" + _id + "{display:block;}}";
 
             return css;

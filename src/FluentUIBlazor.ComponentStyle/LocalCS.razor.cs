@@ -56,9 +56,9 @@ namespace FluentUI
 
         private void SetSelectorNames()
         {
-            foreach (var rule in rules)
+            foreach (IRule rule in rules)
             {
-                var innerRule = rule as Rule;
+                Rule innerRule = rule as Rule;
                 if (innerRule.Selector.GetType() == typeof(IdSelector) || innerRule.Selector.GetType() == typeof(MediaSelector))
                     continue;
                 if (string.IsNullOrWhiteSpace(innerRule.Selector.SelectorName))

@@ -26,9 +26,9 @@ namespace FluentUI
                 throw new Exception("GetKey must not be null.");
             SetChangeEvents(false);
             SetAllSelected(false);
-            foreach (var item in items)
+            foreach (TItem item in items)
             {
-                var key = GetKey(item);
+                object key = GetKey(item);
 
                 SetKeySelected(key, true, false);
             }
@@ -126,9 +126,9 @@ namespace FluentUI
 
             _unselectableCount = 0;
             int index = 0;
-            foreach (var item in items)
+            foreach (TItem item in items)
             {
-                var key = GetKey(item);
+                object key = GetKey(item);
                 if (key != null)
                 {
                     newKeyToIndexMap.Add(key, index);
@@ -149,16 +149,16 @@ namespace FluentUI
                 SetAllSelected(false, true);
             }
 
-            var newExemptedIndices = new Dictionary<int, object>();
-            var newExemptedKeys = new HashSet<object>();
+            Dictionary<int, object> newExemptedIndices = new Dictionary<int, object>();
+            HashSet<object> newExemptedKeys = new HashSet<object>();
             int newExemptedCount = 0;
 
-            foreach (var i in _exemptedIndices)
+            foreach (KeyValuePair<int, object> i in _exemptedIndices)
             {
                 //skipping hasOwnProperty check
                 index = i.Key;
-                var item = (index < _items!.Count && index >= 0) ? _items[index] : default;
-                var exemptKey = item != null ? GetKey(item) : null;
+                TItem item = (index < _items!.Count && index >= 0) ? _items[index] : default;
+                object exemptKey = item != null ? GetKey(item) : null;
                 int newIndex = exemptKey != null ? (newKeyToIndexMap.ContainsKey(exemptKey) ? newKeyToIndexMap[exemptKey] : -1) : index;
 
                 if (newIndex == -1)
@@ -217,11 +217,11 @@ namespace FluentUI
 
                     _unselectableCount = 0;
                     int index = 0;
-                    foreach (var item in _items)
+                    foreach (TItem item in _items)
                     {
                         if (item != null)
                         {
-                            var key = GetKey(item);
+                            object key = GetKey(item);
                             if (key != null)
                             {
                                 newKeyToIndexMap.Add(key, index);
@@ -238,7 +238,7 @@ namespace FluentUI
                     }
 
                     int newExemptedCount = 0;
-                    foreach (var key in _exemptedKeys)
+                    foreach (object key in _exemptedKeys)
                     {
 
                         if (newKeyToIndexMap.ContainsKey(key))  //the item might no longer exist (it was filtered out)
@@ -268,7 +268,7 @@ namespace FluentUI
             if (isAllSelected && SelectionMode != SelectionMode.Multiple)
                 return;
 
-            var selectableCount = _items != null ? _items.Count() - _unselectableCount : 0;
+            int selectableCount = _items != null ? _items.Count() - _unselectableCount : 0;
 
             SetChangeEvents(false);
 
@@ -292,7 +292,7 @@ namespace FluentUI
 
         private void UpdateCount(bool preserveModalState = false)
         {
-            var count = GetSelectedCount();
+            int? count = GetSelectedCount();
 
             if (count != Count)
             {
@@ -337,11 +337,11 @@ namespace FluentUI
             {
                 _selectedItems= new List<TItem>();
 
-                var items = _items;
+                IList<TItem> items = _items;
 
                 if (items != null)
                 {
-                    for (var i = 0; i < items.Count; i++)
+                    for (int i = 0; i < items.Count; i++)
                     {
                         if (IsIndexSelected(i))
                         {
@@ -370,11 +370,11 @@ namespace FluentUI
             {
                 _selectedIndices = new List<int>();
 
-                var items = _items;
+                IList<TItem> items = _items;
 
                 if (items != null)
                 {
-                    for (var i = 0; i < items.Count; i++)
+                    for (int i = 0; i < items.Count; i++)
                     {
                         if (IsIndexSelected(i))
                         {
@@ -419,7 +419,7 @@ namespace FluentUI
 
         public void SetKeySelected(object key, bool isSelected, bool shouldAnchor)
         {
-            var index = _keyToIndexMap[key];
+            int index = _keyToIndexMap[key];
 
             if (index >= 0)
             {
@@ -445,8 +445,8 @@ namespace FluentUI
 
             SetChangeEvents(false);
 
-            var isExempt = _exemptedIndices.ContainsKey(index);
-            var canSelect = !_unselectableIndices.ContainsKey(index);
+            bool isExempt = _exemptedIndices.ContainsKey(index);
+            bool canSelect = !_unselectableIndices.ContainsKey(index);
 
             if (canSelect)
             {
@@ -468,7 +468,7 @@ namespace FluentUI
                 // Determine if we need to add the exemption.
                 if (!isExempt && ((isSelected && !_isAllSelected) || (!isSelected && _isAllSelected)))
                 {
-                    var key = GetKey(_items[index]);
+                    object key = GetKey(_items[index]);
                     _exemptedKeys.Add(key);
                     _exemptedIndices[index] = key;
                     _exemptedCount++;
@@ -503,9 +503,9 @@ namespace FluentUI
                 return;
             }
 
-            var anchorIndex = _anchoredIndex;
-            var startIndex = Math.Min(index, anchorIndex);
-            var endIndex = Math.Max(index, anchorIndex);
+            int anchorIndex = _anchoredIndex;
+            int startIndex = Math.Min(index, anchorIndex);
+            int endIndex = Math.Max(index, anchorIndex);
 
             SetChangeEvents(false);
 
@@ -529,8 +529,8 @@ namespace FluentUI
                 return;
             }
 
-            var isRangeSelected = IsRangeSelected(fromIndex, count);
-            var endIndex = fromIndex + count;
+            bool isRangeSelected = IsRangeSelected(fromIndex, count);
+            int endIndex = fromIndex + count;
 
             if (SelectionMode == SelectionMode.Single && count > 1)
             {
@@ -538,7 +538,7 @@ namespace FluentUI
             }
 
             SetChangeEvents(false);
-            for (var i = fromIndex; i < endIndex; i++)
+            for (int i = fromIndex; i < endIndex; i++)
             {
                 SetIndexSelected(i, !isRangeSelected, false);
             }
@@ -568,9 +568,9 @@ namespace FluentUI
                 return false;
             }
 
-            var endIndex = fromIndex + count;
+            int endIndex = fromIndex + count;
 
-            for (var i = fromIndex; i < endIndex; i++)
+            for (int i = fromIndex; i < endIndex; i++)
             {
                 if (!IsIndexSelected(i))
                 {
@@ -583,7 +583,7 @@ namespace FluentUI
 
         public bool IsAllSelected()
         {
-            var selectableCount = _items!.Count - _unselectableCount;
+            int selectableCount = _items!.Count - _unselectableCount;
 
             // In single mode, we can only have a max of 1 item.
             if (SelectionMode == SelectionMode.Single)
@@ -609,8 +609,8 @@ namespace FluentUI
                 {
                     Debug.WriteLine("In the middle of updating from a filter. Subgroups haven't redrawn even though selection indices have been mapped (incorrectly)");
                     return false;
-                }     
-                var index = _keyToIndexMap[key];
+                }
+                int index = _keyToIndexMap[key];
 
                 return IsIndexSelected(index);
             }

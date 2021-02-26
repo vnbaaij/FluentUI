@@ -51,7 +51,7 @@ namespace FluentUI
             {
                 if (data.OverflowItems.Count > data.MinimumOverflowItems)
                 {
-                    var movedItem = data.OverflowItems[0];
+                    ICommandBarItem movedItem = data.OverflowItems[0];
                     movedItem.RenderedInOverflow = false;
                     data.OverflowItems.Remove(movedItem);
 
@@ -89,9 +89,9 @@ namespace FluentUI
 
         private string ComputeCacheKey(CommandBarData data)
         {
-            var primaryKey = data.PrimaryItems.Aggregate("", (acc, item) => acc + item.CacheKey);
-            var farKey = data.FarItems.Aggregate("", (acc, item) => acc + item.CacheKey);
-            var overflowKey = data.OverflowItems.Aggregate("", (acc, item) => acc + item.CacheKey);
+            string primaryKey = data.PrimaryItems.Aggregate("", (acc, item) => acc + item.CacheKey);
+            string farKey = data.FarItems.Aggregate("", (acc, item) => acc + item.CacheKey);
+            string overflowKey = data.OverflowItems.Aggregate("", (acc, item) => acc + item.CacheKey);
             return string.Join(" ", primaryKey, farKey, overflowKey);
         }
 

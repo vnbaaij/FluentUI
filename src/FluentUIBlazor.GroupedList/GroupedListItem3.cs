@@ -99,9 +99,9 @@ namespace FluentUI
             isOpenSubject = new BehaviorSubject<bool>(true);
             countSubject = new BehaviorSubject<int>(0);
 
-            var subItems = subGroupSelector(Item);
-            var cummulativeCount = GroupIndex;
-            foreach (var subItem in subItems)
+            IEnumerable<TItem> subItems = subGroupSelector(Item);
+            int cummulativeCount = GroupIndex;
+            foreach (TItem subItem in subItems)
             {
                 //check if is plain or header
                 if (subGroupSelector(subItem) == null || subGroupSelector(subItem).Count() == 0)
@@ -112,7 +112,7 @@ namespace FluentUI
                 else
                 {
                     Items.Add(new HeaderItem3<TItem, TKey>(subItem, depth + 1, cummulativeCount, subGroupSelector, groupTitleSelector));
-                    var subItemCount = GroupedList<TItem, TKey>.GetPlainItemsCount(subItem, subGroupSelector);
+                    int subItemCount = GroupedList<TItem, TKey>.GetPlainItemsCount(subItem, subGroupSelector);
                     cummulativeCount += subItemCount;
                 }
             }
@@ -145,7 +145,7 @@ namespace FluentUI
             groupsChangeSet.CombineLatest(CountChanged, (groups, count) => (groups, count)).Subscribe(x =>
             {
                 sortedItems = x.groups.SortedItems;
-                var groupIndex = x.groups.SortedItems.TakeWhile(x => x.Key != _group.Key).Aggregate(0, (v, x) =>
+                int groupIndex = x.groups.SortedItems.TakeWhile(x => x.Key != _group.Key).Aggregate(0, (v, x) =>
                 {
                     v += x.Value.Cache.Count;
                     return v;
@@ -165,7 +165,7 @@ namespace FluentUI
             {
                 if (sortedItems != null)
                 {
-                    var groupIndex = sortedItems.TakeWhile(x => x.Key != _group.Key).Aggregate(0, (v, x) =>
+                    int groupIndex = sortedItems.TakeWhile(x => x.Key != _group.Key).Aggregate(0, (v, x) =>
                     {
                         v += x.Value.Cache.Count;
                         return v;
@@ -184,11 +184,11 @@ namespace FluentUI
 
             if (groupBy != null && groupBy.Count() > 0)
             {
-                var firstGroup = groupBy.First();
-                var rest = groupBy.Skip(1);
+                Func<TItem, object> firstGroup = groupBy.First();
+                IEnumerable<Func<TItem, object>> rest = groupBy.Skip(1);
 
 
-                var published = _group.Cache.Connect()
+                IConnectableObservable<ISortedChangeSet<IGroup<TItem, TKey, object>, object>> published = _group.Cache.Connect()
                     .Group(firstGroup)
                     .Sort(SortExpressionComparer<IGroup<TItem, TKey, object>>.Ascending(x => x.Key as IComparable))
                     .Replay();
@@ -198,7 +198,7 @@ namespace FluentUI
 
                 published.ToCollection().Subscribe(collection =>
                 {
-                    var count = collection.Aggregate(0, (v, x) =>
+                    int count = collection.Aggregate(0, (v, x) =>
                     {
                         v += x.Cache.Count;
                         return v;
@@ -214,7 +214,7 @@ namespace FluentUI
 
                 published
                     .Transform(group => new HeaderItem3<TItem, TKey>(group, rest, depth + 1, published, this, sortComparer, stateChangeCallback, reindexTrigger) as IGroupedListItem3<TItem>)
-                    .Bind(out var items)
+                    .Bind(out System.Collections.ObjectModel.ReadOnlyObservableCollection<IGroupedListItem3<TItem>> items)
                     .Subscribe();
 
                 published.Connect();
@@ -227,7 +227,7 @@ namespace FluentUI
                 _group.Cache.Connect()
                     .Transform(x => new PlainItem3<TItem, TKey>(x, depth+1) as IGroupedListItem3<TItem>)
                     .Sort(sortComparer)
-                    .Bind(out var items)
+                    .Bind(out System.Collections.ObjectModel.ReadOnlyObservableCollection<IGroupedListItem3<TItem>> items)
                     .Do(x=>
                     {
                         stateChangeCallback.Invoke();

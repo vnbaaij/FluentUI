@@ -262,7 +262,7 @@ namespace FluentUI
             {
                 throw new ArgumentException($"The index is outside the bounds of the dictionary: {index}");
             }
-            var kvp = new KeyValuePair<TKey, TValue>(_keyedCollection[index].Key, value);
+            KeyValuePair<TKey, TValue> kvp = new KeyValuePair<TKey, TValue>(_keyedCollection[index].Key, value);
             _keyedCollection[index] = kvp;
         }
 
@@ -307,7 +307,7 @@ namespace FluentUI
             {
                 throw new ArgumentException($"The given key is not present in the dictionary: {0}");
             }
-            var kvp = _keyedCollection[key];
+            KeyValuePair<TKey, TValue> kvp = _keyedCollection[key];
             return kvp.Value;
         }
 
@@ -318,8 +318,8 @@ namespace FluentUI
         /// <param name="value">The the value to set.</param>
         public void SetValue(TKey key, TValue value)
         {
-            var kvp = new KeyValuePair<TKey, TValue>(key, value);
-            var idx = IndexOf(key);
+            KeyValuePair<TKey, TValue> kvp = new KeyValuePair<TKey, TValue>(key, value);
+            int idx = IndexOf(key);
             if (idx > -1)
             {
                 _keyedCollection[idx] = kvp;
@@ -375,7 +375,7 @@ namespace FluentUI
 
         public void SortValues()
         {
-            var comparer = Comparer<TValue>.Default;
+            Comparer<TValue> comparer = Comparer<TValue>.Default;
             SortValues(comparer);
         }
 

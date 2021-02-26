@@ -58,7 +58,7 @@ namespace FluentUI
                 if(BackstageHeader != null && PivotItems.Count >1 && DefaultSelectedKey == null)
                 {
                     backstageItemKey = PivotItems[0].ItemKey = Guid.NewGuid().ToString();
-                    var firstItemAfterBackstage = PivotItems[1];
+                    PivotItem firstItemAfterBackstage = PivotItems[1];
                     if (firstItemAfterBackstage.ItemKey == null)
                     {
                         firstItemAfterBackstage.ItemKey = Guid.NewGuid().ToString();

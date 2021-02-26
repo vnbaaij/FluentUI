@@ -41,7 +41,7 @@ namespace FluentUI
 
         public int Compare(TItem? x, TItem? y)
         {
-            foreach (var item in _preSort)
+            foreach (Func<TItem, object> item in _preSort)
             {
                 if (x == null && y == null)
                 {
@@ -58,8 +58,8 @@ namespace FluentUI
                     return 1;
                 }
 
-                var xValue = item.Invoke(x);
-                var yValue = item.Invoke(y);
+                object xValue = item.Invoke(x);
+                object yValue = item.Invoke(y);
 
                 if (xValue == null && yValue == null)
                 {

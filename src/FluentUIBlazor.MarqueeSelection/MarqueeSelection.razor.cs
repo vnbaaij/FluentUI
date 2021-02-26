@@ -106,7 +106,7 @@ namespace FluentUI
         [JSInvokable]
         public void SetSelectedIndices(List<int> indices)
         {
-            foreach (var index in indices)
+            foreach (int index in indices)
             {
                 Selection.SetIndexSelected(index, true, false);
             }

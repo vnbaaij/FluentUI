@@ -166,7 +166,7 @@ namespace FluentUI
         [JSInvokable]
         public int GetSelectedCount()
         {
-            var count = Selection.GetSelectedCount();
+            int? count = Selection.GetSelectedCount();
             if (count.HasValue)
                 return count.Value;
             else

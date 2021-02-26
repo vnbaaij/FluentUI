@@ -19,8 +19,8 @@ namespace FluentUI
         {
             if (firstRender)
             {
-                var windowRect = await jSRuntime!.InvokeAsync<Rectangle>("FluentUIBaseComponent.getWindowRect");
-                foreach (var item in Enum.GetValues(typeof(ResponsiveMode)))
+                Rectangle windowRect = await jSRuntime!.InvokeAsync<Rectangle>("FluentUIBaseComponent.getWindowRect");
+                foreach (object item in Enum.GetValues(typeof(ResponsiveMode)))
                 {
                     if (windowRect.width <= ResponsiveModeUtils.RESPONSIVE_MAX_CONSTRAINT[(int)item])
                     {
@@ -39,8 +39,8 @@ namespace FluentUI
         [JSInvokable]
         public virtual Task OnResizedAsync(double windowWidth, double windowHeight)
         {
-            var oldMode = CurrentMode;
-            foreach (var item in Enum.GetValues(typeof(ResponsiveMode)))
+            ResponsiveMode oldMode = CurrentMode;
+            foreach (object item in Enum.GetValues(typeof(ResponsiveMode)))
             {
                 if (windowWidth <= ResponsiveModeUtils.RESPONSIVE_MAX_CONSTRAINT[(int)item])
                 {

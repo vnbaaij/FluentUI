@@ -156,7 +156,7 @@ namespace FluentUI
         public void OnKeyDown(KeydownSliderArgs args)
         {
             double diff = 0;
-            var current = value;
+            double current = value;
             if (args.Min)
             {
                 current = Min;
@@ -170,7 +170,7 @@ namespace FluentUI
                 diff = args.Step;
             }
 
-            var newValue = Math.Min(Max, Math.Max(Min, current + diff));
+            double newValue = Math.Min(Max, Math.Max(Min, current + diff));
             UpdateValue(newValue, newValue);
 
             ClearOnKeyDownTimer();
@@ -204,11 +204,11 @@ namespace FluentUI
         public void MouseOrTouchMove(ManualRectangle rect, double horizontalPosition, double verticalPosition)
         {
             //Debug.WriteLine($"rect:{rect.left} {rect.right}  horiz: {horizontalPosition}");
-            var steps = (Max - Min) / Step;
+            double steps = (Max - Min) / Step;
             //Debug.WriteLine($"steps: {steps}");
-            var sliderLength = Vertical ? rect.height : rect.width;
+            double sliderLength = Vertical ? rect.height : rect.width;
             //Debug.WriteLine($"sliderLength: {sliderLength}");
-            var stepLength = sliderLength / steps;
+            double stepLength = sliderLength / steps;
             //Debug.WriteLine($"stepLength: {stepLength}");
 
             double distance;
@@ -270,8 +270,8 @@ namespace FluentUI
 
 
             // Make sure value has correct number of decimal places based on number of decimals in step
-            var roundedValue = double.Parse(value.ToString($"F{numDec}"));
-            var valueChanged = roundedValue != value;
+            double roundedValue = double.Parse(value.ToString($"F{numDec}"));
+            bool valueChanged = roundedValue != value;
 
             if (SnapToStep)
             {
@@ -289,7 +289,7 @@ namespace FluentUI
 
         private string GetStyleUsingOffsetPercent(bool vertical, double thumbOffsetPercent)
         {
-            var direction = vertical ? "bottom" : "left";  // skipping RTL
+            string direction = vertical ? "bottom" : "left";  // skipping RTL
             return $"{direction}:{thumbOffsetPercent}%;";
         }
 

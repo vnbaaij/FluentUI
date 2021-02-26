@@ -66,7 +66,7 @@ namespace FluentUI.Resize
             if (RootElementReference.Id != null)
             {
                 boundsTask = GetBoundsAsync(elementReference,boundsCTS.Token);
-                var bounds = await boundsTask;
+                Rectangle bounds = await boundsTask;
                 newContainerDimension = (Vertical ? bounds.height : bounds.width);
             }
             return newContainerDimension;
@@ -126,9 +126,9 @@ namespace FluentUI.Resize
         private async Task<double> GetElementDimensionsAsync(CancellationToken cancellationToken)
         {
             // must get this via a funcion because we don't know yet if either of these elements will exist to be measured.
-            var refToMeasure = !_hasRenderedContent ? initialHiddenDiv : updateHiddenDiv;
-            var elementBounds = await jSRuntime.InvokeAsync<ScrollDimensions>("FluentUIBaseComponent.measureScrollDimensions", cancellationToken, refToMeasure);
-            var elementDimension = Vertical ? elementBounds.ScrollHeight : elementBounds.ScrollWidth;
+            ElementReference refToMeasure = !_hasRenderedContent ? initialHiddenDiv : updateHiddenDiv;
+            ScrollDimensions elementBounds = await jSRuntime.InvokeAsync<ScrollDimensions>("FluentUIBaseComponent.measureScrollDimensions", cancellationToken, refToMeasure);
+            double elementDimension = Vertical ? elementBounds.ScrollHeight : elementBounds.ScrollWidth;
             return elementDimension;
         }
 

@@ -7,7 +7,7 @@ namespace FluentUI
     {
         public static IRule AppendCssStyles(this IRule rule, params string[] cssStyles)
         {
-            var cssString = rule.Properties as CssString;
+            CssString cssString = rule.Properties as CssString;
             if (cssString != null)
                 cssString.AppendCssStyles(cssStyles);
 
@@ -19,13 +19,13 @@ namespace FluentUI
             if (!cssStyles.Any())
                 return cssString;
 
-            var totalCharLength = cssStyles.Select(x => x.Length).Sum() + cssStyles.Count();
+            int totalCharLength = cssStyles.Select(x => x.Length).Sum() + cssStyles.Count();
 
             // Use string.Create and Spans to highly optimize the string concatenation (no allocations)
-            var combinedString = string.Create(totalCharLength, cssStyles, (chars, state) =>
+            string combinedString = string.Create(totalCharLength, cssStyles, (chars, state) =>
             {
-                var position = 0;
-                foreach(var cssString in state)
+                int position = 0;
+                foreach(string cssString in state)
                 {
                     cssString.AsSpan().CopyTo(chars.Slice(position));
                     position += cssString.Length;
@@ -39,7 +39,7 @@ namespace FluentUI
 
         public static IRule SetCssStyles(this IRule rule, params string[] cssStyles)
         {
-            var cssString = rule.Properties as CssString;
+            CssString cssString = rule.Properties as CssString;
             if (cssString != null)
                 cssString.SetCssStyles(cssStyles);
 
@@ -51,13 +51,13 @@ namespace FluentUI
             if (!cssStyles.Any())
                 return cssString;
 
-            var totalCharLength = cssStyles.Select(x => x.Length).Sum() + cssStyles.Count();
+            int totalCharLength = cssStyles.Select(x => x.Length).Sum() + cssStyles.Count();
 
             // Use string.Create and Spans to highly optimize the string concatenation (no allocations)
-            var combinedString = string.Create(totalCharLength, cssStyles, (chars, state) =>
+            string combinedString = string.Create(totalCharLength, cssStyles, (chars, state) =>
             {
-                var position = 0;
-                foreach (var cssString in state)
+                int position = 0;
+                foreach (string cssString in state)
                 {
                     cssString.AsSpan().CopyTo(chars.Slice(position));
                     position += cssString.Length;

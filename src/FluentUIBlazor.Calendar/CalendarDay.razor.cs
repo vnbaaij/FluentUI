@@ -73,7 +73,7 @@ namespace FluentUI
 
             // determine if previous/next months are in bounds
 
-            var firstDayOfMonth = new DateTime(NavigatedDate.Year, NavigatedDate.Month, 1);
+            DateTime firstDayOfMonth = new DateTime(NavigatedDate.Year, NavigatedDate.Month, 1);
             PrevMonthInBounds = DateTime.Compare(MinDate, firstDayOfMonth) < 0;
             NextMonthInBounds = DateTime.Compare(firstDayOfMonth.AddMonths(1).AddDays(-1), MaxDate) < 0;
 
@@ -193,18 +193,18 @@ namespace FluentUI
 
         private Dictionary<string,string> CreateWeekCornerStyles()
         {
-            var weekCornersStyled = new Dictionary<string, string>();
+            Dictionary<string, string> weekCornersStyled = new Dictionary<string, string>();
 
             switch (DateRangeType)
             {
                 case DateRangeType.Month:
-                    for (var weekIndex = 0; weekIndex < Weeks.Count; weekIndex++)
+                    for (int weekIndex = 0; weekIndex < Weeks.Count; weekIndex++)
                     {
-                        var week = Weeks[weekIndex];
-                        for (var dayIndex=0; dayIndex < week.Count; dayIndex++)
+                        List<DayInfo> week = Weeks[weekIndex];
+                        for (int dayIndex =0; dayIndex < week.Count; dayIndex++)
                         {
                             bool above = false, below = false, left = false, right = false;
-                            var day = week[dayIndex];
+                            DayInfo day = week[dayIndex];
                             if (weekIndex - 1 >= 0 && dayIndex < Weeks[weekIndex - 1].Count)
                             {
                                 above = Weeks[weekIndex - 1][dayIndex].OriginalDate.Month == Weeks[weekIndex][dayIndex].OriginalDate.Month;
@@ -222,10 +222,10 @@ namespace FluentUI
                                 right = Weeks[weekIndex][dayIndex + 1].OriginalDate.Month == Weeks[weekIndex][dayIndex].OriginalDate.Month;
                             }
 
-                            var roundedTopLeft = !above && !left;
-                            var roundedTopRight = !above && !right;
-                            var roundedBottomLeft = !below && !left;
-                            var roundedBottomRight = !below && !right;
+                            bool roundedTopLeft = !above && !left;
+                            bool roundedTopRight = !above && !right;
+                            bool roundedBottomLeft = !below && !left;
+                            bool roundedBottomRight = !below && !right;
 
                             string classNames = "";
                             if (roundedTopLeft)
@@ -252,13 +252,13 @@ namespace FluentUI
                     break;
                 case DateRangeType.Week:
                 case DateRangeType.WorkWeek:
-                    for (var weekIndex=0; weekIndex < Weeks.Count; weekIndex++)
+                    for (int weekIndex =0; weekIndex < Weeks.Count; weekIndex++)
                     {
-                        var minIndex = Weeks[weekIndex].IndexOf(Weeks[weekIndex].First(x => x.IsInBounds));
-                        var maxIndex = Weeks[weekIndex].IndexOf(Weeks[weekIndex].Last(x => x.IsInBounds));
+                        int minIndex = Weeks[weekIndex].IndexOf(Weeks[weekIndex].First(x => x.IsInBounds));
+                        int maxIndex = Weeks[weekIndex].IndexOf(Weeks[weekIndex].Last(x => x.IsInBounds));
 
-                        var leftStyle = " ms-Calendar-topLeftCornerDate ms-Calendar-bottomLeftCornerDate";
-                        var rightStyle = " ms-Calendar-topRightCornerDate ms-Calendar-bottomRightCornerDate";
+                        string leftStyle = " ms-Calendar-topLeftCornerDate ms-Calendar-bottomLeftCornerDate";
+                        string rightStyle = " ms-Calendar-topRightCornerDate ms-Calendar-bottomRightCornerDate";
                         weekCornersStyled.Add(weekIndex + "_" + minIndex, leftStyle);
                         weekCornersStyled.Add(weekIndex + "_" + maxIndex, rightStyle);
                     }
@@ -273,7 +273,7 @@ namespace FluentUI
             // stop propagation - needed?
             DateTime selectedDateWithTime = selectedDate.Add(timeOfDay);
 
-            var dateRange = DateUtilities.GetDateRangeArray(selectedDate, DateRangeType, FirstDayOfWeek, WorkWeekDays);
+            List<DateTime> dateRange = DateUtilities.GetDateRangeArray(selectedDate, DateRangeType, FirstDayOfWeek, WorkWeekDays);
             if (DateRangeType != DateRangeType.Day)
                 dateRange = GetBoundedDateRange(dateRange, MinDate, MaxDate);
             dateRange = dateRange.Where(d => !GetIsRestrictedDate(d)).ToList();
@@ -283,7 +283,7 @@ namespace FluentUI
             // Navigate to next or previous month if needed
             if (AutoNavigateOnSelection && selectedDateWithTime.Month != NavigatedDate.Month)
             {
-                var compareResult = DateTime.Compare(selectedDateWithTime.Date, NavigatedDate.Date);
+                int compareResult = DateTime.Compare(selectedDateWithTime.Date, NavigatedDate.Date);
                 if (compareResult < 0)
                     OnSelectPrevMonth();
                 else if (compareResult > 0)
@@ -295,8 +295,8 @@ namespace FluentUI
 
         private void GenerateWeeks()
         {
-            var date = new DateTime(NavigatedDate.Year, NavigatedDate.Month, 1);
-            var todaysDate = DateTime.Now;
+            DateTime date = new DateTime(NavigatedDate.Year, NavigatedDate.Month, 1);
+            DateTime todaysDate = DateTime.Now;
             Weeks = new List<List<DayInfo>>();
 
             // cycle backwards to get first day of week
@@ -304,26 +304,26 @@ namespace FluentUI
                 date = date - TimeSpan.FromDays(1);
 
             // a flag to indicate whether all days of the week are in the month
-            var isAllDaysOfWeekOutOfMonth = false;
+            bool isAllDaysOfWeekOutOfMonth = false;
 
             // in work week view we want to select the whole week
-            var selecteDateRangeType = DateRangeType == DateRangeType.WorkWeek ? DateRangeType.Week : DateRangeType;
-            var selectedDates = SelectedDate == null ? new List<DateTime>(): DateUtilities.GetDateRangeArray((DateTime)SelectedDate, selecteDateRangeType, FirstDayOfWeek, WorkWeekDays);
+            DateRangeType selecteDateRangeType = DateRangeType == DateRangeType.WorkWeek ? DateRangeType.Week : DateRangeType;
+            List<DateTime> selectedDates = SelectedDate == null ? new List<DateTime>(): DateUtilities.GetDateRangeArray((DateTime)SelectedDate, selecteDateRangeType, FirstDayOfWeek, WorkWeekDays);
             if (DateRangeType != DateRangeType.Day)
             {
                 selectedDates = GetBoundedDateRange(selectedDates, MinDate, MaxDate);
             }
 
-            var shouldGetWeeks = true;
-            for (var weekIndex = 0; shouldGetWeeks; weekIndex++)
+            bool shouldGetWeeks = true;
+            for (int weekIndex = 0; shouldGetWeeks; weekIndex++)
             {
                 List<DayInfo> week = new List<DayInfo>();
                 isAllDaysOfWeekOutOfMonth = true;
 
-                for (var dayIndex = 0; dayIndex < 7; dayIndex++)
+                for (int dayIndex = 0; dayIndex < 7; dayIndex++)
                 {
-                    var originalDate = new DateTime(date.Year, date.Month, date.Day);
-                    var dayInfo = new DayInfo()
+                    DateTime originalDate = new DateTime(date.Year, date.Month, date.Day);
+                    DayInfo dayInfo = new DayInfo()
                     {
                         Key = date.ToString(),
                         Date = date.Date.ToString("D"),
@@ -367,7 +367,7 @@ namespace FluentUI
 
         private bool IsInDateRangeArray(DateTime date, List<DateTime> dateRange)
         {
-            foreach (var dateInRange in dateRange) {
+            foreach (DateTime dateInRange in dateRange) {
                 if (DateTime.Compare(date, dateInRange) == 0) {
                     return true;
                 }
@@ -377,7 +377,7 @@ namespace FluentUI
 
         private List<DateTime> GetBoundedDateRange(List<DateTime> dateRange, DateTime? minDate = null, DateTime? maxDate = null)
         {
-            var boundedDateRange = dateRange;
+            List<DateTime> boundedDateRange = dateRange;
             if (minDate.HasValue) {
                 boundedDateRange = boundedDateRange.Where(date => DateTime.Compare(date.Date, minDate.Value) >= 0).ToList();
             }

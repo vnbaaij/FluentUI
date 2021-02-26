@@ -114,7 +114,7 @@ namespace FluentUI
         {
             try
             {
-                var props = FocusZoneProps.GenerateProps(this, Id, RootElementReference);
+                FocusZoneProps props = FocusZoneProps.GenerateProps(this, Id, RootElementReference);
                 await jsRuntime.InvokeVoidAsync("FluentUIFocusZone.updateFocusZone", _registrationId, props);
             }
             catch (TaskCanceledException ex)
@@ -126,7 +126,7 @@ namespace FluentUI
 
         private async Task RegisterFocusZoneAsync()
         {
-            var props = FocusZoneProps.GenerateProps(this, Id, RootElementReference);
+            FocusZoneProps props = FocusZoneProps.GenerateProps(this, Id, RootElementReference);
             _registrationId = await jsRuntime.InvokeAsync<int>("FluentUIFocusZone.register", props, DotNetObjectReference.Create(this));
         }
 
@@ -139,7 +139,7 @@ namespace FluentUI
             }
             catch (TaskCanceledException ex)
             {
-                var i = ex;
+                TaskCanceledException i = ex;
             }
         }
 

@@ -63,7 +63,7 @@ namespace FluentUI
         {
             if (_id != -1)
             {
-                var props = new FocusTrapZoneProps(this, _firstBumper, _lastBumper);
+                FocusTrapZoneProps props = new FocusTrapZoneProps(this, _firstBumper, _lastBumper);
                 await jsRuntime.InvokeVoidAsync("FluentUIFocusTrapZone.updateProps", _id, props);
             }
 
@@ -82,7 +82,7 @@ namespace FluentUI
 
         private async void RegisterFocusTrapZone()
         {
-            var props = new FocusTrapZoneProps(this, _firstBumper, _lastBumper);
+            FocusTrapZoneProps props = new FocusTrapZoneProps(this, _firstBumper, _lastBumper);
             _id = await jsRuntime.InvokeAsync<int>("FluentUIFocusTrapZone.register", props, DotNetObjectReference.Create(this));
         }
      

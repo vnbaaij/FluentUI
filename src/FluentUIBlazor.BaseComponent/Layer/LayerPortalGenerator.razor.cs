@@ -32,7 +32,7 @@ namespace FluentUI
 
         public async Task AddOrUpdateHostedContentAsync(string layerId, RenderFragment? renderFragment)
         {
-            var foundPortalFragment = portalFragments.FirstOrDefault(x => x.Id == layerId);
+            PortalDetails foundPortalFragment = portalFragments.FirstOrDefault(x => x.Id == layerId);
             if (foundPortalFragment != null)
             {
                 foundPortalFragment.Fragment = renderFragment;

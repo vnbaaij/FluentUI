@@ -21,7 +21,7 @@ namespace FluentUI
         {
             get
             {
-                var pair = _impl.Current;
+                KeyValuePair<TKey, TValue> pair = _impl.Current;
                 return new DictionaryEntry(pair.Key, pair.Value);
             }
         }

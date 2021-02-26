@@ -95,7 +95,7 @@ namespace FluentUI
 
         private string GetInitialsLatin(string displayName, bool isRtl)
         {
-            var initials = "";
+            string initials = "";
 
             string[] splits = displayName.Split(' ');
 
@@ -136,7 +136,7 @@ namespace FluentUI
 
         private void SetStyle()
         {
-            var dimension = CoinSize != -1 ? CoinSize : PersonaSize.SizeToPixels(Size);
+            int dimension = CoinSize != -1 ? CoinSize : PersonaSize.SizeToPixels(Size);
             string fontSize = dimension switch
             {
                 < 32 => Theme.FontStyle.FontSize.XSmall,

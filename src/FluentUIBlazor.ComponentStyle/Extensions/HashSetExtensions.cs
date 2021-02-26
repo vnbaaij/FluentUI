@@ -18,7 +18,7 @@ namespace FluentUI
             if (string.IsNullOrWhiteSpace(selectorName))
                 throw new ArgumentNullException(nameof(selectorName));
 
-            var rule = new Rule
+            Rule rule = new Rule
             {
                 Selector = new CssStringSelector { SelectorName = selectorName },
                 Properties = new CssString(),
@@ -32,7 +32,7 @@ namespace FluentUI
             if (string.IsNullOrWhiteSpace(selectorName))
                 throw new ArgumentNullException(nameof(selectorName));
 
-            var rule = new Rule
+            Rule rule = new Rule
             {
                 Selector = new CssStringSelector { SelectorName = selectorName },
                 Properties = new CssString(),
@@ -50,7 +50,7 @@ namespace FluentUI
             if (selectorName.StartsWith("."))
                 selectorName = selectorName.Substring(1);
 
-            var rule = new Rule
+            Rule rule = new Rule
             {
                 Selector = new ClassSelector { SelectorName = selectorName },
                 Properties = new CssString(),
@@ -67,7 +67,7 @@ namespace FluentUI
             if (selectorName.StartsWith("."))
                 selectorName = selectorName.Substring(1);
 
-            var rule = new Rule
+            Rule rule = new Rule
             {
                 Selector = new ClassSelector { SelectorName = selectorName },
                 Properties = new CssString(),

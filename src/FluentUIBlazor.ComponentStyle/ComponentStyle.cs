@@ -85,7 +85,7 @@ namespace FluentUI
         {            
             if (e.OldItems != null)
             {
-                foreach (var item in e.OldItems)
+                foreach (object item in e.OldItems)
                 {
                     //if (!((IGlobalCSSheet)item).FixStyle && ((IGlobalCSSheet)item).Component != null && !StyleSheetIsNeeded(((IGlobalCSSheet)item).Component))
                     //{
@@ -113,7 +113,7 @@ namespace FluentUI
 
             if (e.NewItems != null)
             {
-                foreach (var item in e.NewItems)
+                foreach (object item in e.NewItems)
                 {
                     if (!ComponentStyleExist(((IGlobalCSSheet)item).ComponentType))
                     {
@@ -137,7 +137,7 @@ namespace FluentUI
 
         private void UpdateGlobalRules()
         {
-            var newRules = GetAllGlobalCSRules();
+            ICollection<string> newRules = GetAllGlobalCSRules();
             if (newRules?.Count > 0)
             {
                 GlobalCSRules.Clear();
@@ -152,11 +152,11 @@ namespace FluentUI
             {
                 return;
             }
-            var rules = sheet.CreateGlobalCss.Invoke();
+            ICollection<IRule> rules = sheet.CreateGlobalCss.Invoke();
 
-            foreach (var rule in rules)
+            foreach (IRule rule in rules)
             {
-                var ruleAsString = PrintRule(rule);
+                string ruleAsString = PrintRule(rule);
                 if (!GlobalCSRules.Contains(ruleAsString))
                 {
                     GlobalCSRules.Add(ruleAsString);
@@ -170,11 +170,11 @@ namespace FluentUI
             {
                 return;
             }
-            var rules = sheet.CreateGlobalCss.Invoke();
+            ICollection<IRule> rules = sheet.CreateGlobalCss.Invoke();
 
-            foreach (var rule in rules)
+            foreach (IRule rule in rules)
             {
-                var ruleAsString = PrintRule(rule);
+                string ruleAsString = PrintRule(rule);
                 if (GlobalCSRules.Contains(ruleAsString))
                 {
                     GlobalCSRules.Remove(ruleAsString);
@@ -184,19 +184,19 @@ namespace FluentUI
 
         private ICollection<string>? GetAllGlobalCSRules()
         {
-            var globalCSRules = new HashSet<string>();
-            var update = false;
-            foreach (var styleSheet in GlobalRulesSheets)
+            HashSet<string> globalCSRules = new HashSet<string>();
+            bool update = false;
+            foreach (IGlobalCSSheet styleSheet in GlobalRulesSheets)
             {
                 if (styleSheet.CreateGlobalCss == null)
                 {
                     continue;
                 }
-                var rules = styleSheet.CreateGlobalCss.Invoke();
+                ICollection<IRule> rules = styleSheet.CreateGlobalCss.Invoke();
 
-                foreach (var rule in rules)
+                foreach (IRule rule in rules)
                 {
-                    var ruleAsString = PrintRule(rule);
+                    string ruleAsString = PrintRule(rule);
                     if (!globalCSRules.Contains(ruleAsString))
                     {
                         globalCSRules.Add(ruleAsString);
@@ -209,7 +209,7 @@ namespace FluentUI
             }
             if (!update)
             {
-                foreach (var rule in GlobalCSRules)
+                foreach (string rule in GlobalCSRules)
                 {
                     if (!globalCSRules.Contains(rule))
                     {
@@ -228,7 +228,7 @@ namespace FluentUI
                 return "";
             if (rule.Properties == null)
                 return "";
-            var ruleAsString = "";
+            string ruleAsString = "";
             
             ruleAsString += $"{(rule as Rule)?.Selector?.GetSelectorAsString()}{{";
 
@@ -238,8 +238,8 @@ namespace FluentUI
             }
             else
             {
-                var type = rule.Properties.GetType();
-                foreach (var property in GetCachedProperties(type))
+                Type type = rule.Properties.GetType();
+                foreach (PropertyInfo property in GetCachedProperties(type))
                 {
                     string cssProperty = "";
                     string cssValue = "";
@@ -259,7 +259,7 @@ namespace FluentUI
                     attribute = GetCachedCustomAttribute(property, typeof(CsPropertyAttribute));  //property.GetCustomAttribute(typeof(CsPropertyAttribute));
                     if (attribute != null)
                     {
-                        var propAttribute = attribute as CsPropertyAttribute;
+                        CsPropertyAttribute propAttribute = attribute as CsPropertyAttribute;
                         if (propAttribute != null)
                         {
                             if (propAttribute.IsCssStringProperty)
@@ -318,10 +318,10 @@ namespace FluentUI
         private static Func<object, object> GetCachedGetter(PropertyInfo property, Dictionary<PropertyInfo, Func<object,object>> cache) 
         {
             Func<object,object> getter;
-            var start = DateTime.Now.Ticks;
+            long start = DateTime.Now.Ticks;
             if (cache.TryGetValue(property, out getter) == false)
             {
-                var getterEmitter = Emit<Func<object, object>>.NewDynamicMethod().LoadArgument(0).CastClass(property.DeclaringType).Call(property.GetGetMethod()).Return();
+                Emit<Func<object, object>> getterEmitter = Emit<Func<object, object>>.NewDynamicMethod().LoadArgument(0).CastClass(property.DeclaringType).Call(property.GetGetMethod()).Return();
                 getter = getterEmitter.CreateDelegate();
                 cache.Add(property, getter);
                 //Debug.WriteLine($"Emit creation took: {TimeSpan.FromTicks(DateTime.Now.Ticks - start).TotalMilliseconds}ms");

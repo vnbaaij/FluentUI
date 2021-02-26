@@ -50,7 +50,7 @@ namespace FluentUI
         {
             buttonCommand = new RelayCommand(async (p) =>
             {
-                var item = items.FirstOrDefault(x => x.Key == p.ToString());
+                CommandBarItem item = items.FirstOrDefault(x => x.Key == p.ToString());
                 if (item != null)
                 {
                     if (item.CanCheck)
@@ -96,11 +96,11 @@ namespace FluentUI
                 {
                     if (_waitingFormattingState != null)
                     {
-                        var stateNeedsChanging = false;
-                        var props = _waitingFormattingState.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-                        foreach (var prop in props)
+                        bool stateNeedsChanging = false;
+                        PropertyInfo[] props = _waitingFormattingState.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                        foreach (PropertyInfo prop in props)
                         {
-                            var commandButton = items.FirstOrDefault(x => x.Key == prop.Name);
+                            CommandBarItem commandButton = items.FirstOrDefault(x => x.Key == prop.Name);
                             if (commandButton != null && commandButton.Checked != (bool)prop.GetValue(_waitingFormattingState))
                             {
                                 commandButton.Checked = !commandButton.Checked;
@@ -195,14 +195,14 @@ namespace FluentUI
         
         private async Task UpdateFormatStateAsync()
         {
-            var formatState = await jsRuntime.InvokeAsync<FormattingState>("FluentUIRichTextEditor.getFormat", quillId);
+            FormattingState formatState = await jsRuntime.InvokeAsync<FormattingState>("FluentUIRichTextEditor.getFormat", quillId);
             if (formatState != null)
             {
-                var stateNeedsChanging = false;
-                var props = formatState.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-                foreach (var prop in props)
+                bool stateNeedsChanging = false;
+                PropertyInfo[] props = formatState.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                foreach (PropertyInfo prop in props)
                 {
-                    var commandButton = items.FirstOrDefault(x => x.Key == prop.Name);
+                    CommandBarItem commandButton = items.FirstOrDefault(x => x.Key == prop.Name);
                     if (commandButton != null && commandButton.Checked != (bool)prop.GetValue(formatState))
                     {
                         commandButton.Checked = !commandButton.Checked;
@@ -220,7 +220,7 @@ namespace FluentUI
         {
             if (keyboardEventArgs.CtrlKey && keyboardEventArgs.Key == "+")
             {
-                var item = items.FirstOrDefault(x => x.Key == "Superscript");
+                CommandBarItem item = items.FirstOrDefault(x => x.Key == "Superscript");
                 if (item != null)
                 {
                     if (!item.Checked)
@@ -234,7 +234,7 @@ namespace FluentUI
             }
             else if (keyboardEventArgs.CtrlKey && keyboardEventArgs.Key == "=")
             {
-                var item = items.FirstOrDefault(x => x.Key == "Subscript");
+                CommandBarItem item = items.FirstOrDefault(x => x.Key == "Subscript");
                 if (item != null)
                 {
                     if (!item.Checked)
@@ -277,7 +277,7 @@ namespace FluentUI
 
         private ICollection<IRule> CreateGlobalCss()
         {
-            var richTextEditorGlobalRules = new HashSet<IRule>();
+            HashSet<IRule> richTextEditorGlobalRules = new HashSet<IRule>();
             richTextEditorGlobalRules.Add(new Rule()
             {
                 Selector = new CssStringSelector() { SelectorName = ".bf-richTextEditor" },

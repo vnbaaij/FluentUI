@@ -102,7 +102,7 @@ namespace FluentUI
             if (Delay != TooltipDelay.Zero)
             {
                 IsAriaPlaceholderRendered = true;
-                var delayTime = GetDelayTime(Delay);
+                double delayTime = GetDelayTime(Delay);
                 _openTimer.Interval = delayTime;
                 _openTimer.Start();
             }

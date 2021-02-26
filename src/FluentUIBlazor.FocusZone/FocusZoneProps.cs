@@ -48,7 +48,7 @@ namespace FluentUI
 
         public static FocusZoneProps GenerateProps(FocusZone focusZone, string id, ElementReference root)
         {
-            var props = new FocusZoneProps()
+            FocusZoneProps props = new FocusZoneProps()
             {
                 AllowFocusRoot = focusZone.AllowFocusRoot,
                 CheckForNoWrap = focusZone.CheckForNoWrap,

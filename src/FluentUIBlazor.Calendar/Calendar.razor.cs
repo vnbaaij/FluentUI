@@ -150,7 +150,7 @@ namespace FluentUI
                 // When using Defaultprops, TypeScript doesn't know that React is going to inject defaults
                 // so we use exclamation mark as a hint to the type checker (see link below)
                 // https://decembersoft.com/posts/error-ts2532-optional-react-component-props-in-typescript/
-                var dates = DateUtilities.GetDateRangeArray(Today, DateRangeType, FirstDayOfWeek, WorkWeekDays);
+                List<DateTime> dates = DateUtilities.GetDateRangeArray(Today, DateRangeType, FirstDayOfWeek, WorkWeekDays);
 
                 await OnSelectDateInternal(new SelectedDateResult() { Date = Today, SelectedDateRange = dates });
             }
@@ -195,7 +195,7 @@ namespace FluentUI
                 NavigateMonthPickerDay(result.Date);
                 focusOnUpdate = result.FocusOnNavigatedDay;
             }
-            var monthPickerOnly = !ShowMonthPickerAsOverlay && !IsDayPickerVisible;
+            bool monthPickerOnly = !ShowMonthPickerAsOverlay && !IsDayPickerVisible;
 
             if (monthPickerOnly)
                 await OnSelectDateInternal(new SelectedDateResult() { Date = result.Date });

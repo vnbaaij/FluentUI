@@ -33,9 +33,9 @@ namespace FluentUI
 
                 if (ResizableGroups.Count > 0)
                 {
-                  
-                    var groupToGrow = ResizableGroups[0];
-                    foreach (var resizableGroup in ResizableGroups)
+
+                    ResizeGroupData groupToGrow = ResizableGroups[0];
+                    foreach (ResizeGroupData resizableGroup in ResizableGroups)
                     {
                         if(groupToGrow.HighestPriorityInOverflowItems() <= resizableGroup.HighestPriorityInOverflowItems())
                         {
@@ -56,8 +56,8 @@ namespace FluentUI
             {
                 if (ResizableGroups.Count > 0)
                 {
-                    var groupToShrink = ResizableGroups[0];
-                    foreach (var resizableGroup in ResizableGroups)
+                    ResizeGroupData groupToShrink = ResizableGroups[0];
+                    foreach (ResizeGroupData resizableGroup in ResizableGroups)
                     {
                         if (groupToShrink.LowestPriorityInItems() >= resizableGroup.LowestPriorityInItems())
                         {
@@ -82,7 +82,7 @@ namespace FluentUI
   
             if (ItemsSource != null)
             {
-                foreach (var group in ItemsSource)
+                foreach (IGroup group in ItemsSource)
                 {
                     ResizableGroups.Add(new ResizeGroupData(group.ItemsSource, group == ItemsSource.Last()));
                 }

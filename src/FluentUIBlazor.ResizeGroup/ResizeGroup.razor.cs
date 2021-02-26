@@ -56,7 +56,7 @@ namespace FluentUI
         protected override Task OnInitializedAsync()
         {
             //Debug.WriteLine("Initialized");
-            var state = GetInitialState();
+            ResizeGroupState<TObject> state = GetInitialState();
            // Debug.WriteLine($"State dataToMeasure: {(state.DataToMeasure== null ? "null" : "not empty")}");
             _dataToMeasure = state.DataToMeasure;
             _measureContainer = state.MeasureContainer;
@@ -122,7 +122,7 @@ namespace FluentUI
                     //    boundsCTS = new CancellationTokenSource();
                     //}
                     boundsTask = GetBoundsAsync(boundsCTS.Token);
-                    var bounds = await boundsTask;
+                    Rectangle bounds = await boundsTask;
                     newContainerDimension = (Vertical ? bounds.height : bounds.width);
                 }
                 //Debug.WriteLine($"Container dimension: {_containerDimension}");
@@ -135,7 +135,7 @@ namespace FluentUI
                 //    nextStateCTS = new CancellationTokenSource();
                 //}
                 nextStateTask = GetNextStateAsync(newContainerDimension, _containerDimension, _dataToMeasure, _renderedData, _resizeDirection, nextStateCTS.Token);
-                var nextState = await nextStateTask;
+                ResizeGroupState<TObject> nextState = await nextStateTask;
 
                 if (nextState != null)
                 {
@@ -160,9 +160,9 @@ namespace FluentUI
         private async Task<double> GetElementDimensionsAsync(CancellationToken cancellationToken)
         {
             // must get this via a funcion because we don't know yet if either of these elements will exist to be measured.
-            var refToMeasure = !_hasRenderedContent ? initialHiddenDiv : updateHiddenDiv;
-            var elementBounds = await jSRuntime.InvokeAsync<ScrollDimensions>("FluentUIBaseComponent.measureScrollDimensions", cancellationToken, refToMeasure);
-            var elementDimension = Vertical ? elementBounds.ScrollHeight : elementBounds.ScrollWidth;
+            ElementReference refToMeasure = !_hasRenderedContent ? initialHiddenDiv : updateHiddenDiv;
+            ScrollDimensions elementBounds = await jSRuntime.InvokeAsync<ScrollDimensions>("FluentUIBaseComponent.measureScrollDimensions", cancellationToken, refToMeasure);
+            double elementDimension = Vertical ? elementBounds.ScrollHeight : elementBounds.ScrollWidth;
             return elementDimension;
         }
 
@@ -182,8 +182,8 @@ namespace FluentUI
                 // If we know what the last container size was and we rendered data at that width/height, we can do an optimized render
                 if (!double.IsNaN(oldContainerDimension) && renderedData != null && dataToMeasure == null)
                 {
-                    var state = new ResizeGroupState<TObject>(renderedData, resizeDirection, dataToMeasure);
-                    var alteredState = UpdateContainerDimension(oldContainerDimension, newContainerDimension, Data, renderedData);
+                    ResizeGroupState<TObject> state = new ResizeGroupState<TObject>(renderedData, resizeDirection, dataToMeasure);
+                    ResizeGroupState<TObject> alteredState = UpdateContainerDimension(oldContainerDimension, newContainerDimension, Data, renderedData);
                     state.ReplaceProperties(alteredState);
                     return state;
                 }
@@ -191,7 +191,7 @@ namespace FluentUI
                 replacementContainerDimension = newContainerDimension;
             }
 
-            var nextState = new ResizeGroupState<TObject>(renderedData, resizeDirection, dataToMeasure);
+            ResizeGroupState<TObject> nextState = new ResizeGroupState<TObject>(renderedData, resizeDirection, dataToMeasure);
             nextState.MeasureContainer = false;
             if (replacementContainerDimension != oldContainerDimension)
                 nextState.ContainerDimension = replacementContainerDimension;
@@ -199,16 +199,16 @@ namespace FluentUI
             if (dataToMeasure != null)
             {
                 //get elementDimension here
-                var elementDimension = await GetElementDimensionsAsync(cancellationToken);
+                double elementDimension = await GetElementDimensionsAsync(cancellationToken);
 
                 if (resizeDirection == ResizeDirection.Grow && OnGrowData != null)
                 {
-                    var alteredState = GrowDataUntilItDoesNotFit(dataToMeasure, elementDimension, replacementContainerDimension);
+                    ResizeGroupState<TObject> alteredState = GrowDataUntilItDoesNotFit(dataToMeasure, elementDimension, replacementContainerDimension);
                     nextState.ReplaceProperties(alteredState);
                 }
                 else
                 {
-                    var alteredState = ShrinkContentsUntilTheyFit(dataToMeasure, elementDimension, replacementContainerDimension);
+                    ResizeGroupState<TObject> alteredState = ShrinkContentsUntilTheyFit(dataToMeasure, elementDimension, replacementContainerDimension);
                     nextState.ReplaceProperties(alteredState);
                 }
             }
@@ -248,14 +248,14 @@ namespace FluentUI
             while (elementDimension < containerDimension)
             {
                 Debug.WriteLine("Loop in GrowUntilNotFit");
-                var nextMeasuredData = OnGrowData(dataToMeasure);
+                TObject nextMeasuredData = OnGrowData(dataToMeasure);
                 if (nextMeasuredData == null)
                 {
                     Debug.WriteLine($"GrowUntilNotFit:  got null nextMeasuredData");
                     return new ResizeGroupState<TObject>() { RenderedData = dataToMeasure, NullifyDataToMeasure = true, ForceNoneResizeDirection = true, ContainerDimension = containerDimension };
                 }
 
-                var found = _measurementCache.TryGetValue(GetCacheKey(nextMeasuredData), out elementDimension);
+                bool found = _measurementCache.TryGetValue(GetCacheKey(nextMeasuredData), out elementDimension);
                 if (!found)
                 {
                     return new ResizeGroupState<TObject>() { DataToMeasure = nextMeasuredData, ContainerDimension = containerDimension };
@@ -265,7 +265,7 @@ namespace FluentUI
             }
             Debug.WriteLine($"GrowUntilNotFit:  element: {elementDimension}   container: {containerDimension}");
 
-            var altState = ShrinkContentsUntilTheyFit(dataToMeasure, elementDimension, containerDimension);
+            ResizeGroupState<TObject> altState = ShrinkContentsUntilTheyFit(dataToMeasure, elementDimension, containerDimension);
             if (altState.ResizeDirection == ResizeDirection.None)
                 altState.ResizeDirection = ResizeDirection.Shrink;
 
@@ -277,7 +277,7 @@ namespace FluentUI
             while (elementDimension > containerDimension)
             {
                 Debug.WriteLine("Loop in ShrinkUntilTheyFit");
-                var nextMeasuredData = OnReduceData(dataToMeasure);
+                TObject nextMeasuredData = OnReduceData(dataToMeasure);
                 if (nextMeasuredData == null)
                 {
                     Debug.WriteLine("ShrinkUntilTheyFit:  nextMeasuredData was null");
@@ -286,7 +286,7 @@ namespace FluentUI
                 }
 
 
-                var found = _measurementCache.TryGetValue(GetCacheKey(nextMeasuredData), out elementDimension);
+                bool found = _measurementCache.TryGetValue(GetCacheKey(nextMeasuredData), out elementDimension);
                 if (!found)
                 {
                     return new ResizeGroupState<TObject>() { DataToMeasure = nextMeasuredData, ResizeDirection = ResizeDirection.Shrink, ContainerDimension = containerDimension };

@@ -32,7 +32,7 @@ namespace FluentUI
                 hosts.Add(host.Id, host);
                 if (hostSubjects.ContainsKey(host.Id))
                 {
-                    var subject = hostSubjects[host.Id];
+                    BehaviorSubject<LayerHost> subject = hostSubjects[host.Id];
                     subject.OnNext(host);
                 }
             }
@@ -70,7 +70,7 @@ namespace FluentUI
             {
                 if (hostSubjects.ContainsKey(host.Id))
                 {
-                    var subject = hostSubjects[host.Id];
+                    BehaviorSubject<LayerHost> subject = hostSubjects[host.Id];
                     subject.OnCompleted();
                     hostSubjects.Remove(host.Id);
                 }

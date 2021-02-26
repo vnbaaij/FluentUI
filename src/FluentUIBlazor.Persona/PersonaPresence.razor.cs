@@ -87,7 +87,7 @@ namespace FluentUI
         {
             if (presence == PersonaPresenceStatus.None)
                 return "";
-            var oofIcon = "SkypeArrow";
+            string oofIcon = "SkypeArrow";
 
             switch (presence)
             {
@@ -121,8 +121,8 @@ namespace FluentUI
 
         private void SetStyle()
         {
-            var borderSize = (Size == PersonaSize.Size72 || Size == PersonaSize.Size100 ? "2px" : "1px");
-            var isOpenCirclePresence = Presence == PersonaPresenceStatus.Offline || (IsOutOfOffice && (Presence == PersonaPresenceStatus.Online || Presence == PersonaPresenceStatus.Busy || Presence == PersonaPresenceStatus.Away || Presence == PersonaPresenceStatus.DND));
+            string borderSize = (Size == PersonaSize.Size72 || Size == PersonaSize.Size100 ? "2px" : "1px");
+            bool isOpenCirclePresence = Presence == PersonaPresenceStatus.Offline || (IsOutOfOffice && (Presence == PersonaPresenceStatus.Online || Presence == PersonaPresenceStatus.Busy || Presence == PersonaPresenceStatus.Away || Presence == PersonaPresenceStatus.DND));
 
             if (_presenceHeightWidth != null)
             {

@@ -37,7 +37,7 @@ namespace FluentUI
         public Func<string, DateTime> ParseDateFromString { get; set; } = text =>
         {
             DateTime date = DateTime.MinValue;
-            var success = DateTime.TryParse(text, out date);
+            bool success = DateTime.TryParse(text, out date);
             return date;
         };
         [Parameter] public string PickerAriaLabel { get; set; }
@@ -113,7 +113,7 @@ namespace FluentUI
 
             SetErrorMessage(true, nextIsRequired, nextValue, nextMinDate, nextMaxDate, nextInitialPickerDate);
 
-            var oldValue = SelectedDate;
+            DateTime? oldValue = SelectedDate;
             if (DateTimeCompareNullable(oldValue, nextValue) != 0 
                 || (FormatDate != null 
                 && nextFormatDate != null 
@@ -303,7 +303,7 @@ namespace FluentUI
             if (IsDatePickerShown)
                 return;
 
-            var inputValue = FormattedDate;
+            string inputValue = FormattedDate;
 
             if (AllowTextInput)
             {

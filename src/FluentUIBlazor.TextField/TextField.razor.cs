@@ -145,10 +145,10 @@ namespace FluentUI
         {
             if (lastParameters != null)
             {
-                var currentParameters = parameters.ToDictionary();
-                foreach (var curr in currentParameters)
+                IReadOnlyDictionary<string, object> currentParameters = parameters.ToDictionary();
+                foreach (KeyValuePair<string, object> curr in currentParameters)
                 {
-                    var lastValue = lastParameters[curr.Key];
+                    object lastValue = lastParameters[curr.Key];
                     if (curr.Value == null)
                     {
                         if (lastValue != null)
@@ -179,7 +179,7 @@ namespace FluentUI
                     else if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(EventCallback<>))
                     {
                         //is this enough?
-                        var prop = t.GetProperty("HasDelegate");
+                        System.Reflection.PropertyInfo prop = t.GetProperty("HasDelegate");
                         bool aHasDelegate = (bool)prop.GetValue(curr.Value);
                         bool bHasDelegate = (bool)prop.GetValue(lastValue);
 
@@ -215,8 +215,8 @@ namespace FluentUI
                                     shouldRender = true;
                                     break;
                                 }
-                                var a = (curr.Value as System.Delegate).Method.GetMethodBody().GetILAsByteArray();
-                                var b = (lastValue as System.Delegate).Method.GetMethodBody().GetILAsByteArray();
+                                byte[] a = (curr.Value as System.Delegate).Method.GetMethodBody().GetILAsByteArray();
+                                byte[] b = (lastValue as System.Delegate).Method.GetMethodBody().GetILAsByteArray();
                                 if (a.Length != b.Length)
                                 {
                                     shouldRender = true;
@@ -389,7 +389,7 @@ namespace FluentUI
         {
             if (AutoAdjustHeight == true && Multiline)
             {
-                var scrollHeight = await JSRuntime.InvokeAsync<double>("FluentUIBaseComponent.getScrollHeight", textAreaRef);
+                double scrollHeight = await JSRuntime.InvokeAsync<double>("FluentUIBaseComponent.getScrollHeight", textAreaRef);
                 //inlineTextAreaStyle = $"height: {scrollHeight}px";
                 if (autoAdjustedHeight != scrollHeight)
                 {
@@ -409,10 +409,10 @@ namespace FluentUI
 
         protected string GetAutoCompleteString()
         {
-            var value = AutoComplete.ToString();
+            string value = AutoComplete.ToString();
             value = Char.ToLowerInvariant(value[0]) + value.Substring(1);
             string result = "";
-            foreach (var c in value.ToCharArray())
+            foreach (char c in value.ToCharArray())
             {
                 if (Char.IsUpper(c))
                 {
@@ -474,7 +474,7 @@ namespace FluentUI
                 {
                     await Task.Delay(deferredValidationTime);
                 }));
-                var TaskCount = DeferredValidationTasks.Count();
+                int TaskCount = DeferredValidationTasks.Count();
                 await Task.WhenAll(DeferredValidationTasks.ToArray());
                 if (TaskCount == DeferredValidationTasks.Count())
                 {

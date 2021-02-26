@@ -103,23 +103,23 @@ namespace FluentUI
                     processedUri = uri.Split('?', '#')[0];
                     break;
                 case NavMatchType.AnchorIncluded:
-                    var split = uri.Split('?');
+                    string[] split = uri.Split('?');
                     processedUri = split[0];
                     if (split.Length > 1)
                     {
-                        var anchorSplit = split[1].Split('#');
+                        string[] anchorSplit = split[1].Split('#');
                         if (anchorSplit.Length > 1)
                             processedUri += "#" + anchorSplit[1];
                     }
                     else
                     {
-                        var anchorSplit = split[0].Split('#');
+                        string[] anchorSplit = split[0].Split('#');
                         if (anchorSplit.Length > 1)
                             processedUri += "#" + anchorSplit[1];
                     }
                     break;
                 case NavMatchType.AnchorOnly:
-                    var split2 = uri.Split('#');
+                    string[] split2 = uri.Split('#');
                     if (split2.Length > 1)
                         processedUri = split2[1];
                     else
