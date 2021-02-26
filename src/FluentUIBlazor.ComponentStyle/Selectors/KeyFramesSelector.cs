@@ -10,7 +10,7 @@ namespace FluentUI
 
         public string GetSelectorAsString()
         {
-            return $"@keyframes {(SelectorName != null ? SelectorName : "")}";
+            return $"@keyframes {(SelectorName ?? "")}";
         }
     }
 }

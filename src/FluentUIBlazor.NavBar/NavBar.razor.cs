@@ -89,8 +89,8 @@ namespace FluentUI
         {
             _currentData = new NavBarData()
             {
-                PrimaryItems = new List<INavBarItem>(Items != null ? Items : new List<INavBarItem>()),
-                OverflowItems = new List<INavBarItem>(OverflowItems != null ? OverflowItems : new List<INavBarItem>()),
+                PrimaryItems = new List<INavBarItem>(Items ?? new List<INavBarItem>()),
+                OverflowItems = new List<INavBarItem>(OverflowItems ?? new List<INavBarItem>()),
                 //FarItems = new List<ICommandBarItem>(FarItems != null ? FarItems : new List<ICommandBarItem>()),
                 MinimumOverflowItems = OverflowItems != null ? OverflowItems.Count() : 0,
                 CacheKey = ""

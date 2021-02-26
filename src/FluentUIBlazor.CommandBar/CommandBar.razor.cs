@@ -77,9 +77,9 @@ namespace FluentUI
         {
             _currentData = new CommandBarData()
             {
-                PrimaryItems = new List<ICommandBarItem>(Items != null ? Items : new List<ICommandBarItem>()),
-                OverflowItems = new List<ICommandBarItem>(OverflowItems != null ? OverflowItems : new List<ICommandBarItem>()),
-                FarItems = new List<ICommandBarItem>(FarItems != null ? FarItems : new List<ICommandBarItem>()),
+                PrimaryItems = new List<ICommandBarItem>(Items ?? new List<ICommandBarItem>()),
+                OverflowItems = new List<ICommandBarItem>(OverflowItems ?? new List<ICommandBarItem>()),
+                FarItems = new List<ICommandBarItem>(FarItems ?? new List<ICommandBarItem>()),
                 MinimumOverflowItems = OverflowItems != null ? OverflowItems.Count() : 0,
                 CacheKey = ""
             };

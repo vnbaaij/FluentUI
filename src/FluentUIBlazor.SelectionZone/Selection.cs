@@ -100,7 +100,7 @@ namespace FluentUI
         public IList<TItem> GetItems()
         {
 
-            return _items != null ? _items : new List<TItem>();
+            return _items ?? new List<TItem>();
         }
 
         public void SetItems(IList<TItem> items, bool shouldClear = true)

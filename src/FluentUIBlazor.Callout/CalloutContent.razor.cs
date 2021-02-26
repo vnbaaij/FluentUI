@@ -770,7 +770,7 @@ namespace FluentUI
             };
             CalloutMainRule.Properties = new CssString()
             {
-                Css = $"background-color:{(BackgroundColor != null ? BackgroundColor : Theme?.SemanticColors.MenuBackground)};" +
+                Css = $"background-color:{(BackgroundColor ?? (Theme?.SemanticColors.MenuBackground))};" +
                         $"overflow-x:hidden;" +
                         $"overflow-y:{(overflowYHidden ? "hidden" : "auto")};" +
                         $"position:relative;" +
@@ -779,7 +779,7 @@ namespace FluentUI
             CalloutBeakRule.Properties = new CssString()
             {
                 Css = $"position:absolute;" +
-                        $"background-color:{(BackgroundColor != null ? BackgroundColor : Theme?.SemanticColors.MenuBackground)};" +
+                        $"background-color:{(BackgroundColor ?? (Theme?.SemanticColors.MenuBackground))};" +
                         $"box-shadow:inherit;" +
                         $"border:inherit;" +
                         $"box-sizing:border-box;" +
