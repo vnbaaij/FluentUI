@@ -11,16 +11,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="wwwroot\**" />
-    <Content Remove="wwwroot\**" />
-    <EmbeddedResource Remove="wwwroot\**" />
-    <None Remove="wwwroot\**" />
-    <TypeScriptCompile Remove="wwwroot\**" />
-  </ItemGroup>
-
-
-
+  
   <ItemGroup>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
