@@ -3,7 +3,7 @@
 <Project>
 
 	<PropertyGroup>
-		<Authors>Lee McPherson, Lukas Frensel, Steven Rasmussen, Frank Strieder, Vincent Baaij</Authors>
+		<Authors>Vincent Baaij, Lee McPherson, Lukas Frensel, Steven Rasmussen, Frank Strieder</Authors>
 		<RepositoryUrl>https://github.com/vnbaaij/FluentUIBlazor</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/vnbaaij/FluentUIBlazor</PackageProjectUrl>
 		<Product>FluentUIBlazor</Product>
@@ -12,29 +12,17 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IsPackable>true</IsPackable>
 		<CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
-		<PackageOutputPath>../../packages</PackageOutputPath>
+		<PackageOutputPath>../packages</PackageOutputPath>
 		<Version>5.0.0</Version>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
 	</PropertyGroup>
 
-	<ItemGroup Condition="$(ProjectName.Contains('Test')) == false">
-		<None Include="..\..\LICENSE">
-			<Pack>True</Pack>
-			<PackagePath></PackagePath>
-		</None>
-	</ItemGroup>
-	<ItemGroup Condition="$(ProjectName.Contains('Test')) == false">
+
+	<ItemGroup>
 		<None Include="..\LICENSE">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
 	</ItemGroup>
-
-	<!--<ItemGroup Condition="$(ProjectName.Contains('BaseComponent')) == false" >
-		<Content Include="..\FluentUI.BaseComponent\tsconfig.json">
-
-		</Content>
-	</ItemGroup>-->
-
 </Project>
