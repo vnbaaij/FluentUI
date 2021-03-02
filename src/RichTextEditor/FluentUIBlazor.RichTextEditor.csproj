@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>FluentUIBlazor.RichTextEditor</AssemblyName>
+    <Description>RichTextEditor component from Blazor port of Fluent UI React library. Using quilljs</Description>
+    <RootNamespace>FluentUI</RootNamespace>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluentUIBlazor.Stack\FluentUIBlazor.Stack.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.TextField\FluentUIBlazor.TextField.csproj" />
+  </ItemGroup>
+
+</Project>

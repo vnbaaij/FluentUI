@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>FluentUIBlazor</AssemblyName>
+    <RootNamespace>FluentUI</RootNamespace>
+    <Nullable>disable</Nullable>
+    <Product>FluentUIBlazor</Product>
+    <Description>The Blazor port of the Fluent UI React library</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+    <TypeScriptCompile Remove="wwwroot\**" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+    <PackageReference Include="Sigil" Version="5.0.0" />
+    <PackageReference Include="DynamicData" Version="6.14.18" />
+  </ItemGroup>
+
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties tsconfig_1json__JsonSchema="https://json.schemastore.org/tsconfig" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

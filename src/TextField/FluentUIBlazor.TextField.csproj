@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>FluentUIBlazor.TextField</AssemblyName>
+    <Description>TextField component from Blazor port of Fluent UI React library</Description>
+    <RootNamespace>FluentUI</RootNamespace>
+    <Nullable>disable</Nullable>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluentUIBlazor.Icon\FluentUIBlazor.Icon.csproj" />
+    <ProjectReference Include="..\FluentUIBlazor.Label\FluentUIBlazor.Label.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -46,7 +46,7 @@
                                        TItem="DataItem"
                                        @ref="selectionZone">
                             <FocusZone>
-                                <List ItemsSource=@data
+                                <FluentUI.ListBase ItemsSource=@data
                                       TItem="DataItem">
                                     <ItemTemplate>
 
@@ -64,7 +64,7 @@
                                             <span style="margin-left:10px;">@context.Item.DisplayName</span>
                                         </div>
                                     </ItemTemplate>
-                                </List>
+                                </FluentUI.ListBase>
 
                             </FocusZone>
                         </SelectionZone>
@@ -97,7 +97,7 @@
                                        TItem="DataItem"
                                        @ref="selectionZone">
                             <FocusZone>
-                                <List ItemsSource=@data
+                                <FluentUI.ListBase ItemsSource=@data
                                       UseGridFlexLayout="true"
                                       ItemWidth="120"
                                       TItem="DataItem">
@@ -117,7 +117,7 @@
                                             <span style="margin-left:10px;">@context.Item.DisplayName</span>
                                         </div>
                                     </ItemTemplate>
-                                </List>
+                                </FluentUI.ListBase>
 
                             </FocusZone>
                         </SelectionZone>

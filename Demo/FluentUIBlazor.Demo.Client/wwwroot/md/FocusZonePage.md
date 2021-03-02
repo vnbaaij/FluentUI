@@ -41,14 +41,14 @@
             <h4>FocusZone with vertical &amp; circular movement</h4>
 
             <FocusZone Direction="FocusZoneDirection.Vertical" IsCircularNavigation="true">
-                <List ItemsSource=@items>
+                <FluentUI.ListBase ItemsSource=@items>
                     <ItemTemplate>
                         <div style="display:flex;flex-direction:row;width:100%;" data-is-focusable="true">
                             <Image Src="redArrow.jpg" Height="50" Width="50" />
                             <Label>This is an item #@context</Label>
                         </div>
                     </ItemTemplate>
-                </List>
+                </FluentUI.ListBase>
             </FocusZone>
         </div>
         <div class="subSection">

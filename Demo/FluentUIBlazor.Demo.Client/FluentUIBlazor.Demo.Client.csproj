@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FluentUIBlazor.Theme\FluentUIBlazor.Theme.csproj" />
     <ProjectReference Include="..\FluentUIBlazor.Demo.Shared\FluentUIBlazor.Demo.Shared.csproj" />
   </ItemGroup>
 
