@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace FluentUI
 {
 
-    // ToDo Test KeyTip
-    // ToDo Add OnRenderItemLink
+    // ToDo: Test KeyTip
+    // ToDo: Add OnRenderItemLink
     public partial class PivotItem : FluentUIComponentBase, IDisposable
     {
         [Parameter] public string HeaderText { get; set; }

@@ -15,29 +15,31 @@ namespace FluentUI
     public partial class Slider : FluentUIComponentBase, IAsyncDisposable
     {
         [Parameter] public Func<double, string>? AriaValueText { get; set; }
-        [Parameter] public double? DefaultValue { get; set; }
+        [Parameter] public double DefaultValue { get; set; }
         [Parameter] public bool Disabled { get; set; } = false;
-        [Parameter] public string? Label { get; set; }
-        [Parameter] public string? LineContainerClassName { get; set; }
+        [Parameter] public string Label { get; set; }
+        [Parameter] public string LineContainerClassName { get; set; }
         [Parameter] public double Max { get; set; } = 10.0;
         [Parameter] public double Min { get; set; } = 0.0;
         [Parameter] public bool OriginFromZero { get; set; } = false;
         [Parameter] public bool ShowValue { get; set; } = true;
         [Parameter] public bool SnapToStep { get; set; } = false;
         [Parameter] public double Step { get; set; } = 1.0;
-        [Parameter] public string? TitleLabelClassName { get; set; }
-        [Parameter] public double? Value { get; set; }
+        [Parameter] public string TitleLabelClassName { get; set; }
+        [Parameter] public double Value { get; set; }
         [Parameter] public EventCallback<double> ValueChanged { get; set; }
         [Parameter] public Func<double, string>? ValueFormat { get; set; }
         [Parameter] public bool Vertical { get; set; }
 
-        [Inject] private IJSRuntime? JSRuntime { get; set; }
+        [Inject] private IJSRuntime JSRuntime { get; set; }
 
 
         private readonly string id = Guid.NewGuid().ToString();
+#pragma warning disable IDE0044 // Add readonly modifier
         private ElementReference slideBox;
         private ElementReference sliderLine;
         private ElementReference thumb;
+#pragma warning restore IDE0044 // Add readonly modifier
         private double zeroOffsetPercent;
         private double thumbOffsetPercent;
         private double _renderedValue;
@@ -48,9 +50,9 @@ namespace FluentUI
         private DotNetObjectReference<Slider>? dotNetObjectReference;
         private readonly Timer timer = new();
 
-        private string lengthString => (Vertical ? "height" : "width");
+        private string LengthString => Vertical ? "height" : "width";
 
-        public static Dictionary<string, string> GlobalClassNames = new()
+        private static readonly Dictionary<string, string> GlobalClassNames = new()
         {
             {"root", "ms-Slider"},
             {"enabled", "ms-Slider-enabled"},
@@ -71,7 +73,7 @@ namespace FluentUI
             {"lineContainer", "ms-Slider-lineContainer" }
         };
         private bool shouldFocus;
-        
+
 
         private void UpdateState()
         {
@@ -98,15 +100,13 @@ namespace FluentUI
 
         protected override async Task OnParametersSetAsync()
         {
-            if (Value.HasValue)
-            {
-                value = Value.Value;
-                _renderedValue = value;
-            }
-            else if (DefaultValue.HasValue && !initialValueSet)
+            value = Value;
+            _renderedValue = value;
+            
+            if (!initialValueSet)
             {
                 initialValueSet = true;
-                value = DefaultValue.Value;
+                value = DefaultValue;
                 _renderedValue = value;
             }
 
@@ -114,7 +114,7 @@ namespace FluentUI
             {
                 if (Disabled && dotNetObjectReference != null)
                 {
-                    _ = JSRuntime?.InvokeVoidAsync("FluentUISlider.unregisterHandler", dotNetObjectReference);
+                    await JSRuntime.InvokeVoidAsync("FluentUISlider.unregisterHandler", dotNetObjectReference);
                     dotNetObjectReference.Dispose();
                     dotNetObjectReference = null;
                 }
@@ -300,6 +300,7 @@ namespace FluentUI
                 await JSRuntime.InvokeVoidAsync("FluentUISlider.unregisterHandlers", dotNetObjectReference);
             }
             dotNetObjectReference?.Dispose();
+            GC.SuppressFinalize(this);
         }
 
     }

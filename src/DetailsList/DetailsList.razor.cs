@@ -86,7 +86,7 @@ namespace FluentUI
         //State
         readonly int focusedItemIndex;
         readonly double _lastWidth = -1;
-        readonly SelectionMode _lastSelectionMode;
+        //readonly SelectionMode _lastSelectionMode;
         Viewport _lastViewport;
         Viewport _viewport;
         private IEnumerable<DetailsRowColumn<TItem>> _adjustedColumns = Enumerable.Empty<DetailsRowColumn<TItem>>();
@@ -94,9 +94,12 @@ namespace FluentUI
         readonly Dictionary<string, double> _columnOverrides = new();
 
         private Selection<TItem> _selection = new();
-        GroupedList<TItem,object> groupedList;
+        
         readonly List<TItem> list;
-         SelectionZone<TItem> selectionZone;
+#pragma warning disable IDE0044 // Add readonly modifier
+        SelectionZone<TItem> selectionZone;
+        GroupedList<TItem, object> groupedList;
+#pragma warning restore IDE0044 // Add readonly modifier
 
         protected bool isAllSelected;
         private readonly bool shouldRender = true;
@@ -134,8 +137,6 @@ namespace FluentUI
             if (_viewport != null && _viewport != _lastViewport)
             {
                 AdjustColumns(
-                    parameters.GetValueOrDefault<IEnumerable<TItem>>("ItemsSource"),
-                    parameters.GetValueOrDefault<DetailsListLayoutMode>("LayoutMode"),
                     parameters.GetValueOrDefault<SelectionMode>("SelectionMode"),
                     parameters.GetValueOrDefault<CheckboxVisibility>("CheckboxVisibility"),
                     parameters.GetValueOrDefault<IEnumerable<DetailsRowColumn<TItem>>>("Columns"),
@@ -182,8 +183,10 @@ namespace FluentUI
                 {
                     if (Selection == null)
                     {
-                        Selection = new Selection<TItem>();
-                        Selection.GetKey = GetKey;
+                        Selection = new Selection<TItem>
+                        {
+                            GetKey = GetKey
+                        };
                     }
                     _selection = Selection;
 
@@ -239,28 +242,26 @@ namespace FluentUI
             //Debug.WriteLine($"Viewport changed: {viewport.ScrollWidth}");
             if (_viewport != null)
             {
-                AdjustColumns(ItemsSource, LayoutMode, SelectionMode, CheckboxVisibility, Columns, true);
+                AdjustColumns(SelectionMode, CheckboxVisibility, Columns, true);
                 InvokeAsync(StateHasChanged);
             }
         }
 
-        private void AdjustColumns(IEnumerable<TItem> newItems, DetailsListLayoutMode newLayoutMode, SelectionMode newSelectionMode, CheckboxVisibility newCheckboxVisibility, IEnumerable<DetailsRowColumn<TItem>> newColumns, bool forceUpdate, int resizingColumnIndex = -1)
+        private void AdjustColumns(SelectionMode newSelectionMode, CheckboxVisibility newCheckboxVisibility, IEnumerable<DetailsRowColumn<TItem>> newColumns, bool forceUpdate, int resizingColumnIndex = -1)
         {
-            _adjustedColumns = GetAdjustedColumns(newItems, newLayoutMode, newSelectionMode, newCheckboxVisibility, newColumns, forceUpdate, resizingColumnIndex);
+            _adjustedColumns = GetAdjustedColumns(newSelectionMode, newCheckboxVisibility, newColumns, forceUpdate, resizingColumnIndex);
         }
 
-        private IEnumerable<DetailsRowColumn<TItem>> GetAdjustedColumns(IEnumerable<TItem> newItems, DetailsListLayoutMode newLayoutMode, SelectionMode newSelectionMode, CheckboxVisibility newCheckboxVisibility, IEnumerable<DetailsRowColumn<TItem>> newColumns, bool forceUpdate, int resizingColumnIndex)
+        private IEnumerable<DetailsRowColumn<TItem>> GetAdjustedColumns(SelectionMode newSelectionMode, CheckboxVisibility newCheckboxVisibility, IEnumerable<DetailsRowColumn<TItem>> newColumns, bool forceUpdate, int resizingColumnIndex)
         {
-            IEnumerable<DetailsRowColumn<TItem>> columns = Columns.EmptyIfNull();
-            double lastWidth = _lastWidth;
-            SelectionMode lastSelectionMode = _lastSelectionMode;
-
+            //IEnumerable<DetailsRowColumn<TItem>> columns = Columns.EmptyIfNull();
+            //double lastWidth = _lastWidth;
             if (!forceUpdate && _lastViewport.Width == _viewport.Width && SelectionMode == newSelectionMode && (Columns == null || newColumns == Columns))
                 return Enumerable.Empty<DetailsRowColumn<TItem>>();
 
             // skipping default column builder... user must provide columns always
 
-            IEnumerable<DetailsRowColumn<TItem>> adjustedColumns = null;
+            IEnumerable<DetailsRowColumn<TItem>> adjustedColumns;
 
             if (LayoutMode == DetailsListLayoutMode.FixedColumns)
             {
@@ -311,8 +312,8 @@ namespace FluentUI
                     col.CalculatedWidth = double.NaN;
             }
 
-            int count = 0;
-            double fixedWidth = fixedColumns.Aggregate<DetailsRowColumn<TItem>, double, double>(0, (total, column) => total + GetPaddedWidth(column, ++count == 0), x => x);
+            int count;
+            double fixedWidth = fixedColumns.Aggregate<DetailsRowColumn<TItem>, double, double>(0, (total, column) => total + GetPaddedWidth(column), x => x);
 
             IEnumerable<DetailsRowColumn<TItem>> remainingColumns = newColumns.Skip(resizingColumnIndex).Take(newColumns.Count() - resizingColumnIndex);
             double remainingWidth = viewportWidth - fixedWidth;
@@ -328,7 +329,7 @@ namespace FluentUI
             int groupExpandedWidth = 0; //skipping this for now.
             double totalWidth = 0;
             double availableWidth = viewportWidth - (rowCheckWidth + groupExpandedWidth);
-            int count = 0;
+            int count;
 
             System.Collections.Generic.List<DetailsRowColumn<TItem>> adjustedColumns = new();
             foreach (DetailsRowColumn<TItem> col in newColumns)
@@ -338,11 +339,11 @@ namespace FluentUI
                 if (_columnOverrides.TryGetValue(col.Key, out double overridenWidth))
                     col.CalculatedWidth = overridenWidth;
 
-                bool isFirst = count + resizingColumnIndex == 0;
-                totalWidth += GetPaddedWidth(col, isFirst);
+                //bool isFirst = count + resizingColumnIndex == 0;
+                totalWidth += GetPaddedWidth(col);
             }
 
-            int lastIndex = adjustedColumns.Count() - 1;
+            int lastIndex = adjustedColumns.Count - 1;
 
             // Shrink or remove collapsable columns.
             while (lastIndex > 0 && totalWidth > availableWidth)
@@ -359,7 +360,7 @@ namespace FluentUI
                 }
                 else
                 {
-                    totalWidth -= GetPaddedWidth(col, false);
+                    totalWidth -= GetPaddedWidth(col);
                     adjustedColumns.RemoveRange(lastIndex, 1);
                 }
                 lastIndex--;
@@ -370,12 +371,12 @@ namespace FluentUI
             {
                 DetailsRowColumn<TItem> col = adjustedColumns[i];
                 bool isLast = i == adjustedColumns.Count - 1;
-                bool hasOverrides = _columnOverrides.TryGetValue(col.Key, out double overrides);
+                bool hasOverrides = _columnOverrides.TryGetValue(col.Key, out _);
                 if (hasOverrides && !isLast)
                     continue;
 
                 double spaceLeft = availableWidth - totalWidth;
-                double increment = 0;
+                double increment;
                 if (isLast)
                     increment = spaceLeft;
                 else
@@ -392,7 +393,7 @@ namespace FluentUI
             return adjustedColumns;
         }
 
-        private static double GetPaddedWidth(DetailsRowColumn<TItem> column, bool isFirst)
+        private static double GetPaddedWidth(DetailsRowColumn<TItem> column)
         {
             return column.CalculatedWidth +
                     DetailsRow<TItem>.CELL_LEFT_PADDING +
@@ -405,12 +406,12 @@ namespace FluentUI
             OnColumnResized.InvokeAsync(columnResizedArgs);
 
             _columnOverrides[columnResizedArgs.Column.Key] = columnResizedArgs.NewWidth;
-            AdjustColumns(ItemsSource, LayoutMode, SelectionMode, CheckboxVisibility, Columns, true, columnResizedArgs.ColumnIndex);
+            AdjustColumns(SelectionMode, CheckboxVisibility, Columns, true, columnResizedArgs.ColumnIndex);
         }
 
         private static void OnColumnAutoResized(ItemContainer<DetailsRowColumn<TItem>> itemContainer)
         {
-            // TO-DO - will require measuring row cells, jsinterop
+            // ToDo: Will require measuring row cells, jsinterop
         }
 
         public async ValueTask DisposeAsync()
@@ -420,6 +421,7 @@ namespace FluentUI
                 await JSRuntime.InvokeVoidAsync("FluentUIBaseComponent.removeViewport", _viewportRegistration);
             }
             selfReference?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

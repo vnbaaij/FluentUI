@@ -87,7 +87,7 @@ namespace FluentUI
         //    #endregion
 
         //    #region ChoiceFieldWrapper
-        //    // TODO: flesh this out
+        //    // ToDo: Flesh this out
         //    choiceGroupOptionRules.AddCssStringSelector(".ms-ChoiceField-wrapper:focus").AppendCssStyles(
         //        "");
         //    #endregion

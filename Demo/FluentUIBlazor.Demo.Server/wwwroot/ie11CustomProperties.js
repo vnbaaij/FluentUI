@@ -349,13 +349,13 @@
 		for (var prop in el.ieCPSelectors) {
 			var important = style['-ieVar-❗' + prop];
 			let valueWithVar = important || style['-ieVar-' + prop];
-			if (!valueWithVar) continue; // todo, what if '0'
+			if (!valueWithVar) continue; // ToDo: What if '0'
 
 			var details = {};
 			var value = styleComputeValueWidthVars(style, valueWithVar, details);
 
 			if (important) value += ' !important';
-			for (var i = 0, item; item = el.ieCPSelectors[prop][i++];) { // todo: split and use requestAnimationFrame?
+			for (var i = 0, item; item = el.ieCPSelectors[prop][i++];) { // ToDo: Split and use requestAnimationFrame?
 				if (item.selector === '%styleAttr') {
 					el.style[prop] = value;
 				} else {
@@ -363,7 +363,7 @@
 					// beta
 					if (!important && details.allByRoot !== false) continue; // dont have to draw root-properties
 
-					//let selector = item.selector.replace(/>? \.[^ ]+/, ' ', item.selector); // todo: try to equalize specificity
+					//let selector = item.selector.replace(/>? \.[^ ]+/, ' ', item.selector); // ToDo: Try to equalize specificity
 					let selector = item.selector;
 					elementStyleSheet(el).insertRule(selector + '.iecp-u' + el.ieCP_unique + item.pseudo + ' {' + prop + ':' + value + '}', 0); // faster then innerHTML
 				}

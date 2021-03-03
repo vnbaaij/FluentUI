@@ -31,13 +31,13 @@ namespace FluentUI
 
         private string _handleToLastFocusedElement;
 
-        [Inject] private IJSRuntime jSRuntime { get; set; }
+        [Inject] private IJSRuntime JSRuntime { get; set; }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                _handleToLastFocusedElement = await jSRuntime.InvokeAsync<string>("FluentUIBaseComponent.storeLastFocusedElement");
+                _handleToLastFocusedElement = await JSRuntime.InvokeAsync<string>("FluentUIBaseComponent.storeLastFocusedElement");
             }
             await base.OnAfterRenderAsync(firstRender);
         }
@@ -58,8 +58,9 @@ namespace FluentUI
         {
             if (_handleToLastFocusedElement != null)
             {
-                await jSRuntime.InvokeVoidAsync("FluentUIBaseComponent.restoreLastFocus", _handleToLastFocusedElement, ShouldRestoreFocus);
+                await JSRuntime.InvokeVoidAsync("FluentUIBaseComponent.restoreLastFocus", _handleToLastFocusedElement, ShouldRestoreFocus);
             }
+            GC.SuppressFinalize(this);
         }
     }
 }

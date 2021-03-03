@@ -113,7 +113,7 @@ namespace FluentUI
             ProgressIndicatorProgressBarRule.Properties = new CssString()
             {
                 Css = $"height:{BarHeight}px;"
-                        // ToDo Implement RTL-Support
+                // ToDo: Implement RTL-Support
             };
         }
 
