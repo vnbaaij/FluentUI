@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FluentUIBlazor.csproj" />
+    <ProjectReference Include="..\..\src\BlazorFluentUI.csproj" />
   </ItemGroup>
 
 </Project>

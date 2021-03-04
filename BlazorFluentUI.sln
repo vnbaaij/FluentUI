@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		WhatsNew.md = WhatsNew.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUIBlazor.Demo.Shared", "Demo\FluentUIBlazor.Demo.Shared\FluentUIBlazor.Demo.Shared.csproj", "{5E329328-347A-443B-896A-7DC1E7248039}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFluentUI.Demo.Shared", "Demo\BlazorFluentUI.Demo.Shared\BlazorFluentUI.Demo.Shared.csproj", "{5E329328-347A-443B-896A-7DC1E7248039}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{450B75BB-8CBF-475C-842A-4BEC08D42293}"
 EndProject
@@ -24,11 +24,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{EB69E4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{93D4755C-B4E6-44DE-8488-ADA4C3AB8E21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUIBlazor.Demo.Client", "Demo\FluentUIBlazor.Demo.Client\FluentUIBlazor.Demo.Client.csproj", "{B3E162E0-F8C4-4DAD-A672-42663763E256}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFluentUI.Demo.Client", "Demo\BlazorFluentUI.Demo.Client\BlazorFluentUI.Demo.Client.csproj", "{B3E162E0-F8C4-4DAD-A672-42663763E256}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUIBlazor.Demo.Server", "Demo\FluentUIBlazor.Demo.Server\FluentUIBlazor.Demo.Server.csproj", "{DBB167DF-0D7F-4D40-997C-60A4B5351DAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFluentUI.Demo.Server", "Demo\BlazorFluentUI.Demo.Server\BlazorFluentUI.Demo.Server.csproj", "{DBB167DF-0D7F-4D40-997C-60A4B5351DAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUIBlazor", "src\FluentUIBlazor.csproj", "{2A6A6D68-676A-4691-9568-21E39D01F9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFluentUI", "src\BlazorFluentUI.csproj", "{2A6A6D68-676A-4691-9568-21E39D01F9F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{7AF72E8D-F394-4549-8953-4EAE939220E7}"
 EndProject
