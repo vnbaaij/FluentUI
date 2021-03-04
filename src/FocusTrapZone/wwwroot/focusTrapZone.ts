@@ -38,7 +38,7 @@ namespace FluentUIFocusTrapZone {
         private _props: IFocusTrapZoneProps;
         private _dotNetRef: DotNetReferenceType;
 
-        private _previouslyFocusedElementInTrapZone?: HTMLElement;
+        private _previouslyFocusedElementInTrapZone: HTMLElement;
         private _previouslyFocusedElementOutsideTrapZone: HTMLElement;
 
         private _hasFocus = true;
@@ -250,33 +250,6 @@ namespace FluentUIFocusTrapZone {
             focusTrapZone.focus();
         }
     }
-
-
-
-    //export function elementContains(parent: HTMLElement, child: HTMLElement, allowVirtualParents: boolean = true): boolean {
-    //    let isContained = false;
-    //    if (parent && child) {
-    //        if (allowVirtualParents) {
-    //            isContained = false;
-    //            while (child) {
-    //                let nextParent: HTMLElement | null = getParent(child);
-    //                console.log("NextParent: " + nextParent);
-    //                if (nextParent === parent) {
-    //                    isContained = true;
-    //                    break;
-    //                }
-    //                child = nextParent;
-    //            }
-    //        } else if (parent.contains) {
-    //            isContained = parent.contains(child);
-    //        }
-    //    }
-    //    return isContained;
-    //}
-
-    //export function getParent(child: HTMLElement, allowVirtualParents: boolean = true): HTMLElement | null {
-    //    return child && (child.parentNode && (child.parentNode as HTMLElement));
-    //}
 
     let targetToFocusOnNextRepaint: HTMLElement | { focus: () => void } | null | undefined = undefined;
 
@@ -514,7 +487,6 @@ namespace FluentUIFocusTrapZone {
         return (
             element.offsetHeight !== 0 ||
             element.offsetParent !== null ||
-            // tslint:disable-next-line:no-any
             (element as any).isVisible === true
         ); // used as a workaround for testing.
     }
@@ -596,50 +568,9 @@ namespace FluentUIFocusTrapZone {
         );
     }
 
-    //export function registerHandlers(targetElement: HTMLElement, focusTrapZone: DotNetReferenceType): number[] {
-    //    var window = targetElement.ownerDocument.defaultView;
-
-    //    var focusId = Handler.addListener(targetElement, "focus", (ev: Event) => { ev.preventDefault(); focusTrapZone.invokeMethodAsync("OnFocus"); }, false);
-    //    var blurId = Handler.addListener(targetElement, "blur", (ev: Event) => { ev.preventDefault(); focusTrapZone.invokeMethodAsync("OnBlur"); }, false);
-    //    return [focusId, blurId];
-    //}
-
-    //export function unregisterHandlers(ids: number[]): void {
-
-    //    for (let id of ids) {
-    //        Handler.removeListener(id);
-    //    }
-    //}
-
-    //interface EventParams {
-    //    element: HTMLElement | Window;
-    //    event: string;
-    //    handler: (ev: Event) => void;
-    //    capture: boolean;
-    //}
-
     interface Map<T> {
         [K: number]: T;
     }
-
-    //class Handler {
-
-    //    static i: number = 1;
-    //    static listeners: Map<EventParams> = {};
-
-    //    static addListener(element: HTMLElement | Window, event: string, handler: (ev: Event) => void, capture: boolean): number {
-    //        element.addEventListener(event, handler, capture);
-    //        this.listeners[this.i] = { capture: capture, event: event, handler: handler, element: element };
-    //        return this.i++;
-    //    }
-    //    static removeListener(id: number): void {
-    //        if (id in this.listeners) {
-    //            var h = this.listeners[id];
-    //            h.element.removeEventListener(h.event, h.handler, h.capture);
-    //            delete this.listeners[id];
-    //        }
-    //    }
-    //}
 }
 
 (<any>window)['FluentUIFocusTrapZone'] = FluentUIFocusTrapZone || {};

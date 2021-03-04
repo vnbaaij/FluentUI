@@ -28,7 +28,7 @@ namespace FluentUI
         private ICommand command;
         protected bool commandDisabled = false;
 
-        protected bool isChecked;
+        protected bool IsChecked;
         protected string Id = Guid.NewGuid().ToString();
         protected string LabelId => Id + "-label";
         protected string StateTextId => Id + "-stateText";
@@ -58,7 +58,7 @@ namespace FluentUI
             else
                 classNames += " ms-Toggle--enabled";
 
-            if (isChecked)
+            if (IsChecked)
                 classNames += " ms-Toggle--checked";
             else
                 classNames += " ms-Toggle--unchecked";
@@ -73,7 +73,7 @@ namespace FluentUI
 
         protected override void OnInitialized()
         {
-            isChecked = Checked ?? DefaultChecked;
+            IsChecked = Checked ?? DefaultChecked;
             base.OnInitialized();
         }
 
@@ -84,7 +84,7 @@ namespace FluentUI
 
         protected override Task OnParametersSetAsync()
         {
-            isChecked = Checked ?? isChecked;
+            IsChecked = Checked ?? IsChecked;
 
             if (string.IsNullOrWhiteSpace(AriaLabel) && string.IsNullOrWhiteSpace(BadAriaLabel))
                 LabelledById = LabelId;
@@ -122,7 +122,7 @@ namespace FluentUI
                 Command.Execute(CommandParameter);
             }
 
-            return CheckedChanged.InvokeAsync(!isChecked);
+            return CheckedChanged.InvokeAsync(!IsChecked);
         }
 
     }

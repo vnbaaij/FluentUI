@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
+    "alwaysStrict": false,
     "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": false,
     "sourceMap": true,
-    "target": "ES2020",
-    "module": "AMD",
+    "target": "ES6",
     "outFile": "wwwroot/fluentUIBlazor.js",
     "allowJs": true
   },

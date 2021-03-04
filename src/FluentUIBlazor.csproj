@@ -12,11 +12,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="bundleconfig.json" />
     <Content Remove="tsconfig.json" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.2">
       <PrivateAssets>all</PrivateAssets>
@@ -28,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Include="bundleconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
