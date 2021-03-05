@@ -4458,4 +4458,4 @@ window['FluentUISlider'] = FluentUISlider || {};
         cancel: cancelIdleCallbackShim,
     };
 }));
-//# sourceMappingURL=fluentUIBlazor.js.map
+//# sourceMappingURL=blazorFluentUI.js.map

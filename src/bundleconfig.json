@@ -1,6 +1,6 @@
 [
   {
-    "outputFileName": "wwwroot/fluentUIBlazor.min.js",
+    "outputFileName": "wwwroot/blazorFluentUI.min.js",
 
     "inputFiles": [
       "BaseComponent/wwwroot/baseComponent.js",

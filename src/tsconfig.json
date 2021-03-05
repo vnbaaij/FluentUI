@@ -6,7 +6,7 @@
     "removeComments": false,
     "sourceMap": true,
     "target": "ES6",
-    "outFile": "wwwroot/fluentUIBlazor.js",
+    "outFile": "wwwroot/blazorFluentUI.js",
     "allowJs": true
   },
   "files": [
